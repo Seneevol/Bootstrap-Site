@@ -39,10 +39,11 @@ header {
 }
 
 .header-title {
-    color: silver;
+    color: white;
     position: absolute;
     top: 10%;
     left: 10%;
+    background-color: rgba(255, 255, 255, 0.04);
 }
 
 .header-title h1 {
