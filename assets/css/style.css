@@ -1,0 +1,92 @@
+/*
+ * GLOBAL
+ * ****** */
+
+body {
+    background-color: white;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    word-spacing: 8px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+h2::after {
+    display: block;
+    height: 2px;
+    width: 10%;
+    background-color: orange;
+    content: "";
+    margin: 0 auto;
+    margin-top: 1%;
+}
+
+/*
+ * HEADER
+ * ****** */
+
+header {
+    background-image: url(../images/header.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 91vh;
+}
+
+.header-title {
+    color: silver;
+    position: absolute;
+    top: 10%;
+}
+
+.header-title h1 {
+    text-shadow: 1px 1px black;
+}
+
+.header-title p {
+    text-shadow: 1px 1px black;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+}
+
+.btn-full {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-full:hover {
+    background-color: orange;
+    border: white solid 2px;
+}
+
+/*
+ * NAVBAR
+ * ****** */
+
+nav {
+    height: 7vh;
+}
+
+.bg-nav {
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+}
+
+.imgnav {
+    height: 25%;
+    width: 25%;
+}
+
+/*
+ * CARDS
+ * ****** */
