@@ -188,3 +188,14 @@ footer a:hover {
     height: auto;
     width: auto;
 }
+
+/*
+ * FOOTER
+ * ****** */
+
+.input-group {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    color: white;
+}
