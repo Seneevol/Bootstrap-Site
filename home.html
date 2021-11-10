@@ -16,26 +16,26 @@
     <!--HEADER-->
     <!--NAVBAR-->
     <header id="home">
-        <nav class="navbar navbar-expand-md bg-nav navbar-light fixed-top">
+        <nav class="navbar navbar-expand-md bg-nav navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="assets/images/logonav.png" class="imgnav"></a>
+                <a class="navbar-brand" href="#home"><img src="assets/images/logonav.png" class="imgnav">Honkai Site</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#manavbar"
                     aria-controls="manavbar" aria-label="manavbar mobile">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="manavbar">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-item nav-link" href="#home">Home</a>
-                        <a class="nav-item nav-link" href="#section-cards">Cards</a>
-                        <a class="nav-item nav-link" href="#section-banner">Banner</a>
-                        <a class="nav-item nav-link" href="#section-contact">Contact</a>
+                        <a class="nav-item nav-link text-nav" href="#home">Home</a>
+                        <a class="nav-item nav-link text-nav" href="#section-cards">Cards</a>
+                        <a class="nav-item nav-link text-nav" href="#section-banner">Banner</a>
+                        <a class="nav-item nav-link text-nav" href="#section-contact">Contact</a>
                     </div>
                 </div>
             </div>
         </nav>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 header-title">
+                <div class="col-md-4 header-title">
                     <h1>Bienvenue commandant</h1>
                     <p>Nous vous attendions</p>
                     <a class="btn btn-full" href="">Placeholder</a>
@@ -50,31 +50,39 @@
     <section id="section-cards">
         <div class="container">
             <div class="row">
-                <h2>Honkai Cards</h2>
-                <div class="col-md-4">
+                <div class="section-cards-title">
+                    <h2>Honkai Cards</h2>
+                </div>
+                <div class="col-lg-4">
                     <div class="card" style="width: 18rem;">
                         <img src="assets/images/cards/kiana.png" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Kiana</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium unde quibusdam vitae quod odio ea officiis at qui, impedit autem voluptatibus recusandae sint perspiciatis asperiores harum dignissimos soluta, sed itaque.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+                                unde quibusdam vitae quod odio ea officiis at qui, impedit autem voluptatibus recusandae
+                                sint perspiciatis asperiores harum dignissimos soluta, sed itaque.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="card" style="width: 18rem;">
                         <img src="assets/images/cards/mei.png" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Mei</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium unde quibusdam vitae quod odio ea officiis at qui, impedit autem voluptatibus recusandae sint perspiciatis asperiores harum dignissimos soluta, sed itaque.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+                                unde quibusdam vitae quod odio ea officiis at qui, impedit autem voluptatibus recusandae
+                                sint perspiciatis asperiores harum dignissimos soluta, sed itaque.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="card" style="width: 18rem;">
                         <img src="assets/images/cards/bronya.png" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Bronya</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium unde quibusdam vitae quod odio ea officiis at qui, impedit autem voluptatibus recusandae sint perspiciatis asperiores harum dignissimos soluta, sed itaque.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+                                unde quibusdam vitae quod odio ea officiis at qui, impedit autem voluptatibus recusandae
+                                sint perspiciatis asperiores harum dignissimos soluta, sed itaque.</p>
                         </div>
                     </div>
                 </div>
@@ -88,7 +96,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Placeholder</p>
                 </div>
             </div>
         </div>
@@ -100,17 +107,107 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Contact</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Contact</h2>
+                        </div>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="contact-data">
+                            <div class="phone">
+                                <p><i class="fas fa-phone"></i>01.02.03.04.05</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="contact-data">
+                            <div class="address">
+                                <p><i class="fas fa-map-marker"></i>Adresse random, 12345 Pays</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-form">
+                                <label for="">Nom:</label><br>
+                                <input type="text" class="contact-msg">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-form">
+                                <label for="">Email:</label><br>
+                                <input type="email" id="email" placeholder="Please enter an email" class="contact-msg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="contact-form">
+                                <label for="">Problème rencontré:</label>
+                                <select name="" id="">
+                                    <option value="">Gameplay</option>
+                                    <option value="">Boutique</option>
+                                    <option value="">Interface</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="contact-form">
+                                        <label for="">Votre message:</label><br>
+                                        <textarea name="" id="msg" class="contact-msg" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-form">Envoyer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
     </section>
 
 
     <!--FOOTER-->
     <footer>
-        <div class="copyright">
-            <p>Senoyo - 2021. <a href="">Mentions légales</a></p>
+        <div class="container">
+            <div class="row copyright-newsteller">
+                <div class="col-md-6">
+                    <div class="copyright">
+                        <p>Senoyo - 2021. <a href="">Mentions légales</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box-newsteller">
+                        <label for="">S'inscrire à la newsteller:</label>
+                        <input type="text" class="newsteller">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="sponso-footer">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-discord"></i></a>
+                            <a href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="logo-footer">
+                            <img src="assets/images/logofooter.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
