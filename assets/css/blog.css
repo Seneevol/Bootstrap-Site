@@ -2,7 +2,7 @@
  * GLOBAL
  * ****** */
 
-body {
+ body {
     background-color: white;
 }
 
@@ -34,8 +34,8 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 91vh;
-    border-bottom: orange solid 2px;
+    height: 50vh;
+    border-bottom: solid orange 2px;
 }
 
 .header-title {
@@ -55,22 +55,31 @@ header {
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px;
+    position: absolute;
     text-decoration: none;
     color: black;
-    border-radius: 10px;
+    padding-bottom: 3px;
+    padding-top: 1px;
 }
 
 .btn-full {
     background-color: silver;
-    border: white solid 2px;
-    margin-right: 2%;
+    border: white 1px solid;
 }
 
 .btn-full:hover {
-    background-color: orange;
-    border: white solid 2px;
+    background-color: navy;
+    border: white 1px solid;
+}
+
+.btn-full:hover i {
+    color: white;
+}
+
+.search-bar {
+    position: relative;
+    top: 45%;
+    left: 45%;
 }
 
 /*
@@ -102,63 +111,6 @@ header {
 
 .card img {
     border-bottom: gray solid 1px;
-}
-
-/*
- * BANNER
- * ****** */
-
-#section-banner {
-    background-image: url(../images/banner.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 20vh;
-    border-top: orange solid 2px;
-    border-bottom: orange solid 2px;
-    margin-top: 1%;
-}
-
-/*
- * FORM
- * **** */
-
-form {
-    margin-bottom: 1%;
-}
-
-.phone i {
-    margin-right: 1%;
-}
-
-.address i {
-    margin-right: 1%;
-}
-
-.contact-form {
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.contact-msg {
-    width: 100%;
-}
-
-.contact-data {
-    text-align: center;
-}
-
-.btn-form {
-    background-color: silver;
-    border: white solid 2px;
-    margin: 0 auto;
-    float: none;
-}
-
-.btn-form:hover {
-    background-color: orange;
-    border: white solid 2px;
 }
 
 /*
