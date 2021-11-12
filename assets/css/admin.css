@@ -84,3 +84,68 @@ header {
 .text-nav {
     color: white;
 }
+
+/*
+ * CONNECTED USER
+ * ************** */
+
+.card-account {
+    border: none;
+}
+
+.card-account img {
+    border: solid 2px green;
+}
+
+
+/*
+ * MINI-NAVBAR
+ * *********** */
+
+.mini-nav {
+    background-color: orange;
+    border: solid black 2px;
+    height: 40px;
+    width: 100%;
+    color: black;
+    font-size: large;
+    font-weight: 500;
+}
+
+.mini-nav:hover {
+    background-color: black;
+    color: white;
+}
+
+.mini-nav p {
+    margin: 0 auto;
+}
+
+.content-mininav a {
+    text-decoration: none;
+    text-align: center;
+}
+
+/*
+ * USERS
+ * ***** */
+
+.user-body {
+    text-align: center;
+}
+
+.card-user {
+    margin: 0 auto;
+}
+
+/*
+ * BLOG
+ * **** */
+
+.element-blog {
+    border: black solid 1px;
+}
+
+#blog li {
+    list-style-type: none;
+}
