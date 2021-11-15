@@ -30,12 +30,12 @@ h2::after {
  * ****** */
 
 header {
-    background-image: url(../images/headerid.jpg);
+    background-image: linear-gradient(to bottom, rgba(253, 187, 45, 0.418), rgba(58, 28, 113, 0.486)), url(../images/headerid.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 50vh;
-    border-bottom: orange solid 2px;
+    border-bottom: solid orange 2px;
 }
 
 .header-title {
@@ -83,6 +83,10 @@ header {
 
 .text-nav {
     color: white;
+}
+
+nav {
+    box-shadow: 0px 0px 10px 3px black;
 }
 
 /*
@@ -165,4 +169,45 @@ header {
 
 #message li {
     list-style-type: none;
+}
+
+/*
+ * MODAL
+ * ***** */
+
+.btn-off {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-off:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.btn-on {
+    background-color: orange;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-on:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.article-body label {
+    display: block;
+}
+
+.article-body textarea {
+    display: block;
+    resize: none;
 }
