@@ -33,6 +33,7 @@
                         <a class="nav-item nav-link text-nav" href="blog.html">Blog</a>
                         <a class="nav-item nav-link text-nav" href="contact.html">Contact</a>
                         <a class="nav-item nav-link text-nav" href="admin.html">Admin</a>
+                        <a class="nav-item nav-link text-nav" href="connect.html">Se connecter</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +71,7 @@
             <div class="col-md-4">
                 <a href="#user">
                     <div class="mini-nav d-flex justify-content-center align-items-center">
-                        <p>User</p>
+                        <p>Utilisateurs</p>
                     </div>
                 </a>
             </div>
@@ -95,51 +96,34 @@
     <!--USER-->
     <section id="user">
         <div class="container">
-            <div class="row mt-3">
-                <div class="section-cards-title">
+            <div class="row">
+                <div class="section-user-title">
                     <h2>Utilisateurs</h2>
                 </div>
-                <div class="row row-cols-lg-3">
-                    <div class="col">
-                        <div class="card card-user" style="width: 18rem;">
-                            <img src="assets/images/comments/comment1.jpg" alt="">
-                            <div class="card-body user-body">
-                                <h5 class="card-title">Fu Hua</h5>
-                                <p class="card-text">Carré</p>
-                                <div class="option-card">
-                                    <a href=""><i class="fas fa-pen"></i></a>
-                                    <a href=""><i class="fas fa-trash"></i></a>
-                                </div>
-                            </div>
+                <ul>
+                    <div class="element-user d-flex flex-row justify-content-between align-items-center">
+                        <li><img src="assets/images/comments/comment1.jpg" width="50" height="50" alt="">Fu Hua</li>
+                        <div class="suppredit">
+                            <a href=""><i class="fas fa-pen"></i></a>
+                            <a href=""><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card card-user" style="width: 18rem;">
-                            <img src="assets/images/comments/comment2.jpg" alt="">
-                            <div class="card-body user-body">
-                                <h5 class="card-title">Rita</h5>
-                                <p class="card-text">Carré</p>
-                                <div class="option-card">
-                                    <a href=""><i class="fas fa-pen"></i></a>
-                                    <a href=""><i class="fas fa-trash"></i></a>
-                                </div>
-                            </div>
+                    <div class="element-user d-flex flex-row justify-content-between align-items-center">
+                        <li><img src="assets/images/comments/comment2.jpg" width="50" height="50" alt="">Rita</li>
+                        <div class="suppredit">
+                            <a href=""><i class="fas fa-pen"></i></a>
+                            <a href=""><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card card-user" style="width: 18rem;">
-                            <img src="assets/images/comments/comment3.jpg" alt="">
-                            <div class="card-body user-body">
-                                <h5 class="card-title">Fu Hua le retour</h5>
-                                <p class="card-text">Carré</p>
-                                <div class="option-card">
-                                    <a href=""><i class="fas fa-pen"></i></a>
-                                    <a href=""><i class="fas fa-trash"></i></a>
-                                </div>
-                            </div>
+                    <div class="element-user d-flex flex-row justify-content-between align-items-center">
+                        <li><img src="assets/images/comments/comment3.jpg" width="50" height="50" alt="">Fu Hua le
+                            retour</li>
+                        <div class="suppredit">
+                            <a href=""><i class="fas fa-pen"></i></a>
+                            <a href=""><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
-                </div>
+                </ul>
             </div>
         </div>
     </section>
@@ -151,6 +135,7 @@
             <div class="row">
                 <div class="section-blog-title">
                     <h2>Blog</h2>
+                    <a href=""><i class="fas fa-plus-square"> Ajouter un article</i></a>
                 </div>
                 <ul>
                     <div class="element-blog d-flex flex-row justify-content-between">
@@ -195,15 +180,41 @@
                             <a href=""><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
+                </ul>
             </div>
-            </ul>
         </div>
     </section>
 
 
     <!--MESSAGE-->
     <section id="message">
-
+        <div class="container">
+            <div class="row">
+                <div class="section-message-title">
+                    <h2>Message</h2>
+                </div>
+                <ul>
+                    <a href="">
+                        <div class="element-message d-flex flex-row justify-content-between">
+                            <li><i class="fas fa-envelope icon-message"></i>Kiana a mangé tout le repas</li>
+                            <div class="suppredit">
+                                <a href=""><i class="fas fa-reply"></i></a>
+                                <a href=""><i class="fas fa-archive"></i></a>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="element-message d-flex flex-row justify-content-between">
+                            <li><i class="far fa-envelope-open icon-message"></i>Voici le menu de la semaine</li>
+                            <div class="suppredit">
+                                <a href=""><i class="fas fa-reply"></i></a>
+                                <a href=""><i class="fas fa-archive"></i></a>
+                            </div>
+                        </div>
+                    </a>
+                </ul>
+            </div>
+        </div>
     </section>
 
 </body>

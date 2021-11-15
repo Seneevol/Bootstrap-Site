@@ -99,6 +99,11 @@ header {
  * COMMENT SECTION
  * *************** */
 
+.comment-zone {
+    width: 100%;
+    resize: none;
+}
+
 .comment-text {
     font-size: 13px;
 }

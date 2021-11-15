@@ -68,7 +68,7 @@ header {
 }
 
 .btn-full:hover {
-    background-color: navy;
+    background-color: orange;
     border: white 1px solid;
 }
 
@@ -106,7 +106,7 @@ header {
     margin: 0 auto;
     float: none;
     box-shadow: 0 0 10px;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 
 .card img {

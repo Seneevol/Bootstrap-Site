@@ -35,7 +35,7 @@ header {
     background-position: center;
     background-size: cover;
     height: 50vh;
-    border-bottom: orange solid 2px;
+    border-bottom: solid orange 2px;
 }
 
 .header-title {
@@ -55,22 +55,31 @@ header {
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px;
     text-decoration: none;
     color: black;
-    border-radius: 10px;
+    padding-bottom: 3px;
+    padding-top: 1px;
 }
 
 .btn-full {
     background-color: silver;
-    border: white solid 2px;
-    margin-right: 2%;
+    border: white 1px solid;
+    margin-top: 1%;
 }
 
 .btn-full:hover {
     background-color: orange;
-    border: white solid 2px;
+    border: white 1px solid;
+}
+
+.btn-full:hover i {
+    color: white;
+}
+
+.search-bar {
+    position: relative;
+    top: 45%;
+    left: 45%;
 }
 
 /*
@@ -86,83 +95,53 @@ header {
 }
 
 /*
- * CONNECTED USER
+ * CONNECTION BOX
  * ************** */
 
-.card-account {
-    border: none;
-}
-
-.card-account img {
-    border: solid 2px green;
-}
-
-
-/*
- * MINI-NAVBAR
- * *********** */
-
-.mini-nav {
-    background-color: orange;
-    border: solid black 2px;
-    height: 40px;
-    width: 100%;
-    color: black;
-    font-size: large;
-    font-weight: 500;
-}
-
-.mini-nav:hover {
-    background-color: black;
-    color: white;
-}
-
-.mini-nav p {
+.element-form {
     margin: 0 auto;
+    text-align: center;
+    width: 50%;
 }
 
-.content-mininav a {
-    text-decoration: none;
+.element-form-checkbox {
+    display: grid;
+    gap: 5px;
+}
+
+.element-form .btn {
+    width: 50%;
+}
+
+.register-link {
     text-align: center;
 }
 
 /*
- * USERS
- * ***** */
+ * FOOTER
+ * ****** */
 
-.element-user {
-    border: black solid 1px;
-} 
-
-#user li {
-    list-style-type: none;
+ footer {
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+    text-align: left;
+    color: black;
+    border-top: solid black 1px;
+    margin-top: 1%;
 }
 
-/*
- * BLOG
- * **** */
-
-.element-blog {
-    border: black solid 1px;
+footer a {
+    color: black;
 }
 
-#blog li {
-    list-style-type: none;
+footer a:hover {
+    color: blue;
 }
 
-/*
- * MESSAGE
- * **** */
-
-.element-message {
-    border: black solid 1px;
+.copyright-newsteller {
+    margin-top: 1%;
 }
 
-.icon-message {
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-#message li {
-    list-style-type: none;
+.logo-footer {
+    height: auto;
+    width: auto;
 }
