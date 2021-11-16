@@ -56,8 +56,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-account mb-3 mt-3" style="max-width: 100%;">
-                        <div class="row g-0">
-                            <div class="col-md-1">
+                        <div class="row g-0 justify-content-center">
+                            <div class="col-md-1 ">
                                 <img src="assets/images/comments/account.jpg" alt="" width="100"
                                     class="img-fluid rounded-circle">
                             </div>
@@ -76,23 +76,23 @@
 
     <!--MINI NAVBAR-->
     <div class="container mt-2 content-mininav">
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#user">
+        <div class="row mb-3">
+            <div class="col-md-4 mb-1">
+                <a href="#user" data-bs-toggle="collapse">
                     <div class="mini-nav d-flex justify-content-center align-items-center">
                         <p>Utilisateurs</p>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4">
-                <a href="#blog">
+            <div class="col-md-4 mb-1">
+                <a href="#blog" data-bs-toggle="collapse">
                     <div class="mini-nav d-flex justify-content-center align-items-center">
                         <p>Blog</p>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4">
-                <a href="#message">
+            <div class="col-md-4 mb-1">
+                <a href="#message" data-bs-toggle="collapse">
                     <div class="mini-nav d-flex justify-content-center align-items-center">
                         <p>Message</p>
                     </div>
@@ -103,10 +103,10 @@
 
 
     <!--USER-->
-    <section id="user">
+    <section id="user" class="collapse">
         <div class="container">
             <div class="row">
-                <div class="section-user-title">
+                <div class="section-user-title mb-3">
                     <h2>Utilisateurs</h2>
                 </div>
                 <ul>
@@ -151,7 +151,7 @@
 
 
     <!--BLOG-->
-    <section id="blog">
+    <section id="blog" class="collapse">
         <div class="container">
             <div class="row">
                 <div class="section-blog-title">
@@ -203,6 +203,34 @@
                             <a href="#deletearticle" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
+                    <div class="element-blog d-flex flex-row justify-content-between">
+                        <li>Les expériences Elyséen</li>
+                        <div class="suppredit">
+                            <a href="#editarticle" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
+                            <a href="#deletearticle" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="element-blog d-flex flex-row justify-content-between">
+                        <li>Randonnée à Schiskal</li>
+                        <div class="suppredit">
+                            <a href="#editarticle" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
+                            <a href="#deletearticle" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="element-blog d-flex flex-row justify-content-between">
+                        <li>La légende des Herrscher</li>
+                        <div class="suppredit">
+                            <a href="#editarticle" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
+                            <a href="#deletearticle" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="element-blog d-flex flex-row justify-content-between">
+                        <li>Plongée dans la Dirac Sea</li>
+                        <div class="suppredit">
+                            <a href="#editarticle" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
+                            <a href="#deletearticle" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -210,10 +238,10 @@
 
 
     <!--MESSAGE-->
-    <section id="message">
+    <section id="message" class="collapse">
         <div class="container">
             <div class="row">
-                <div class="section-message-title">
+                <div class="section-message-title mb-3">
                     <h2>Message</h2>
                 </div>
                 <ul>
@@ -221,8 +249,8 @@
                         <div class="element-message d-flex flex-row justify-content-between">
                             <li><i class="fas fa-envelope icon-message"></i>Kiana a mangé tout le repas</li>
                             <div class="suppredit">
-                                <a href=""><i class="fas fa-reply"></i></a>
-                                <a href=""><i class="fas fa-archive"></i></a>
+                                <a href="#mail-send" data-bs-toggle="modal"><i class="fas fa-reply"></i></a>
+                                <a href="#mail-archive" data-bs-toggle="modal"><i class="fas fa-archive"></i></a>
                             </div>
                         </div>
                     </a>
@@ -230,8 +258,8 @@
                         <div class="element-message d-flex flex-row justify-content-between">
                             <li><i class="far fa-envelope-open icon-message"></i>Voici le menu de la semaine</li>
                             <div class="suppredit">
-                                <a href=""><i class="fas fa-reply"></i></a>
-                                <a href=""><i class="fas fa-archive"></i></a>
+                                <a href="#mail-send" data-bs-toggle="modal"><i class="fas fa-reply"></i></a>
+                                <a href="#mail-archive" data-bs-toggle="modal"><i class="fas fa-archive"></i></a>
                             </div>
                         </div>
                     </a>
@@ -306,6 +334,7 @@
                             </div>
                             <div class="mb-3 element-form">
                                 <label for="desc-article" class="form-label">Description</label>
+                                <a href=""><i class="fas fa-images"></i></a>
                                 <textarea name="desc-article" id="article" cols="25" rows="2" class="article-zone"
                                     placeholder="Entrez votre description..."></textarea>
                             </div>
@@ -315,6 +344,62 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
                     <button type="button" class="btn btn-on">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--EDIT ARTICLE-->
+    <div class="modal fade" id="editarticle" tabindex="-1" aria-labelledby="editarticlelabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Modifier un article</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="article-body d-flex flex-column align-items-center">
+                            <div class="mb-3 element-form">
+                                <label for="input-username" class="form-label">Nom de l'article</label>
+                                <input type="text" class="form-control" id="input-username">
+                            </div>
+                            <div class="mb-3 element-form">
+                                <label for="desc-article" class="form-label">Description</label>
+                                <a href=""><i class="fas fa-images"></i></a>
+                                <textarea name="desc-article" id="article" cols="25" rows="2" class="article-zone"
+                                    placeholder="Entrez votre description..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-on">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--ANSWER MAIL-->
+    <div class="modal fade" id="mail-send" tabindex="-1" aria-labelledby="mail-sendlabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Répondre</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row img-mail-area mb-3">
+                            <img src="assets/images/comments/account.jpg" class="rounded-circle" alt="...">
+                        </div>
+                    </div>
+                    <textarea class="mail-area" name="" id="" cols="45" rows="20"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-on">Envoyer</button>
                 </div>
             </div>
         </div>
@@ -351,6 +436,26 @@
                 </div>
                 <div class="modal-body">
                     <p>Voulez-vous vraiment supprimer l'article ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--ARCHIVE MAIL-->
+    <div class="modal fade" id="mail-archive" tabindex="-1" aria-labelledby="mail-archivelabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Archivage</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment archiver le mail ?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>

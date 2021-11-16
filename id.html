@@ -12,6 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script>
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+        })
+    </script>
     <title>Honkai Fake Impact 3rd</title>
 </head>
 
@@ -97,8 +105,8 @@
                                     dolorum consequatur, porro facere quod itaque fugit. Modi saepe reiciendis rerum, id
                                     sapiente aliquid!</p>
                                 <div class="d-flex flex-row user-feed">
-                                    <span class="me-2"><i class="fa fa-comments-o me-2"></i>Répondre</span>
-                                    <span><i class="fas fa-trash me-2"></i>Supprimer</span>
+                                    <span class="me-2"><a href="#respond-comment" data-bs-toggle="modal"><i class="fa fa-comments-o me-2"></i>Répondre</span></a>
+                                    <span><a href="#delete-comment" data-bs-toggle="modal"><i class="fas fa-trash me-2"></i>Supprimer</span></a>
                                 </div>
                             </div>
                         </div>
@@ -116,8 +124,8 @@
                                     dolorum consequatur, porro facere quod itaque fugit. Modi saepe reiciendis rerum, id
                                     sapiente aliquid!</p>
                                 <div class="d-flex flex-row user-feed">
-                                    <span class="me-2"><i class="fa fa-comments-o me-2"></i>Répondre</span>
-                                    <span><i class="fas fa-trash me-2"></i>Supprimer</span>
+                                    <span class="me-2"><a href="#respond-comment" data-bs-toggle="modal"><i class="fa fa-comments-o me-2"></i>Répondre</span></a>
+                                    <span><a href="#delete-comment" data-bs-toggle="modal"><i class="fas fa-trash me-2"></i>Supprimer</span></a>
                                 </div>
                             </div>
                         </div>
@@ -135,8 +143,8 @@
                                     dolorum consequatur, porro facere quod itaque fugit. Modi saepe reiciendis rerum, id
                                     sapiente aliquid!</p>
                                 <div class="d-flex flex-row user-feed">
-                                    <span class="me-2"><i class="fa fa-comments-o me-2"></i>Répondre</span>
-                                    <span><i class="fas fa-trash me-2"></i>Supprimer</span>
+                                    <span class="me-2"><a href="#respond-comment" data-bs-toggle="modal"><i class="fa fa-comments-o me-2"></i>Répondre</span></a>
+                                    <span><a href="#delete-comment" data-bs-toggle="modal"><i class="fas fa-trash me-2"></i>Supprimer</span></a>
                                 </div>
                             </div>
                         </div>
@@ -180,4 +188,52 @@
             </div>
         </div>
     </footer>
+
+
+
+    <!--MODAL-->
+
+
+    <!--ANSWER COMMENT-->
+    <div class="modal fade" id="respond-comment" tabindex="-1" aria-labelledby="respond-commment-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Répondre à un commentaire</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row img-mail-area mb-3">
+                            <img src="..." class="rounded-circle" alt="...">
+                        </div>
+                    </div>
+                    <textarea class="mail-area" name="" id="" cols="45" rows="20"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-on">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--DELETE COMMENT-->
+    <div class="modal fade" id="delete-comment" tabindex="-1" aria-labelledby="delete-comment-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Supprimer un commentaire</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment supprimer le commentaire ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>

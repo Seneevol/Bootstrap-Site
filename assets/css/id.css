@@ -55,11 +55,11 @@ header {
 }
 
 .btn {
-    position: absolute;
+    display: inline-block;
+    padding: 10px;
     text-decoration: none;
     color: black;
-    padding-bottom: 3px;
-    padding-top: 1px;
+    border-radius: 10px;
 }
 
 .btn-full {
@@ -68,18 +68,12 @@ header {
 }
 
 .btn-full:hover {
-    background-color: navy;
+    background-color: orange;
     border: white 1px solid;
 }
 
 .btn-full:hover i {
     color: white;
-}
-
-.search-bar {
-    position: relative;
-    top: 45%;
-    left: 45%;
 }
 
 /*
@@ -95,7 +89,7 @@ header {
 }
 
 nav {
-    box-shadow: 0px 0px 10px 3px black;
+    box-shadow: 0px 0px 20px 1px gray;
 }
 
 /*
@@ -109,6 +103,15 @@ nav {
 
 .comment-text {
     font-size: 13px;
+}
+
+.user-feed a {
+    color: black;
+    text-decoration: none;
+}
+
+.user-feed a:hover {
+    color: rgb(88, 88, 88);
 }
 
 /*
@@ -138,4 +141,55 @@ footer a:hover {
 .logo-footer {
     height: auto;
     width: auto;
+}
+
+/*
+ * MODAL
+ * ***** */
+
+ .btn-off {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-off:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.btn-on {
+    background-color: orange;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-on:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.article-body label {
+    display: block;
+}
+
+.article-body textarea {
+    display: block;
+    resize: none;
+}
+
+.mail-area {
+    resize: none;
+}
+
+.img-mail-area img {
+    height: 30%;
+    width: 30%;
+    margin: 0 auto;
 }
