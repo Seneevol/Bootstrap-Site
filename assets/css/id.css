@@ -12,7 +12,7 @@ h2 {
     letter-spacing: -1px;
     word-spacing: 8px;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 
 h2::after {
@@ -114,6 +114,16 @@ nav {
     color: rgb(88, 88, 88);
 }
 
+.card-article {
+    border: none;
+    border-bottom: 1px solid rgb(223, 222, 222);
+}
+
+.card-comment {
+    border: none;
+    border-top: 1px solid rgb(223, 222, 222);
+}
+
 /*
  * FOOTER
  * ****** */
@@ -186,6 +196,7 @@ footer a:hover {
 
 .mail-area {
     resize: none;
+    max-width: 100%;
 }
 
 .img-mail-area img {
