@@ -131,6 +131,7 @@ nav {
     color: black;
     border-top: solid black 1px;
     margin-top: 1%;
+    padding-bottom: 5px;
 }
 
 footer a {
@@ -141,6 +142,10 @@ footer a:hover {
     color: blue;
 }
 
+.footer {
+    text-align: center;
+}
+
 .copyright-newsteller {
     margin-top: 1%;
 }
@@ -148,4 +153,9 @@ footer a:hover {
 .logo-footer {
     height: auto;
     width: auto;
+}
+
+.socials {
+    font-size: 25px;
+    margin-top: 3%;
 }
