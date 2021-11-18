@@ -223,3 +223,27 @@ footer a:hover {
 .modal {
     max-width: 100%;
 }
+
+.btn-off {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-off:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.btn-on {
+    background-color: orange;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-on:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}

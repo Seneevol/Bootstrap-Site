@@ -152,3 +152,31 @@ footer a:hover {
     font-size: 25px;
     margin-top: 3%;
 }
+
+/*
+ * MODAL
+ * ***** */
+
+.btn-off {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-off:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.btn-on {
+    background-color: orange;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-on:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
