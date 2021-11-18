@@ -96,6 +96,23 @@ nav {
  * COMMENT SECTION
  * *************** */
 
+.btn-comment {
+    background-color: silver;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.btn-comment:hover {
+    background-color: orange;
+    border: white 1px solid;
+}
+
+.btn-comment:hover i {
+    color: white;
+}
+
 .comment-zone {
     width: 100%;
     resize: none;
