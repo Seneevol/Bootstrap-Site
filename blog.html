@@ -35,7 +35,8 @@
                         <a class="nav-item nav-link text-nav" href="blog.html">Blog</a>
                         <a class="nav-item nav-link text-nav" href="contact.html">Contact</a>
                         <a class="nav-item nav-link text-nav" href="admin.html">Admin</a>
-                        <a class="nav-item nav-link text-nav" href="connect.html">Connexion/Déconnexion</a>
+                        <a class="nav-item nav-link text-nav" href="connect.html">Connexion</a>
+                        <a class="nav-item nav-link text-nav" href="#disconnect" data-bs-toggle="modal">Déconnexion</a>
                         <a class="nav-item nav-link text-nav" href="#edit-profile" data-bs-toggle="modal">Compte</a>
                     </div>
                 </div>
@@ -221,7 +222,6 @@
                                             <label class="labels">Email</label><input type="text" class="form-control"
                                                 placeholder="Entrez votre adresse-mail" id="disabledTextInput" value="">
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -231,6 +231,25 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--DISCONNECTION-->
+    <div class="modal fade" id="disconnect" tabindex="-1" aria-labelledby="disconnect-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Se déconnecter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment vous déconnecter ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
                 </div>
             </div>
         </div>

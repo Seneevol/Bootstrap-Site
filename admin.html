@@ -35,7 +35,9 @@
                         <a class="nav-item nav-link text-nav" href="blog.html">Blog</a>
                         <a class="nav-item nav-link text-nav" href="contact.html">Contact</a>
                         <a class="nav-item nav-link text-nav" href="admin.html">Admin</a>
-                        <a class="nav-item nav-link text-nav" href="connect.html">Connexion/Déconnexion</a>
+                        <a class="nav-item nav-link text-nav" href="connect.html">Connexion</a>
+                        <a class="nav-item nav-link text-nav" href="#disconnect" data-bs-toggle="modal">Déconnexion</a>
+                        <a class="nav-item nav-link text-nav" href="#edit-profile" data-bs-toggle="modal">Compte</a>
                     </div>
                 </div>
             </div>
@@ -102,51 +104,75 @@
                 <div class="section-user-title mb-3">
                     <h2>Utilisateurs</h2>
                 </div>
-                <ul>
-                    <div class="element-user d-flex flex-row justify-content-between align-items-center">
-                        <li><img src="assets/images/comments/comment1.jpg" width="50" height="50" alt="">Fu Hua</li>
-                        <div class="suppredit">
-                            <a href="#edituser" data-bs-toggle="modal">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                            <a href="#delete-user" data-bs-toggle="modal">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#ban-user" data-bs-toggle="modal">
-                                <i class="fas fa-ban"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="element-user d-flex flex-row justify-content-between align-items-center">
-                        <li><img src="assets/images/comments/comment2.jpg" width="50" height="50" alt="">Rita</li>
-                        <div class="suppredit">
-                            <a href="#edituser" data-bs-toggle="modal">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                            <a href="#delete-user" data-bs-toggle="modal">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#ban-user" data-bs-toggle="modal">
-                                <i class="fas fa-ban"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="element-user d-flex flex-row justify-content-between align-items-center">
-                        <li><img src="assets/images/comments/comment3.jpg" width="50" height="50" alt="">Fu Hua le
-                            retour</li>
-                        <div class="suppredit">
-                            <a href="#edituser" data-bs-toggle="modal">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                            <a href="#delete-user" data-bs-toggle="modal">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                            <a href="#ban-user" data-bs-toggle="modal">
-                                <i class="fas fa-ban"></i>
-                            </a>
-                        </div>
-                    </div>
-                </ul>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Avatar</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">@</th>
+                                <th scope="col">Edit/Del</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="assets/images/comments/comment1.jpg" width="100%" height="100%" alt="">
+                                </td>
+                                <td>Fu Hua</td>
+                                <td></td>
+                                <td>Phoenix@Hua.com</td>
+                                <td>
+                                    <a href="#edituser" data-bs-toggle="modal">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="#delete-user" data-bs-toggle="modal">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a href="#ban-user" data-bs-toggle="modal">
+                                        <i class="fas fa-ban"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/comments/comment2.jpg" width="100%" height="100%" alt="">
+                                </td>
+                                <td>Rita</td>
+                                <td>Rossweisse</td>
+                                <td>Rita@Rita.com</td>
+                                <td>
+                                    <a href="#edituser" data-bs-toggle="modal">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="#delete-user" data-bs-toggle="modal">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a href="#ban-user" data-bs-toggle="modal">
+                                        <i class="fas fa-ban"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/comments/comment3.jpg" width="100%" height="100%" alt="">
+                                </td>
+                                <td>Hua</td>
+                                <td></td>
+                                <td>hua@sentience.com</td>
+                                <td>
+                                    <a href="#edituser" data-bs-toggle="modal">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="#delete-user" data-bs-toggle="modal">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a href="#ban-user" data-bs-toggle="modal">
+                                        <i class="fas fa-ban"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
@@ -336,8 +362,9 @@
                             </div>
                             <div class="mb-3 element-form">
                                 <label for="desc-article" class="form-label">Description</label>
-                                <a href=""><i class="fas fa-images"></i></a>
-                                <textarea name="desc-article" id="article" cols="25" rows="2" class="article-zone"
+                                <input type="file" id="myFile" name="filename" class="mb-1">
+                                <textarea name="desc-article" id="article" cols="25" rows="2"
+                                    class="article-zone form-control"
                                     placeholder="Entrez votre description..."></textarea>
                             </div>
                         </div>
@@ -368,8 +395,9 @@
                             </div>
                             <div class="mb-3 element-form">
                                 <label for="desc-article" class="form-label">Description</label>
-                                <a href=""><i class="fas fa-images"></i></a>
-                                <textarea name="desc-article" id="article" cols="25" rows="2" class="article-zone"
+                                <input type="file" id="myFile" name="filename" class="mb-1">
+                                <textarea name="desc-article" id="article" cols="25" rows="2"
+                                    class="article-zone form-control"
                                     placeholder="Entrez votre description..."></textarea>
                             </div>
                         </div>
@@ -478,6 +506,80 @@
                 </div>
                 <div class="modal-body">
                     <p>Voulez-vous vraiment archiver le mail ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--EDIT PROFILE-->
+    <div class="modal fade" id="edit-profile" tabindex="-1" aria-labelledby="edit-profile-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edition de profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container rounded bg-white mb-5">
+                        <div class="row">
+                            <div class="col-md-4 border-right">
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                        class="rounded-circle mt-5" width="150px"
+                                        src="assets/images/comments/account.jpg"><span
+                                        class="font-weight-bold">Admin</span><span
+                                        class="text-black-50">monadresse@email.com</span><span> </span></div>
+                            </div>
+                            <div class="col-md-8 border-right">
+                                <div class="p-3 py-5">
+                                    <div class="row mt-2">
+                                        <div class="col-md-12"><label class="labels">Pseudo</label><input type="text"
+                                                class="form-control" placeholder="Entrez votre pseudo" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6"><label class="labels">Prénom</label><input type="text"
+                                                class="form-control" placeholder="" value="">
+                                        </div>
+                                        <div class="col-md-6"><label class="labels">Nom</label><input type="text"
+                                                class="form-control" value="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label class="labels">Téléphone</label><input type="text"
+                                                class="form-control" placeholder="Entrez votre numéro" value="">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Email</label><input type="text" class="form-control"
+                                                placeholder="Entrez votre adresse-mail" id="disabledTextInput" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-on">Sauvegarder</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--DISCONNECTION-->
+    <div class="modal fade" id="disconnect" tabindex="-1" aria-labelledby="disconnect-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Se déconnecter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment vous déconnecter ?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
