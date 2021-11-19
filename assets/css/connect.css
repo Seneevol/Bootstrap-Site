@@ -2,7 +2,7 @@
  * GLOBAL
  * ****** */
 
- body {
+body {
     background-color: white;
 }
 
@@ -87,7 +87,7 @@ header {
  * ****** */
 
 .bg-nav {
-    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+    background: linear-gradient(90deg, #be8e26 0%, #3A1C71 100%);
 }
 
 .text-nav {
@@ -125,7 +125,7 @@ nav {
  * FOOTER
  * ****** */
 
- footer {
+footer {
     background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
     text-align: left;
     color: black;

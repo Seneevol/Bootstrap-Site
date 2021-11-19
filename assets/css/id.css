@@ -81,7 +81,7 @@ header {
  * ****** */
 
 .bg-nav {
-    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+    background: linear-gradient(90deg, #be8e26 0%, #3A1C71 100%);
 }
 
 .text-nav {
@@ -144,7 +144,7 @@ nav {
  * FOOTER
  * ****** */
 
- footer {
+footer {
     background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
     text-align: left;
     color: black;
@@ -183,7 +183,7 @@ footer a:hover {
  * MODAL
  * ***** */
 
- .btn-off {
+.btn-off {
     background-color: silver;
     border: white solid 2px;
     margin-right: 2%;
