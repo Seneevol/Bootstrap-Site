@@ -30,8 +30,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="manavbar">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-item nav-link text-nav" href="index.html">Home</a>
-                        <a class="nav-item nav-link text-nav" href="id.html">Id</a>
                         <a class="nav-item nav-link text-nav" href="blog.html">Blog</a>
                         <a class="nav-item nav-link text-nav" href="contact.html">Contact</a>
                         <a class="nav-item nav-link text-nav" href="admin.html">Admin</a>
@@ -44,12 +42,29 @@
         </nav>
     </header>
 
-    <div class="search-bar d-flex justify-content-center mt-3 mx-auto">
-        <div class="search-outline">
-            <input type="search" id="search1" class="search-control" placeholder="Tapez votre recherche" />
-            <button type="button" class="btn btn-full">
-                <i class="fas fa-search"></i>
-            </button>
+
+
+    <div class="container search-bar mt-3">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="search-outline input-group text-center">
+                    <input type="search" id="search1" class="search-control" placeholder="Tapez votre recherche" />
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-full">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button type="button" class="btn btn-full dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="">Filtre 1</a></li>
+                            <li><a class="dropdown-item" href="">Filtre 2</a></li>
+                            <li><a class="dropdown-item" href="">Guns</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
