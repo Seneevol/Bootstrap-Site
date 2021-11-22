@@ -3,7 +3,11 @@
  * ****** */
 
 body {
-    background-color: white;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-color: unset;
+    background-size: cover;
+    background-position: center;
 }
 
 h2 {
@@ -91,6 +95,7 @@ header {
 
 .card-account {
     border: none;
+    background-color: unset;
 }
 
 .card-account img {
@@ -144,6 +149,10 @@ header {
 
 .fa-ban:hover {
     color: rgb(161, 0, 0);
+}
+
+.table {
+    border-bottom: 1px solid black;
 }
 
 /*

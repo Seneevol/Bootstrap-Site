@@ -2,8 +2,12 @@
  * GLOBAL
  * ****** */
 
- body {
+body {
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
     background-color: white;
+    background-size: cover;
+    background-position: center;
 }
 
 h2 {
