@@ -115,6 +115,14 @@ header {
     border-bottom: gray solid 1px;
 }
 
+.more-cards {
+    color: black;
+}
+
+.more-cards:hover {
+    color: orange;
+}
+
 /*
  * BANNER
  * ****** */
