@@ -88,10 +88,6 @@ header {
     color: white;
 }
 
-nav {
-    box-shadow: 0px 0px 20px 1px gray;
-}
-
 /*
  * COMMENT SECTION
  * *************** */
@@ -102,6 +98,7 @@ nav {
     color: black;
     border-radius: 10px;
     border: 1px solid white;
+    padding: 5px;
 }
 
 .btn-comment:hover {
@@ -222,11 +219,5 @@ footer a:hover {
 
 .mail-area {
     resize: none;
-    max-width: 100%;
-}
-
-.img-mail-area img {
-    height: 30%;
-    width: 30%;
-    margin: 0 auto;
+    width: 100%;
 }

@@ -20,7 +20,7 @@
     <!--HEADER-->
     <!--NAVBAR-->
     <header id="home">
-        <nav class="navbar navbar-expand-md bg-nav navbar-dark fixed-top">
+        <nav class="navbar navbar-expand-md bg-nav navbar-dark fixed-top shadow">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="assets/images/logonav.png" class="imgnav">Honkai
                     Site</a>
@@ -84,11 +84,15 @@
                     <h2>Commentaires</h2>
                 </div>
                 <div class="card card-comment">
-                    <div class="d-flex flex-row align-items-center p-3 form-color"><img
-                            src="assets/images/comments/account.jpg" alt="" width="50"
-                            class="rounded-circle me-2"><textarea name="comment" id="" cols="" rows="2"
-                            class="comment-zone" placeholder="Entrez votre commentaire..."></textarea></div>
-                    <button class="btn btn-comment btn-sm col-md-2 align-self-end">Envoyer</button>
+                    <div class="d-flex flex-row align-items-center form-color">
+                        <img src="assets/images/comments/account.jpg" alt="" width="50" class="rounded-circle me-2">
+                        <textarea name="comment" id="" cols="" rows="2" class="comment-zone"
+                            placeholder="Entrez votre commentaire..."></textarea></div>
+                    <div class="col-md-12 d-flex flex-row-reverse">
+                        <button class="btn btn-comment btn-sm col-md-2 align-self-end mt-1">Envoyer</button>
+                    </div>
+
+                    <!--USER COMMENTS-->
                     <div class="mt-2">
                         <div class="d-flex flex-row p-3"><img src="assets/images/comments/comment1.jpg" alt=""
                                 width="40" height="40" class="rounded-circle me-3">
@@ -102,10 +106,22 @@
                                     dolorum consequatur, porro facere quod itaque fugit. Modi saepe reiciendis rerum, id
                                     sapiente aliquid!</p>
                                 <div class="d-flex flex-row user-feed">
-                                    <span class="me-2"><a href="#respond-comment" data-bs-toggle="modal"><i
+                                    <span class="me-2"><a href="#respond-comment1" data-bs-toggle="collapse"><i
                                                 class="fa fa-comments-o me-2"></i>Répondre</span></a>
                                     <span><a href="#delete-comment" data-bs-toggle="modal"><i
                                                 class="fas fa-trash me-2"></i>Supprimer</span></a>
+                                </div>
+                                <!--ANSWER COMMENT-->
+                                <div class="collapse mt-3 ms-2" id="respond-comment1">
+                                    <div class="d-flex flex-row">
+                                        <img src="assets/images/comments/account.jpg" alt="" width="50"
+                                            class="rounded-circle me-2">
+                                        <textarea class="mail-area" name="" id="" cols="" rows="2"
+                                            placeholder="Entrez votre réponse..."></textarea>
+                                    </div>
+                                    <div class="col-md-12 d-flex flex-row-reverse p-0 mt-1">
+                                        <button class="btn btn-comment btn-sm col-md-2">Répondre</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -123,10 +139,22 @@
                                     dolorum consequatur, porro facere quod itaque fugit. Modi saepe reiciendis rerum, id
                                     sapiente aliquid!</p>
                                 <div class="d-flex flex-row user-feed">
-                                    <span class="me-2"><a href="#respond-comment" data-bs-toggle="modal"><i
-                                                class="fa fa-comments-o me-2"></i>Répondre</span></a>
+                                    <span class="me-2"><a href="#respond-comment2" data-bs-toggle="collapse">
+                                            <i class="fa fa-comments-o me-2"></i>Répondre</span></a>
                                     <span><a href="#delete-comment" data-bs-toggle="modal"><i
                                                 class="fas fa-trash me-2"></i>Supprimer</span></a>
+                                </div>
+                                <!--ANSWER COMMENT-->
+                                <div class="collapse mt-3 ms-2" id="respond-comment2">
+                                    <div class="d-flex flex-row">
+                                        <img src="assets/images/comments/account.jpg" alt="" width="50"
+                                            class="rounded-circle me-2">
+                                        <textarea class="mail-area" name="" id="" cols="" rows="2"
+                                            placeholder="Entrez votre réponse..."></textarea>
+                                    </div>
+                                    <div class="col-md-12 d-flex flex-row-reverse p-0 mt-1">
+                                        <button class="btn btn-comment btn-sm col-md-2">Répondre</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -144,10 +172,22 @@
                                     dolorum consequatur, porro facere quod itaque fugit. Modi saepe reiciendis rerum, id
                                     sapiente aliquid!</p>
                                 <div class="d-flex flex-row user-feed">
-                                    <span class="me-2"><a href="#respond-comment" data-bs-toggle="modal"><i
+                                    <span class="me-2"><a href="#respond-comment3" data-bs-toggle="collapse"><i
                                                 class="fa fa-comments-o me-2"></i>Répondre</span></a>
                                     <span><a href="#delete-comment" data-bs-toggle="modal"><i
                                                 class="fas fa-trash me-2"></i>Supprimer</span></a>
+                                </div>
+                                <!--ANSWER COMMENT-->
+                                <div class="collapse mt-3 ms-2" id="respond-comment3">
+                                    <div class="d-flex flex-row">
+                                        <img src="assets/images/comments/account.jpg" alt="" width="50"
+                                            class="rounded-circle me-2">
+                                        <textarea class="mail-area" name="" id="" cols="" rows="2"
+                                            placeholder="Entrez votre réponse..."></textarea>
+                                    </div>
+                                    <div class="col-md-12 d-flex flex-row-reverse p-0 mt-1">
+                                        <button class="btn btn-comment btn-sm col-md-2">Répondre</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -183,32 +223,6 @@
 
 
     <!--MODAL-->
-
-
-    <!--ANSWER COMMENT-->
-    <div class="modal fade" id="respond-comment" tabindex="-1" aria-labelledby="respond-commment-label"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Répondre à un commentaire</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row img-mail-area mb-3">
-                            <img src="..." class="rounded-circle" alt="...">
-                        </div>
-                    </div>
-                    <textarea class="mail-area" name="" id="" cols="45" rows="20"></textarea>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-on">Envoyer</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!--DELETE COMMENT-->
     <div class="modal fade" id="delete-comment" tabindex="-1" aria-labelledby="delete-comment-label" aria-hidden="true">

@@ -64,16 +64,20 @@ header {
 
 .btn-full {
     position: absolute;
-    background-color: silver;
-    border: black 1px solid;
+    background-color: white;
+    border: rgb(100, 100, 100) 2px solid;
+    border-bottom: gray 2px solid;
+    border-top: black 2px solid;
     padding-bottom: 3px;
     padding-top: 1px;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .btn-full:hover {
     background-color: orange;
-    border: black 1px solid;
+    border: black 2px solid;
+    border-bottom: gray 2px solid;
+    border-top: black 2px solid;
 }
 
 .btn-full:hover i {
@@ -92,11 +96,6 @@ header {
 .text-nav {
     color: white;
 }
-
-nav {
-    box-shadow: 0px 0px 20px 1px gray;
-}
-
 /*
  * CARDS
  * ****** */

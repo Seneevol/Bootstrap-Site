@@ -85,22 +85,12 @@ header {
     color: white;
 }
 
-nav {
-    box-shadow: 0px 0px 20px 1px gray;
-}
-
 /*
  * ADMIN CARD
  * ********** */
 .card {
     border: none;
 }
-
-.card img {
-    border: solid 2px orange;
-}
-
-
 
 /*
  * FORM
