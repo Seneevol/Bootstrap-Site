@@ -1,0 +1,438 @@
+/*
+ * GLOBAL
+ * ****** */
+
+body {
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    word-spacing: 8px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+h2::after {
+    display: block;
+    height: 2px;
+    width: 10%;
+    background-color: orange;
+    content: "";
+    margin: 0 auto;
+    margin-top: 1%;
+}
+
+/*
+ * HEADER
+ * ****** */
+
+header {
+    background-image: linear-gradient(to bottom, rgba(253, 187, 45, 0.418), rgba(58, 28, 113, 0.486)), url(../images/headerid.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 91vh;
+    border-bottom: orange solid 2px;
+}
+
+.header-title {
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.header-title h1 {
+    font-weight: 500;
+    text-shadow: 3px 1px gray;
+}
+
+.header-title p {
+    font-weight: 500;
+    text-shadow: 1px 1px gray;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+}
+
+.btn-full {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.btn-full:hover {
+    background-color: orange;
+    border: white solid 2px;
+}
+
+/*
+ * NAVBAR
+ * ****** */
+
+.bg-nav {
+    background: linear-gradient(90deg, #be8e26 0%, #3A1C71 100%);
+}
+
+.text-nav {
+    color: white;
+}
+
+/*
+ * CARDS
+ * ****** */
+
+.card-link {
+    text-decoration: none;
+    color: black;
+}
+
+.card-link:hover {
+    color: orange;
+}
+
+.section-cards-title {
+    margin-top: 1%;
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    box-shadow: 0 0 10px;
+    margin-bottom: 2%;
+}
+
+.card img {
+    border-bottom: gray solid 1px;
+}
+
+.more-cards {
+    color: black;
+}
+
+.more-cards:hover {
+    color: orange;
+}
+
+/*
+ * BANNER
+ * ****** */
+
+#section-banner {
+    background-image: url(../images/banner.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 20vh;
+    border-top: orange solid 2px;
+    border-bottom: orange solid 2px;
+    margin-top: 1%;
+}
+
+/*
+ * FORM
+ * **** */
+
+form {
+    margin-bottom: 1%;
+}
+
+.phone i {
+    margin-right: 1%;
+}
+
+.address i {
+    margin-right: 1%;
+}
+
+.contact-form {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.contact-msg {
+    width: 100%;
+    resize: none;
+}
+
+.contact-data {
+    text-align: center;
+}
+
+.btn-form {
+    background-color: silver;
+    border: white solid 2px;
+    margin: 0 auto;
+    float: none;
+}
+
+.btn-form:hover {
+    background-color: orange;
+    border: white solid 2px;
+}
+
+/*
+ * FOOTER
+ * ****** */
+
+footer {
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+    text-align: left;
+    color: black;
+    border-top: solid black 1px;
+    margin-top: 1%;
+    padding-bottom: 5px;
+}
+
+footer a {
+    color: black;
+}
+
+footer a:hover {
+    color: blue;
+}
+
+.footer {
+    text-align: center;
+}
+
+.copyright-newsteller {
+    margin-top: 1%;
+}
+
+.logo-footer {
+    height: auto;
+    width: auto;
+}
+
+.socials {
+    font-size: 25px;
+    margin-top: 3%;
+}
+
+/*
+ * MODAL
+ * ****** */
+
+.modal {
+    max-width: 100%;
+}
+
+.btn-off {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-off:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.btn-on {
+    background-color: orange;
+    border: white solid 2px;
+    margin-right: 2%;
+}
+
+.btn-on:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+}
+
+.element-form {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+.register-link {
+    margin-top: 1%;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.article-body label {
+    display: block;
+}
+
+.article-body textarea {
+    display: block;
+    resize: none;
+}
+
+.mail-area {
+    resize: none;
+    max-width: 100%;
+}
+
+.img-mail-area img {
+    height: 30%;
+    width: 30%;
+    margin: 0 auto;
+}
+
+/*
+ * CONNECTION BOX
+ * ************** */
+
+.element-form-checkbox {
+    display: grid;
+    gap: 5px;
+}
+
+.element-form .btn {
+    width: 50%;
+}
+
+.register-link {
+    text-align: center;
+}
+
+/*
+ * COMMENT SECTION
+ * *************** */
+
+ .btn-comment {
+    background-color: silver;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.btn-comment:hover {
+    background-color: orange;
+    border: white 1px solid;
+}
+
+.btn-comment:hover i {
+    color: white;
+}
+
+.comment-zone {
+    width: 100%;
+    resize: none;
+}
+
+.comment-text {
+    font-size: 13px;
+}
+
+.user-feed a {
+    color: black;
+    text-decoration: none;
+}
+
+.user-feed a:hover {
+    color: rgb(88, 88, 88);
+}
+
+.card-article {
+    border: none;
+    border-bottom: 1px solid rgb(223, 222, 222);
+}
+
+.card-comment {
+    border: none;
+}
+
+/*
+ * MINI-NAVBAR
+ * *********** */
+
+ .mini-nav {
+    background-color: orange;
+    border: solid black 2px;
+    height: 40px;
+    width: 100%;
+    color: black;
+    font-size: large;
+    font-weight: 500;
+}
+
+.mini-nav:hover {
+    background-color: black;
+    color: white;
+}
+
+.mini-nav p {
+    margin: 0 auto;
+}
+
+.content-mininav a {
+    text-decoration: none;
+    text-align: center;
+}
+
+/*
+ * USERS
+ * ***** */
+
+.element-user {
+    border: black solid 1px;
+}
+
+#user li {
+    list-style-type: none;
+}
+
+.fa-ban {
+    color: red;
+}
+
+.fa-ban:hover {
+    color: rgb(161, 0, 0);
+}
+
+.table {
+    border-bottom: 1px solid black;
+}
+
+/*
+ * BLOG
+ * **** */
+
+.element-blog {
+    border: black solid 1px;
+}
+
+#blog li {
+    list-style-type: none;
+}
+
+/*
+ * MESSAGE
+ * **** */
+
+.element-message {
+    border: black solid 1px;
+}
+
+.icon-message {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#message li {
+    list-style-type: none;
+}

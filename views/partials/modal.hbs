@@ -1,0 +1,297 @@
+<!--EDIT USER-->
+    <div class="modal fade" id="edituser" tabindex="-1" aria-labelledby="edituserlabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editer un utilisateur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="connection d-flex justify-content-center flex-column">
+                        <div class="mb-3 element-form">
+                            <label for="input-username" class="form-label">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" id="input-username">
+                        </div>
+                        <div class="mb-3 element-form">
+                            <label for="input-email" class="form-label">Adresse email</label>
+                            <input type="email" class="form-control" id="input-email">
+                        </div>
+                        <div class="mb-3 element-form">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-on">Sauvegarder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--ADD ARTICLE-->
+    <div class="modal fade" id="add-article" tabindex="-1" aria-labelledby="addarticlelabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ajouter un article</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="article-body d-flex flex-column align-items-center">
+                            <div class="mb-3 element-form">
+                                <label for="input-username" class="form-label">Nom de l'article</label>
+                                <input type="text" class="form-control" id="input-username">
+                            </div>
+                            <div class="mb-3 element-form">
+                                <label for="desc-article" class="form-label">Description</label>
+                                <input type="file" id="myFile" name="filename" class="mb-1">
+                                <textarea name="desc-article" id="article" cols="25" rows="2"
+                                    class="article-zone form-control"
+                                    placeholder="Entrez votre description..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-on">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--EDIT ARTICLE-->
+    <div class="modal fade" id="editarticle" tabindex="-1" aria-labelledby="editarticlelabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modifier un article</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="article-body d-flex flex-column align-items-center">
+                            <div class="mb-3 element-form">
+                                <label for="input-username" class="form-label">Nom de l'article</label>
+                                <input type="text" class="form-control" id="input-username">
+                            </div>
+                            <div class="mb-3 element-form">
+                                <label for="desc-article" class="form-label">Description</label>
+                                <input type="file" id="myFile" name="filename" class="mb-1">
+                                <textarea name="desc-article" id="article" cols="25" rows="2"
+                                    class="article-zone form-control"
+                                    placeholder="Entrez votre description..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-on">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--ANSWER MAIL-->
+    <div class="modal fade" id="mail-send" tabindex="-1" aria-labelledby="mail-sendlabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Répondre à un mail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row img-mail-area mb-3">
+                            <img src="assets/images/comments/account.jpg" class="rounded-circle" alt="...">
+                        </div>
+                    </div>
+                    <textarea class="mail-area" name="" id="" cols="45" rows="20"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-on">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--DELETE USER-->
+    <div class="modal fade" id="delete-user" tabindex="-1" aria-labelledby="deleteuserlabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Supprimer un utilisateur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment supprimer l'utilisateur ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--BAN USER-->
+    <div class="modal fade" id="ban-user" tabindex="-1" aria-labelledby="ban-user-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bannir un utilisateur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment bannir l'utilisateur ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--DELETE ARTICLE-->
+    <div class="modal fade" id="deletearticle" tabindex="-1" aria-labelledby="deletearticlelabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Supprimer un article</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment supprimer l'article ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--ARCHIVE MAIL-->
+    <div class="modal fade" id="mail-archive" tabindex="-1" aria-labelledby="mail-archivelabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Archiver un mail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment archiver le mail ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--DELETE COMMENT-->
+    <div class="modal fade" id="delete-comment" tabindex="-1" aria-labelledby="delete-comment-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Supprimer un commentaire</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment supprimer le commentaire ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-on">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--EDIT PROFILE-->
+<div class="modal fade" id="edit-profile" tabindex="-1" aria-labelledby="edit-profile-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edition de profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container rounded bg-white mb-5">
+                    <div class="row">
+                        <div class="col-md-4 border-right">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                    class="rounded-circle mt-5" width="150px"
+                                    src="assets/images/comments/account.jpg"><span
+                                    class="font-weight-bold">Admin</span><span
+                                    class="text-black-50">monadresse@email.com</span><span> </span></div>
+                        </div>
+                        <div class="col-md-8 border-right">
+                            <div class="p-3 py-5">
+                                <div class="row mt-2">
+                                    <div class="col-md-12"><label class="labels">Pseudo</label><input type="text"
+                                            class="form-control" placeholder="Entrez votre pseudo" value="">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6"><label class="labels">Prénom</label><input type="text"
+                                            class="form-control" placeholder="" value="">
+                                    </div>
+                                    <div class="col-md-6"><label class="labels">Nom</label><input type="text"
+                                            class="form-control" value="" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12"><label class="labels">Téléphone</label><input type="text"
+                                            class="form-control" placeholder="Entrez votre numéro" value="">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="labels">Email</label><input type="text" class="form-control"
+                                            placeholder="Entrez votre adresse-mail" id="disabledTextInput" value="">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                            <button type="button" class="btn btn-on">Sauvegarder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--DISCONNECTION-->
+<div class="modal fade" id="disconnect" tabindex="-1" aria-labelledby="disconnect-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Se déconnecter</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Voulez-vous vraiment vous déconnecter ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
+                <button type="button" class="btn btn-on">Oui</button>
+            </div>
+        </div>
+    </div>
+</div>

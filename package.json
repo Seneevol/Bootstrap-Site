@@ -1,0 +1,25 @@
+{
+  "name": "bootstrap-site",
+  "version": "1.0.0",
+  "description": "Page disponible ici : https://seneevol.github.io/Bootstrap-Site/",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seneevol/Bootstrap-Site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seneevol/Bootstrap-Site/issues"
+  },
+  "homepage": "https://github.com/Seneevol/Bootstrap-Site#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2"
+  }
+}
