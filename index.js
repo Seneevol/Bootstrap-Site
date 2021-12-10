@@ -1,11 +1,13 @@
+/*
+ * Index.js 
+ * Fichier d'entré de l'application (Main / Root)
+ * ********************************************** */ 
 require('dotenv').config()
 
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 2223
-const {
-    engine
-} = require('express-handlebars')
+const { engine } = require('express-handlebars')
 
 app.set('view engine', 'hbs')
 app.engine('hbs', engine({

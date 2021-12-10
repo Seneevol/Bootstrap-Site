@@ -38,7 +38,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 91vh;
+    height: 60vh;
     border-bottom: orange solid 2px;
 }
 
@@ -78,6 +78,29 @@ header {
     background-color: orange;
     border: white solid 2px;
 }
+
+.btn-search {
+    position: absolute;
+    background-color: white;
+    border: rgb(100, 100, 100) 2px solid;
+    border-bottom: gray 2px solid;
+    border-top: black 2px solid;
+    padding-bottom: 3px;
+    padding-top: 1px;
+    border-radius: 2px;
+}
+
+.btn-search:hover {
+    background-color: orange;
+    border: black 2px solid;
+    border-bottom: gray 2px solid;
+    border-top: black 2px solid;
+}
+
+.btn-search:hover i {
+    color: white;
+}
+
 
 /*
  * NAVBAR
@@ -356,6 +379,24 @@ footer a:hover {
     border: none;
 }
 
+.card-article {
+    border: none;
+}
+
+.card-article img {
+    border: none;
+}
+
+.card-contact {
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.card-contact img{
+    border: none;
+}
+
 /*
  * MINI-NAVBAR
  * *********** */
@@ -382,6 +423,17 @@ footer a:hover {
 .content-mininav a {
     text-decoration: none;
     text-align: center;
+}
+
+
+/*
+ * CARD ADMIN
+ * ********** */
+
+.card-admin {
+    background-color: rgba(255, 0, 0, 0);
+    box-shadow: none;
+    border: none;
 }
 
 /*

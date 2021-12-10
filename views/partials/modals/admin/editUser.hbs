@@ -1,0 +1,33 @@
+{{!--
+    USER EDITION MODAL
+--}}
+<div class="modal fade" id="edituser" tabindex="-1" aria-labelledby="edituserlabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editer un utilisateur</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="connection d-flex justify-content-center flex-column">
+                    <div class="mb-3 element-form">
+                        <label for="input-username" class="form-label">Nom d'utilisateur</label>
+                        <input type="text" class="form-control" id="input-username">
+                    </div>
+                    <div class="mb-3 element-form">
+                        <label for="input-email" class="form-label">Adresse email</label>
+                        <input type="email" class="form-control" id="input-email">
+                    </div>
+                    <div class="mb-3 element-form">
+                        <label for="password" class="form-label">Mot de passe</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-off" data-bs-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-on">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+</div>

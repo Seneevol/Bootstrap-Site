@@ -1,11 +1,13 @@
-<!--COMMENTS-->
+{{!--
+    ADD COMMENT SECTION
+--}}
 <section id="section-comment">
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="comment-title">
                 <h2>Commentaires</h2>
             </div>
-            <div class="card card-comment">
+            <div class="card card-comment p-3">
                 <div class="d-flex flex-row align-items-center form-color">
                     <img src="images/comments/account.jpg" alt="" width="50" class="rounded-circle me-2">
                     <textarea name="comment" id="" cols="" rows="2" class="comment-zone"
@@ -15,7 +17,9 @@
                     <button class="btn btn-comment btn-sm col-md-2 align-self-end mt-1">Envoyer</button>
                 </div>
 
-                <!--USER COMMENTS-->
+                {{!--
+                    USER COMMENT SECTION
+                -}}
                 <div class="mt-2">
                     <div class="d-flex flex-row p-3"><img src="images/comments/comment1.jpg" alt="" width="40"
                             height="40" class="rounded-circle me-3">
@@ -119,3 +123,5 @@
         </div>
     </div>
 </section>
+
+{{> modals/deleteComment}}
