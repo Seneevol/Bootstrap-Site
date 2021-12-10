@@ -1,0 +1,131 @@
+/*
+ * NAVBAR
+ * ****** */
+
+.bg-nav {
+    background: linear-gradient(90deg, #be8e26 0%, #3A1C71 100%);
+}
+
+.text-nav {
+    color: white;
+}
+
+/*
+ * CARDS
+ * ****** */
+
+.card-link {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        color: orange;
+    }
+}
+
+.section-cards-title {
+    margin-top: 1%;
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    box-shadow: 0 0 10px;
+    margin-bottom: 2%;
+
+    img {
+        border-bottom: gray solid 1px;
+    }
+}
+
+.more-cards {
+    color: black;
+
+    &:hover {
+        color: orange;
+    }
+}
+
+/*
+ * BANNER
+ * ****** */
+
+#section-banner {
+    background-image: url(../images/banner.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 20vh;
+    border-top: orange solid 2px;
+    border-bottom: orange solid 2px;
+    margin-top: 1%;
+}
+
+/*
+ * MODAL
+ * ****** */
+
+.modal {
+    max-width: 100%;
+}
+
+.btn-off {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+
+    &:hover {
+        background-color: black;
+        color: white;
+        border: white solid 2px;
+    }
+}
+
+.btn-on {
+    background-color: orange;
+    border: white solid 2px;
+    margin-right: 2%;
+
+    &:hover {
+        background-color: black;
+        color: white;
+        border: white solid 2px;
+    }
+}
+
+.element-form {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+.register-link {
+    margin-top: 1%;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.article-body {
+    label {
+        display: block;
+    }
+
+    textarea {
+        display: block;
+        resize: none;
+    }
+}
+
+.mail-area {
+    resize: none;
+    max-width: 100%;
+}
+
+.img-mail-area img {
+    height: 30%;
+    width: 30%;
+    margin: 0 auto;
+}

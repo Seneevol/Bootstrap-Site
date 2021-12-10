@@ -1,0 +1,66 @@
+/*
+ * COMMENT SECTION
+ * *************** */
+
+ .btn-comment {
+    background-color: silver;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.btn-comment:hover {
+    background-color: orange;
+    border: white 1px solid;
+}
+
+.btn-comment:hover i {
+    color: white;
+}
+
+.comment-zone {
+    width: 100%;
+    resize: none;
+}
+
+.comment-text {
+    font-size: 13px;
+}
+
+.user-feed a {
+    color: black;
+    text-decoration: none;
+}
+
+.user-feed a:hover {
+    color: rgb(88, 88, 88);
+}
+
+.card-article {
+    border: none;
+    border-bottom: 1px solid rgb(223, 222, 222);
+}
+
+.card-comment {
+    border: none;
+}
+
+.card-article {
+    border: none;
+}
+
+.card-article img {
+    border: none;
+}
+
+.card-contact {
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.card-contact img{
+    border: none;
+}

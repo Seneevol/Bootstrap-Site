@@ -1,0 +1,71 @@
+/*
+ * HEADER
+ * ****** */
+
+header {
+    background-image: linear-gradient(to bottom, rgba(253, 187, 45, 0.418), rgba(58, 28, 113, 0.486)), url(../images/headerid.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 60vh;
+    border-bottom: orange solid 2px;
+}
+
+.header-title {
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+
+    h1 {
+        font-weight: 500;
+        text-shadow: 3px 1px gray;
+    }
+
+    p {
+        font-weight: 500;
+        text-shadow: 1px 1px gray;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+}
+
+.btn-full {
+    background-color: silver;
+    border: white solid 2px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+
+    &:hover {
+        background-color: orange;
+        border: white solid 2px;
+    }
+}
+
+.btn-search {
+    position: absolute;
+    background-color: white;
+    border: rgb(100, 100, 100) 2px solid;
+    border-bottom: gray 2px solid;
+    border-top: black 2px solid;
+    padding-bottom: 3px;
+    padding-top: 1px;
+    border-radius: 2px;
+
+    &:hover {
+        background-color: orange;
+        border: black 2px solid;
+        border-bottom: gray 2px solid;
+        border-top: black 2px solid;
+
+        i {
+            color: white;
+        }
+    }
+}

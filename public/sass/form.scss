@@ -1,0 +1,55 @@
+/*
+ * FORM
+ * **** */
+
+form {
+    margin-bottom: 1%;
+}
+
+.phone i,
+.address i {
+    margin-right: 1%;
+}
+
+.contact-form {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.contact-msg {
+    width: 100%;
+    resize: none;
+}
+
+.contact-data {
+    text-align: center;
+}
+
+.btn-form {
+    background-color: silver;
+    border: white solid 2px;
+    margin: 0 auto;
+    float: none;
+
+    &:hover {
+        background-color: orange;
+        border: white solid 2px;
+    }
+}
+
+/*
+ * CONNECTION BOX
+ * ************** */
+
+.element-form-checkbox {
+    display: grid;
+    gap: 5px;
+}
+
+.element-form .btn {
+    width: 50%;
+}
+
+.register-link {
+    text-align: center;
+}

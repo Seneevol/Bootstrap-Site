@@ -1,0 +1,90 @@
+/*
+ * MINI-NAVBAR
+ * *********** */
+
+.mini-nav {
+    background-color: orange;
+    border: solid black 2px;
+    height: 40px;
+    width: 100%;
+    color: black;
+    font-size: large;
+    font-weight: 500;
+
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+
+    p {
+        margin: 0 auto;
+    }
+}
+
+.content-mininav a {
+    text-decoration: none;
+    text-align: center;
+}
+
+/*
+   * CARD ADMIN
+   * ********** */
+
+.card-admin {
+    background-color: rgba(255, 0, 0, 0);
+    box-shadow: none;
+    border: none;
+}
+
+/*
+   * USERS
+   * ***** */
+
+.element-user {
+    border: black solid 1px;
+}
+
+#user li {
+    list-style-type: none;
+}
+
+.fa-ban {
+    color: red;
+
+    &:hover {
+        color: rgb(161, 0, 0);
+    }
+}
+
+.table {
+    border-bottom: 1px solid black;
+}
+
+/*
+   * BLOG
+   * **** */
+
+.element-blog {
+    border: black solid 1px;
+}
+
+#blog li {
+    list-style-type: none;
+}
+
+/*
+   * MESSAGE
+   * **** */
+
+.element-message {
+    border: black solid 1px;
+}
+
+.icon-message {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#message li {
+    list-style-type: none;
+}

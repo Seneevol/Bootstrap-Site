@@ -1,0 +1,30 @@
+/*
+ * GLOBAL
+ * ****** */
+
+body {
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    word-spacing: 8px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+
+    &::after {
+        display: block;
+        height: 2px;
+        width: 10%;
+        background-color: orange;
+        content: "";
+        margin: 0 auto;
+        margin-top: 1%;
+    }
+}
