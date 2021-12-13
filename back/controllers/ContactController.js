@@ -9,5 +9,4 @@ exports.contactpage = (req, res) => {
 
 exports.createMessage = (req, res) => {
     console.log('On regarde tes messages ici', req.body);
-    res.render('contact')
 }
