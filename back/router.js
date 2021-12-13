@@ -56,6 +56,7 @@ router.route('/register')
 // Route Contact page
 router.route('/contact')
     .get(ContactController.contactpage)
+    .post(ContactController.createMessage);
 
 //  /Routes
 
