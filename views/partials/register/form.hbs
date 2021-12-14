@@ -7,25 +7,25 @@
             <div class="registration-title">
                 <h2>Inscription</h2>
             </div>
-            <div class="connection d-flex justify-content-center flex-column">
+            <form action="/register" method="post" class="connection d-flex justify-content-center flex-column">
                 <div class="mb-3 element-form">
                     <label for="input-username" class="form-label">Nom d'utilisateur</label>
-                    <input type="text" class="form-control" id="input-username">
+                    <input type="text" class="form-control" id="input-username" name="name">
                 </div>
                 <div class="mb-3 element-form">
                     <label for="input-email" class="form-label">Adresse email</label>
-                    <input type="email" class="form-control" id="input-email">
+                    <input type="email" class="form-control" id="input-email" name="email">
                 </div>
                 <div class="mb-3 element-form">
                     <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="mb-3 element-form">
                     <label for="password" class="form-label">Confirmation du mot de passe</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="confirmation">
                 </div>
                 <button type="submit" class="btn btn-full">S'inscrire</button>
-            </div>
+            </form>
         </div>
     </div>
 </section>

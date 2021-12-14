@@ -1,5 +1,5 @@
 {{!--
-    ARTICLE EDITION MODAL
+ARTICLE EDITION MODAL
 --}}
 <div class="modal fade" id="editarticle" tabindex="-1" aria-labelledby="editarticlelabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -10,24 +10,27 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="article-body d-flex flex-column align-items-center">
-                        <div class="mb-3 element-form">
-                            <label for="input-username" class="form-label">Nom de l'article</label>
-                            <input type="text" class="form-control" id="input-username">
+                    <form action="/admin/1?_method=PUT" method="post">
+                        <div class="article-body d-flex flex-column align-items-center">
+                            <div class="mb-3 element-form">
+                                <label for="input-username" class="form-label">Nom de l'article</label>
+                                <input type="text" class="form-control" id="input-username" name="article">
+                            </div>
+                            <div class="mb-3 element-form">
+                                <label for="desc-article" class="form-label">Description</label>
+                                <input type="file" id="myFile" name="filename" class="mb-1">
+                                <textarea name="desc-article" id="article" cols="25" rows="2"
+                                    class="article-zone form-control"
+                                    placeholder="Entrez votre description..."></textarea>
+                            </div>
                         </div>
-                        <div class="mb-3 element-form">
-                            <label for="desc-article" class="form-label">Description</label>
-                            <input type="file" id="myFile" name="filename" class="mb-1">
-                            <textarea name="desc-article" id="article" cols="25" rows="2"
-                                class="article-zone form-control" placeholder="Entrez votre description..."></textarea>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
-                <button type="button" class="btn btn-on">Ajouter</button>
+                <button type="submit" class="btn btn-on">Modifier</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

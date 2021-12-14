@@ -27,18 +27,18 @@
                     </div>
                 </div>
             </div>
-            <form action="">
+            <form action="/contact" method="post">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="contact-form">
                             <label for="">Nom:</label><br>
-                            <input type="text" class="contact-msg">
+                            <input type="text" class="contact-msg" name="name">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="contact-form">
                             <label for="">Email:</label><br>
-                            <input type="email" id="email" placeholder="Entrez une adresse email" class="contact-msg">
+                            <input type="email" id="email" placeholder="Entrez une adresse email" class="contact-msg" name="email">
                         </div>
                     </div>
                 </div>
@@ -46,24 +46,24 @@
                     <div class="col-md-12">
                         <div class="contact-form">
                             <label for="">Problème rencontré:</label>
-                            <select name="" id="">
-                                <option value="">Gameplay</option>
-                                <option value="">Boutique</option>
-                                <option value="">Interface</option>
+                            <select name="select" id="">
+                                <option value="gameplay">Gameplay</option>
+                                <option value="boutique">Boutique</option>
+                                <option value="interface">Interface</option>
                             </select>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="contact-form">
                                     <label for="">Votre message:</label><br>
-                                    <textarea name="" id="msg" class="contact-msg" rows="3"></textarea>
+                                    <textarea name="message" id="msg" class="contact-msg" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="d-flex justify-content-center">
-                                    <button class="btn btn-form">Envoyer</button>
+                                    <button type="submit" class="btn btn-form">Envoyer</button>
                                 </div>
                             </div>
                         </div>

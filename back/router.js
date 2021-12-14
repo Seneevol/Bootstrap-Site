@@ -18,44 +18,62 @@ const ContactController = require("./controllers/ContactController")
 
 // Routes Home
 router.route('/')
-    .get(HomeController.homepage)
+    .get(HomeController.homePage)
+    .post(HomeController.createMessage)
+    .put(HomeController.editProfile)
 
 router.route('/home')
-    .get(HomeController.homepage)
+    .get(HomeController.homePage)
+    .post(HomeController.createMessage)
+    .put(HomeController.editProfile)
 
 // /Routes Home
 
 
 // Route ID page
 router.route('/id')
-    .get(IdController.idpage)
+    .get(IdController.idPage)
+    .post(IdController.createComment)
+
+// Route for IDs on ID page
+router.route('/id/:id')
+    .delete(IdController.deleteComment)
 
 
 // Route Blog page
 router.route('/blog')
-    .get(BlogController.blogpage)
+    .get(BlogController.blogPage)
 
 
 // Route Admin page
 router.route('/admin')
-    .get(AdminController.adminpage)
+    .get(AdminController.adminPage)
+    .post(AdminController.answerMail)
+
+// Routes for ID on Admin page
+router.route('/admin/:id')
+    .put(AdminController.editAdminPage)
+    .delete(AdminController.deleteAdminPage)
 
 
-// Routes Authentification pages
+// Routes Authentification page
 router.route('/connect')
-    .get(AuthController.connectpage)
+    .get(AuthController.connectPage)
+    .post(AuthController.connection);
 
 router.route('/password')
-    .get(AuthController.passwordpage)
+    .get(AuthController.passwordPage)
+    .post(AuthController.restoreMail);
 
 router.route('/register')
-    .get(AuthController.registerpage)
+    .get(AuthController.registerPage)
+    .post(AuthController.registerInfo);
 // /Routes Authentification pages
 
 
 // Route Contact page
 router.route('/contact')
-    .get(ContactController.contactpage)
+    .get(ContactController.contactPage)
     .post(ContactController.createMessage);
 
 //  /Routes

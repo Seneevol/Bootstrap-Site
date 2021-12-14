@@ -1,5 +1,5 @@
 {{!--
-    MAIL ANSWERING MODAL
+MAIL ANSWERING MODAL
 --}}
 <div class="modal fade" id="mail-send" tabindex="-1" aria-labelledby="mail-sendlabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -8,18 +8,20 @@
                 <h5 class="modal-title">Répondre à un mail</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row img-mail-area mb-3">
-                        <img src="assets/images/comments/account.jpg" class="rounded-circle" alt="...">
+            <form action="/admin" method="post">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row img-mail-area mb-3">
+                            <img src="/images/comments/account.jpg" class="rounded-circle" alt="...">
+                        </div>
                     </div>
+                    <textarea class="mail-area" name="" id="" cols="45" rows="20"></textarea>
                 </div>
-                <textarea class="mail-area" name="" id="" cols="45" rows="20"></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
-                <button type="button" class="btn btn-on">Envoyer</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-on">Envoyer</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
