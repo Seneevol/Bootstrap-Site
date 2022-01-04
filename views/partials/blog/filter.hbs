@@ -1,0 +1,24 @@
+<script>
+    function myFilter() {
+        // Declare variables
+        var input, filter, listCard, card, h5, i, txtValue;
+        input = document.getElementById('search1');
+        filter = input.value.toUpperCase();
+        listCard = document.getElementById("listCard");
+        card = listCard.getElementsByTagName('div');
+
+        console.log(input)
+        console.log(listCard)
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < card.length; i++) {
+            h5 = card[i].getElementsByTagName("h5")[0];
+            txtValue = h5.textContent || h5.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                card[i].style.display = "";
+            } else {
+                card[i].style.display = "none";
+            }
+        }
+    }
+</script>

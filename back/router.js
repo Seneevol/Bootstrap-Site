@@ -5,6 +5,7 @@
 // Import de module
 const express = require('express')
 const router = express.Router()
+const upload = require('./config/multer')
 
 // Import Controllers
 const HomeController = require("./controllers/HomeController")
@@ -48,7 +49,8 @@ router.route('/blog')
 // Route Admin page
 router.route('/admin')
     .get(AdminController.adminPage)
-    .post(AdminController.answerMail)
+    .post(upload.array('filename', 6), AdminController.answerMail)
+
 
 // Routes for ID on Admin page
 router.route('/admin/:id')

@@ -8,7 +8,7 @@ ARTICLE ADDING MODAL
                 <h5 class="modal-title">Ajouter un article</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/admin" method="post">
+            <form action="/admin" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="row">
                         <div class="article-body d-flex flex-column align-items-center">
@@ -18,7 +18,7 @@ ARTICLE ADDING MODAL
                             </div>
                             <div class="mb-3 element-form">
                                 <label for="desc-article" class="form-label">Description</label>
-                                <input type="file" id="myFile" name="filename" class="mb-1">
+                                <input type="file" id="myFile" name="filename" multiple="multiple" class="mb-1">
                                 <textarea name="descArticle" id="article" cols="25" rows="2"
                                     class="article-zone form-control"
                                     placeholder="Entrez votre description..."></textarea>
