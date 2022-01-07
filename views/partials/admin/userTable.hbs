@@ -1,5 +1,5 @@
 {{!--
-    USER TABLE
+USER TABLE
 --}}
 <section id="user" class="collapse show">
     <div class="container">
@@ -20,7 +20,7 @@
                     <tbody>
 
                         {{#each dbAdmin}}
-                        <tr id="{{ this.id }}">
+                        <tr>
                             <td><img src="/images/comments/comment{{this.id}}.jpg" width="50" height="50" alt="">
                             </td>
                             <td>{{ name }}</td>
@@ -29,7 +29,7 @@
                                 <a href="#edituser" data-bs-toggle="modal">
                                     <i class="fas fa-pen"></i>
                                 </a>
-                                <a href="#delete-user" data-bs-toggle="modal" data-id="{{ this.id }}">
+                                <a href="#delete-user" data-bs-toggle="modal">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                 <a href="#ban-user" data-bs-toggle="modal">
@@ -37,6 +37,11 @@
                                 </a>
                             </td>
                         </tr>
+                        {{> modals/admin/editUser}}
+
+                        {{> modals/admin/deleteUser}}
+
+                        {{> modals/admin/banUser}}
                         {{/each}}
                         {{!--
                         <tr>

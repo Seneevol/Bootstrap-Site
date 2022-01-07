@@ -39,7 +39,7 @@ header {
     background-position: center;
     background-size: cover;
     height: 60vh;
-    border-bottom: orange solid 2px;
+    border-bottom: black solid 2px;
 }
 
 .header-title {
@@ -107,7 +107,7 @@ header {
  * ****** */
 
 .bg-nav {
-    background: linear-gradient(90deg, #be8e26 0%, #3A1C71 100%);
+    background: white;
 }
 
 .text-nav {
@@ -124,7 +124,7 @@ header {
 }
 
 .card-link:hover {
-    color: orange;
+    color: black;
 }
 
 .section-cards-title {
@@ -136,6 +136,14 @@ header {
     float: none;
     box-shadow: 0 0 10px;
     margin-bottom: 2%;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px orange;
+}
+
+.card-contact:hover {
+    box-shadow: none;
 }
 
 .card img {
@@ -161,8 +169,8 @@ header {
     background-size: cover;
     background-attachment: fixed;
     height: 20vh;
-    border-top: orange solid 2px;
-    border-bottom: orange solid 2px;
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
     margin-top: 1%;
 }
 
@@ -213,7 +221,7 @@ form {
  * ****** */
 
 footer {
-    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+    background: white;
     text-align: left;
     color: black;
     border-top: solid black 1px;
