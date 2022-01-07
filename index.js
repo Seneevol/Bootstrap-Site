@@ -10,7 +10,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const mysql = require('mysql')
 const methodOverride = require('method-override')
-const port = process.env.PORT || 2223
+const port = process.env.PORT || 2222
 const { engine } = require('express-handlebars')
 
 // Handlebars
@@ -32,6 +32,7 @@ db.connect((err) => {
     if (err) console.error('error connecting: ' + err.stack);
     console.log('connected as id ' + db.threadId);
 });
+
 
 // Method-Override
 app.use(methodOverride('_method'))

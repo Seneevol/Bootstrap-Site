@@ -12,25 +12,24 @@
                     <thead>
                         <tr>
                             <th scope="col">Avatar</th>
-                            <th scope="col">Prénom</th>
-                            <th scope="col">Nom</th>
+                            <th scope="col">Pseudo</th>
                             <th scope="col">@</th>
                             <th scope="col">Edit/Del/Ban</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <td><img src="/images/comments/comment1.jpg" width="50" height="50" alt="">
+                        {{#each dbAdmin}}
+                        <tr id="{{ this.id }}">
+                            <td><img src="/images/comments/comment{{this.id}}.jpg" width="50" height="50" alt="">
                             </td>
-                            <td>Fu Hua</td>
-                            <td></td>
-                            <td>fu@hua.com</td>
+                            <td>{{ name }}</td>
+                            <td>{{ email }}</td>
                             <td>
                                 <a href="#edituser" data-bs-toggle="modal">
                                     <i class="fas fa-pen"></i>
                                 </a>
-                                <a href="#delete-user" data-bs-toggle="modal">
+                                <a href="#delete-user" data-bs-toggle="modal" data-id="{{ this.id }}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                 <a href="#ban-user" data-bs-toggle="modal">
@@ -38,11 +37,12 @@
                                 </a>
                             </td>
                         </tr>
+                        {{/each}}
+                        {{!--
                         <tr>
                             <td><img src="/images/comments/comment2.jpg" width="50" height="50" alt="">
                             </td>
                             <td>Rita</td>
-                            <td>Rossweisse</td>
                             <td>Rita@Rita.com</td>
                             <td>
                                 <a href="#edituser" data-bs-toggle="modal">
@@ -60,7 +60,6 @@
                             <td><img src="/images/comments/comment3.jpg" width="50" height="50" alt="">
                             </td>
                             <td>Fu Hua</td>
-                            <td>Le retour</td>
                             <td>hua@sentience.com</td>
                             <td>
                                 <a href="#edituser" data-bs-toggle="modal">
@@ -74,6 +73,7 @@
                                 </a>
                             </td>
                         </tr>
+                        --}}
                     </tbody>
                 </table>
             </div>
