@@ -21,6 +21,17 @@ app.engine('hbs', engine({
 }))
 
 // MySQL
+db = mysql.createConnection({
+    host: 'localhost',
+    user: 'nakad',
+    password: 'nakad976',
+    database: 'testsite'
+});
+
+db.connect((err) => {
+    if (err) console.error('error connecting: ' + err.stack);
+    console.log('connected as id ' + db.threadId);
+});
 
 // Method-Override
 app.use(methodOverride('_method'))

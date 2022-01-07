@@ -3,17 +3,19 @@
  * ************** */
 
 // Import de module
-const express = require('express')
-const router = express.Router()
-const upload = require('./config/multer')
+const
+    express = require('express'),
+    router = express.Router(),
+    upload = require('./config/multer')
 
 // Import Controllers
-const HomeController = require("./controllers/HomeController")
-const IdController = require("./controllers/IdController")
-const BlogController = require("./controllers/BlogController")
-const AdminController = require("./controllers/AdminController")
-const AuthController = require("./controllers/AuthController")
-const ContactController = require("./controllers/ContactController")
+const
+    HomeController = require("./controllers/HomeController"),
+    IdController = require("./controllers/IdController"),
+    BlogController = require("./controllers/BlogController"),
+    AdminController = require("./controllers/AdminController"),
+    AuthController = require("./controllers/AuthController"),
+    ContactController = require("./controllers/ContactController")
 
 // Routes
 
