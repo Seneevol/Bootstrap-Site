@@ -5,13 +5,13 @@
 // Export Admin page
 exports.adminPage = (req, res) => {
     // Variable de récupération de tous les users
-    let sql = `SELECT * FROM users`;
-    db.query(sql, (error, data, fields) => {
+    let user = `SELECT * FROM users`;
+    db.query(user, (error, data, fields) => {
         if (error) throw error;
         console.log('Admin');
         res.render('admin', {
             status: 200,
-            dbAdmin: data,
+            dbUser: data,
             message: "J'ai pris les informations avec succès"
         })
     })
