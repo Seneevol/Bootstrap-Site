@@ -1,25 +1,37 @@
 {{!--
-    Footer
+Footer
 --}}
 
 <footer class="shadow-lg">
     <div class="container footer">
         <div class="row">
-            <div class="col-md-12">
-                <form action="/home" method="post" class="box-newsteller mt-1">
+            <div class="col-md-4 text-start mt-3">
+                <h6>Se repérer:</h6>
+                <ul>
+                    <li><a class="footer-nav text-start" href="/blog">Blog</a></li>
+                    <li><a class="" href="/contact">Contact</a></li>
+                    <li><a class="" href="/admin">Admin</a></li>
+                    <li><a class="" href="/connect">Connexion</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <form action="/home" method="post" class="box-newsteller mt-4">
                     <label for="">S'inscrire à la newsteller:</label>
-                    <input id="newsteller" type="email" name="mailNews" class="newsteller" placeholder="Entrez votre mail...">
+                    <div>
+                        <input id="newsteller" type="email" name="mailNews" class="newsteller"
+                            placeholder="Entrez votre mail...">
+                    </div>
                     <button type="submit">Envoyer</button>
                 </form>
             </div>
-        </div>
-        <div class="col-md-12 socials">
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-discord"></i></a>
-            <a href=""><i class="fab fa-youtube"></i></a>
-        </div>
-        <div class="col-md-12">
-            <a href="/home"><img src="/images/logofooter.png" class="logo-footer mx-auto" alt=""></a>
+            <div class="col-md-4 socials mt-3">
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-discord"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <div>
+                    <a href="/home"><img src="/images/logofooter.png" class="logo-footer mx-auto" alt=""></a>
+                </div>
+            </div>
         </div>
         <p class="copyright">Senoyo - 2021. <a href="">Mentions légales</a></p>
     </div>

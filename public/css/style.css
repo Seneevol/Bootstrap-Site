@@ -44,6 +44,7 @@ header {
 
 .header-title {
     color: white;
+    background-color: rgba(0, 0, 0, 0.007);
     position: absolute;
     top: 10%;
     left: 10%;
@@ -152,6 +153,7 @@ header {
 
 .more-cards {
     color: black;
+    font-size: 35px;
 }
 
 .more-cards:hover {
@@ -252,7 +254,6 @@ footer a:hover {
 
 .socials {
     font-size: 25px;
-    margin-top: 3%;
 }
 
 /*
