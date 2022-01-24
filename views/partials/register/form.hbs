@@ -7,7 +7,7 @@
             <div class="registration-title">
                 <h2>Inscription</h2>
             </div>
-            <form action="/register" method="post" class="connection d-flex justify-content-center flex-column">
+            <form action="/register" method="post" class="connection d-flex align-items-center flex-column">
                 <div class="mb-3 element-form">
                     <label for="input-username" class="form-label">Nom d'utilisateur</label>
                     <input type="text" class="form-control" id="input-username" name="name">
@@ -18,13 +18,14 @@
                 </div>
                 <div class="mb-3 element-form">
                     <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <input type="password" class="form-control" id="password" name="password" onkeyup="check();">
                 </div>
                 <div class="mb-3 element-form">
                     <label for="password" class="form-label">Confirmation du mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="confirmation">
+                    <input type="password" class="form-control" id="password-confirmation" name="confirmation" onkeyup="check();">
+                    <span id="message"></span>
                 </div>
-                <button type="submit" class="btn btn-full">S'inscrire</button>
+                <button type="submit" class="btn btn-full w-45" id="submit">S'inscrire</button>
             </form>
         </div>
     </div>

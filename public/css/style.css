@@ -384,8 +384,16 @@ footer a:hover {
     border-bottom: 1px solid rgb(223, 222, 222);
 }
 
+.card-article:hover {
+    box-shadow: 0 0 10px black;
+}
+
 .card-comment {
     border: none;
+}
+
+.card-comment:hover {
+    box-shadow: 0 0 10px black;
 }
 
 .card-article {
@@ -443,6 +451,10 @@ footer a:hover {
     background-color: rgba(255, 0, 0, 0);
     box-shadow: none;
     border: none;
+}
+
+.card-admin:hover {
+    box-shadow: none;
 }
 
 /*

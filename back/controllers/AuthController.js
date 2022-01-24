@@ -1,6 +1,6 @@
 /*
  * Controller: Auth
- * *************** */ 
+ * *************** */
 
 // Export connection page
 exports.connectPage = (req, res) => {
@@ -22,9 +22,19 @@ exports.registerPage = (req, res) => {
 
 // To register an account
 exports.registerInfo = (req, res) => {
-    console.log('Bonjour:', req.body);
-    res.render('register')
-}
+        let sql = `INSERT INTO users (name,email,password) values(?)`;
+        let values = [
+            req.body.name,
+            req.body.email,
+            req.body.password
+        ];
+        db.query(sql, [values], function (err) {
+            if (err) throw err;
+            console.log('Voici les données qui ont été add:', req.body);
+            res.status(200).send("Création réussie")
+            res.render('register')
+        })
+    }
 
 // Export password page
 exports.passwordPage = (req, res) => {

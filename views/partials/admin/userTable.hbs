@@ -14,7 +14,7 @@ USER TABLE
                             <th scope="col">Avatar</th>
                             <th scope="col">Pseudo</th>
                             <th scope="col">@</th>
-                            <th scope="col">Edit/Del/Ban</th>
+                            <th scope="col">Del/Ban</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,9 +26,6 @@ USER TABLE
                             <td>{{ name }}</td>
                             <td>{{ email }}</td>
                             <td>
-                                <a href="#edituser" data-bs-toggle="modal">
-                                    <i class="fas fa-pen"></i>
-                                </a>
                                 <a href="#delete-user" data-bs-toggle="modal">
                                     <i class="fas fa-trash"></i>
                                 </a>
@@ -37,8 +34,6 @@ USER TABLE
                                 </a>
                             </td>
                         </tr>
-                        {{> modals/admin/editUser}}
-
                         {{> modals/admin/deleteUser}}
 
                         {{> modals/admin/banUser}}
