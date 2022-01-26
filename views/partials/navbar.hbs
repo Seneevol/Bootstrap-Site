@@ -1,5 +1,5 @@
 {{!--
-    NAVBAR
+NAVBAR
 --}}
 
 <nav class="navbar navbar-expand-md bg-nav navbar-light fixed-top shadow">
@@ -14,10 +14,16 @@
             <div class="navbar-nav ms-auto">
                 <a class="nav-item nav-link text-nav" href="/blog">Blog</a>
                 <a class="nav-item nav-link text-nav" href="/contact">Contact</a>
+                {{#if isAdmin }}
                 <a class="nav-item nav-link text-nav" href="/admin">Admin</a>
-                <a class="nav-item nav-link text-nav" href="/connect">Connexion</a>
+                {{/if }}
+                {{#if user }}
                 <a class="nav-item nav-link text-nav" href="#disconnect" data-bs-toggle="modal">Déconnexion</a>
                 <a class="nav-item nav-link text-nav" href="#edit-profile" data-bs-toggle="modal">Compte</a>
+                <img src="./upload/users/{{user.avatar}}" width="40" height="40" class="img-fluid rounded-circle">
+                {{else }}
+                <a class="nav-item nav-link text-nav" href="/connect">Connexion</a>
+                {{/if }}
             </div>
         </div>
     </div>
@@ -26,4 +32,3 @@
 {{> modals/editProfile}}
 
 {{> modals/Logout}}
-

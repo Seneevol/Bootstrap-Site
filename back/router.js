@@ -17,6 +17,10 @@ const
     AuthController = require("./controllers/AuthController"),
     ContactController = require("./controllers/ContactController")
 
+
+// if (req.session.loggedin) {
+//     const login = true
+// }
 // Routes
 
 // Routes Home
@@ -28,7 +32,7 @@ router.route('/')
 router.route('/home')
     .get(HomeController.homePage)
     .post(HomeController.createMessage)
-    .put(HomeController.editProfile)
+    .put(upload.array('avatar', 1), HomeController.editProfile)
 
 // /Routes Home
 
@@ -64,6 +68,8 @@ router.route('/admin/:id')
 router.route('/connect')
     .get(AuthController.connectPage)
     .post(AuthController.connection);
+
+router.route('/logout').get(AuthController.logout)
 
 router.route('/password')
     .get(AuthController.passwordPage)

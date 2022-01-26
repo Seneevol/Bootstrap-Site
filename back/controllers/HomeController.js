@@ -1,6 +1,9 @@
 /*
  * Controller: Home
- * *************** */ 
+ * *************** */
+const { DEC8_BIN } = require("mysql/lib/protocol/constants/charsets");
+
+ 
 
 // Export of the home page
 exports.homePage = (req, res) => {
@@ -22,6 +25,22 @@ exports.createMessage = (req, res) => {
 
 // Export Edit 
 exports.editProfile = (req, res) => {
-    console.log('On édite même :', req.params.id, req.body);
-    res.redirect('back')
+    console.log("IDIDIDIDIDIDIDID", req.session.user.id);
+    const { name, pseudo } = req.body
+
+    const sql = `UPDATE users SET name= ?, avatar= ?, email= ? WHERE id = ?`
+    const values = [
+        req.body.name,
+        req.body.avatar,
+        req.body.email,
+        req.session.user.id
+    ]
+
+    db.query(sql, values, function (err, edit) {
+        if (err) throw err
+        console.log("C'est mis à jour la");
+        console.log('On édite même :', req.session.user.id, req.body);
+        res.redirect('back')
+    })
+
 }
