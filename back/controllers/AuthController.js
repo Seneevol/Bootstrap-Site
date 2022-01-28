@@ -2,7 +2,10 @@
  * Controller: Auth
  * *************** */
 
-const { request, response } = require("express");
+const {
+    request,
+    response
+} = require("express");
 const {
     connect
 } = require("../router");
@@ -18,19 +21,24 @@ exports.connection = (req, res) => {
     var username = req.body.name
     var password = req.body.password
     if (username && password) {
-        db.query('SELECT * FROM users WHERE name = ?', [username], function(error, results, fields){
+        db.query('SELECT * FROM users WHERE name = ?', [username], function (error, results, fields) {
             if (results.length > 0) {
                 console.log('login user is ', results[0])
                 // req.session.loggedin = true
                 // req.session.username = username
                 req.session.user = results[0]
-                if (results[0].isAdmin === 1) req.session.isAdmin = true
-                
+                if (results[0].isAdmin === 1) {
+                    req.session.isAdmin = true
+                }
+                if (results[0].isBan === 1) {
+                    res.send("T'es banni mec, dégage.")
+                }
+
                 res.redirect('/home')
                 console.log('Oui');
                 return;
             } else {
-                res.send('Non')
+                res.redirect('/home')
                 console.log('Non');
                 return;
             }

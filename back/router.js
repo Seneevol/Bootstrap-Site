@@ -6,7 +6,8 @@
 const
     express = require('express'),
     router = express.Router(),
-    upload = require('./config/multer')
+    upload = require('./config/multerDefault')
+    uploadAvatar = require('./config/multerUser')
 
 // Import Controllers
 const
@@ -32,7 +33,7 @@ router.route('/')
 router.route('/home')
     .get(HomeController.homePage)
     .post(HomeController.createMessage)
-    .put(upload.array('avatar', 1), HomeController.editProfile)
+    .put(uploadAvatar.single('avatar', 1), HomeController.editProfile)
 
 // /Routes Home
 

@@ -18,11 +18,11 @@ NAVBAR
                 <a class="nav-item nav-link text-nav" href="/admin">Admin</a>
                 {{/if }}
                 {{#if user }}
-                <a class="nav-item nav-link text-nav" href="#disconnect" data-bs-toggle="modal">Déconnexion</a>
+                <a class="nav-item nav-link text-nav" href="#disconnect" data-bs-toggle="modal">Se déconnecter</a>
                 <a class="nav-item nav-link text-nav" href="#edit-profile" data-bs-toggle="modal">Compte</a>
                 <img src="./upload/users/{{user.avatar}}" width="40" height="40" class="img-fluid rounded-circle">
                 {{else }}
-                <a class="nav-item nav-link text-nav" href="/connect">Connexion</a>
+                <a class="nav-item nav-link text-nav" href="/connect">Se connecter</a>
                 {{/if }}
             </div>
         </div>

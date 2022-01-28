@@ -28,19 +28,21 @@ exports.editProfile = (req, res) => {
     console.log("IDIDIDIDIDIDIDID", req.session.user.id);
     const { name, pseudo } = req.body
 
-    const sql = `UPDATE users SET name= ?, avatar= ?, email= ? WHERE id = ?`
+    console.log("test", req.session);
+
+    const sql = `UPDATE users SET name= ?, avatar= ? WHERE id = ?`
     const values = [
         req.body.name,
-        req.body.avatar,
-        req.body.email,
+        req.file.filename,
         req.session.user.id
     ]
 
     db.query(sql, values, function (err, edit) {
         if (err) throw err
+        req.session.user.name = req.body.name;
+        req.session.user.avatar = req.file.filename;
         console.log("C'est mis à jour la");
         console.log('On édite même :', req.session.user.id, req.body);
         res.redirect('back')
     })
-
 }
