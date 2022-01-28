@@ -21,13 +21,13 @@ USE `mydb` ;
 -- Table `mydb`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`users` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `avatar` VARCHAR(255) NULL,
   `password` VARCHAR(255) NOT NULL,
-  `isAdmin` TINYINT(1) NOT NULL,
-  `isBan` TINYINT(1) NOT NULL,
+  `isAdmin` TINYINT(1) NOT NULL DEFAULT 0,
+  `isBan` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`comments` (
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `id`
+  CONSTRAINT `article_id`
     FOREIGN KEY (`article_id`)
     REFERENCES `mydb`.`articles` (`id`)
     ON DELETE NO ACTION

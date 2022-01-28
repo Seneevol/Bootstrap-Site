@@ -1,6 +1,7 @@
 {{!-- 
     Page: Admin
  --}}
+{{#if isAdmin }}
 
 {{> admin/connectedUser}}
 
@@ -23,3 +24,5 @@
 {{> modals/admin/archiveMail}}
 
 {{> footer}}
+
+{{/if }}

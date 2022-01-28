@@ -10,6 +10,8 @@ const {
     connect
 } = require("../router");
 
+const bcrypt = require("bcrypt")
+
 // Export connection page
 exports.connectPage = (req, res) => {
     console.log('Connect');
@@ -55,19 +57,24 @@ exports.registerPage = (req, res) => {
 }
 
 // To register an account
-exports.registerInfo = (req, res) => {
-    let sql = `INSERT INTO users (name,email,password) values(?)`;
-    let values = [
-        req.body.name,
-        req.body.email,
-        req.body.password
-    ];
-    db.query(sql, [values], function (err) {
-        if (err) throw err;
-        console.log('Voici les données qui ont été add:', req.body);
-        res.status(200).send("Création réussie")
-        res.render('register')
+exports.registerInfo = async (req, res) => {
+    const { name, password, email} = req.body
+
+    const hash = bcrypt.hashSync(password, 10);
+    if (req.body.password !== req.body.confirmation) {
+        console.log("NO GOOD BITCH");
+        res.render("home", {
+            flash: "T'ES CON WOLA T'ES NUL"
+        })
+    } else {
+    await db.query(
+        `INSERT INTO users (name, email, password) VALUES ( '${name}', '${email}', '${hash}' );`
+      );
+      console.log("COMPTE CREE BIEN JOUER !!!!!! REUSSIE !!!!!!");
+      res.render("home", {
+        flash: "GG BG !"
     })
+    }
 }
 
 // Export password page

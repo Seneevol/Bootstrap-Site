@@ -1,9 +1,11 @@
 /*
  * Controller: Home
  * *************** */
-const { DEC8_BIN } = require("mysql/lib/protocol/constants/charsets");
+const {
+    DEC8_BIN
+} = require("mysql/lib/protocol/constants/charsets");
 
- 
+
 
 // Export of the home page
 exports.homePage = (req, res) => {
@@ -14,7 +16,7 @@ exports.homePage = (req, res) => {
     // Render of the page + Variable coucou
     res.render('home', {
         coucou
-     })
+    })
 }
 
 // To send a message on the Home Page
@@ -26,20 +28,34 @@ exports.createMessage = (req, res) => {
 // Export Edit 
 exports.editProfile = (req, res) => {
     console.log("IDIDIDIDIDIDIDID", req.session.user.id);
-    const { name, pseudo } = req.body
+    const {
+        name
+    } = req.body
 
     console.log("test", req.session);
 
-    const sql = `UPDATE users SET name= ?, avatar= ? WHERE id = ?`
-    const values = [
+    var sql = `UPDATE users SET name= ?, avatar= ? WHERE id = ?`
+    var values = [
         req.body.name,
         req.file.filename,
         req.session.user.id
     ]
+ 
 
-    db.query(sql, values, function (err, edit) {
+
+    if (req.body.name === "") {
+        sql = `UPDATE users SET avatar = ? WHERE id = ?`
+        values = [req.file.filename, req.session.user.id]
+    } else if (req.file.filename === undefined) {
+         sql = `UPDATE users SET name = ? WHERE id = ?`
+         values = [req.body.name, req.session.user.id]
+    } else if (req.body.name === "" && req.file.filename === undefined) {
+        sql = `SELECT name, avatar FROM users WHERE id = ?`
+    }
+
+    db.query(sql, values, function (err, edit, fields) {
         if (err) throw err
-        req.session.user.name = req.body.name;
+        req.session.user.name = req.body.name
         req.session.user.avatar = req.file.filename;
         console.log("C'est mis à jour la");
         console.log('On édite même :', req.session.user.id, req.body);
