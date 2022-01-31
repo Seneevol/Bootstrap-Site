@@ -6,8 +6,10 @@
 const
     express = require('express'),
     router = express.Router(),
-    upload = require('./config/multerDefault')
-    uploadAvatar = require('./config/multerUser')
+    mdl = require('./middleware/middleware.js'),
+    upload = require('./config/multerDefault'),
+    uploadAvatar = require('./config/multerUser'),
+    uploadArticle = require('./config/multerArticles');
 
 // Import Controllers
 const
@@ -16,7 +18,7 @@ const
     BlogController = require("./controllers/BlogController"),
     AdminController = require("./controllers/AdminController"),
     AuthController = require("./controllers/AuthController"),
-    ContactController = require("./controllers/ContactController")
+    ContactController = require("./controllers/ContactController");
 
 
 // if (req.session.loggedin) {
@@ -37,6 +39,8 @@ router.route('/home')
 
 // /Routes Home
 
+router.route('/article')
+    .post(uploadArticle.single('image', 1), AdminController.addArticle)
 
 // Route ID page
 router.route('/id')
@@ -55,14 +59,14 @@ router.route('/blog')
 
 // Route Admin page
 router.route('/admin')
-    .get(AdminController.adminPage)
-    .post(upload.array('filename', 6), AdminController.answerMail)
+    .get(mdl.isAdmin, AdminController.listUser)
+    .get(AdminController.listMail)
 
 
 // Routes for ID on Admin page
 router.route('/admin/:id')
     .put(AdminController.editAdminPage)
-    .delete(AdminController.deleteAdminPage)
+    .delete(AdminController.deleteUser)
 
 
 // Routes Authentification page
@@ -70,7 +74,8 @@ router.route('/connect')
     .get(AuthController.connectPage)
     .post(AuthController.connection);
 
-router.route('/logout').get(AuthController.logout)
+router.route('/logout')
+    .get(AuthController.logout)
 
 router.route('/password')
     .get(AuthController.passwordPage)

@@ -10,8 +10,12 @@ Footer
                 <ul>
                     <li><a class="footer-nav text-start" href="/blog">Blog</a></li>
                     <li><a class="" href="/contact">Contact</a></li>
+                    {{#if isAdmin }}
                     <li><a class="" href="/admin">Admin</a></li>
+                    {{/if }}
+                    {{#if user }}
                     <li><a class="" href="/connect">Connexion</a></li>
+                    {{/if }}
                 </ul>
             </div>
             <div class="col-md-4">

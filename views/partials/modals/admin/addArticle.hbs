@@ -8,29 +8,33 @@ ARTICLE ADDING MODAL
                 <h5 class="modal-title">Ajouter un article</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/admin" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="row">
+            <div class="modal-body">
+                <div class="row">
+                    <form action="/article" method="post" enctype="multipart/form-data">
                         <div class="article-body d-flex flex-column align-items-center">
                             <div class="mb-3 element-form">
-                                <label for="input-username" class="form-label">Nom de l'article</label>
-                                <input type="text" class="form-control" id="input-username" name="name">
+                                <label for="input-article" class="form-label">Nom de l'article</label>
+                                <input required type="text" class="form-control" id="input-article" name="name">
                             </div>
                             <div class="mb-3 element-form">
                                 <label for="desc-article" class="form-label">Description</label>
-                                <input type="file" id="myFile" name="filename" multiple="multiple" class="mb-1">
-                                <textarea name="descArticle" id="article" cols="25" rows="2"
+                                <input required type="file" id="myFile" name="image" class="mb-1">
+                                <textarea name="content" id="article" cols="25" rows="2"
                                     class="article-zone form-control"
                                     placeholder="Entrez votre description..."></textarea>
                             </div>
+                            <div class="mb-3 element-form">
+                                <label for="input-link" class="form-label">Lien</label>
+                                <input type="link" class="form-control" id="input-link" name="link">
+                            </div>
                         </div>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-on">Ajouter</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-on">Ajouter</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

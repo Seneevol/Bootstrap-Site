@@ -25,7 +25,7 @@ exports.connection = (req, res) => {
     if (username && password) {
         db.query('SELECT * FROM users WHERE name = ?', [username], function (error, results, fields) {
             if (results.length > 0) {
-                console.log('login user is ', results[0])
+                // console.log('login user is ', results[0])
                 // req.session.loggedin = true
                 // req.session.username = username
                 req.session.user = results[0]
@@ -58,7 +58,11 @@ exports.registerPage = (req, res) => {
 
 // To register an account
 exports.registerInfo = async (req, res) => {
-    const { name, password, email} = req.body
+    const {
+        name,
+        password,
+        email
+    } = req.body
 
     const hash = bcrypt.hashSync(password, 10);
     if (req.body.password !== req.body.confirmation) {
@@ -67,13 +71,13 @@ exports.registerInfo = async (req, res) => {
             flash: "T'ES CON WOLA T'ES NUL"
         })
     } else {
-    await db.query(
-        `INSERT INTO users (name, email, password) VALUES ( '${name}', '${email}', '${hash}' );`
-      );
-      console.log("COMPTE CREE BIEN JOUER !!!!!! REUSSIE !!!!!!");
-      res.render("home", {
-        flash: "GG BG !"
-    })
+        await db.query(`INSERT INTO users (name, email, password) VALUES ( '${name}', '${email}', '${hash}' );`, function (err) {
+            if (err) res.redirect('back')
+            console.log("COMPTE CREE BIEN JOUER !!!!!! REUSSIE !!!!!!");
+            res.render("home", {
+                flash: "GG BG !"
+            })
+        });
     }
 }
 

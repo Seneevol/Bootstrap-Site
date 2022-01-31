@@ -68,7 +68,7 @@ app.use(express.static('public'))
 app.use('*', (req, res, next) => {
     res.locals.user = req.session.user
     res.locals.isAdmin = req.session.isAdmin
-    console.log(req.session)
+    // console.log(req.session)
     next()
 })
 

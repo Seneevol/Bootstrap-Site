@@ -10,19 +10,19 @@
             <form action="/register" method="post" class="connection d-flex align-items-center flex-column">
                 <div class="mb-3 element-form">
                     <label for="input-username" class="form-label">Nom d'utilisateur</label>
-                    <input type="text" class="form-control" id="input-username" name="name">
+                    <input required type="text" class="form-control" id="input-username" name="name">
                 </div>
                 <div class="mb-3 element-form">
                     <label for="input-email" class="form-label">Adresse email</label>
-                    <input type="email" class="form-control" id="input-email" name="email">
+                    <input required type="email" class="form-control" id="input-email" name="email">
                 </div>
                 <div class="mb-3 element-form">
                     <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="password" onkeyup="check();">
+                    <input required type="password" class="form-control" id="password" name="password" onkeyup="check();">
                 </div>
                 <div class="mb-3 element-form">
                     <label for="password" class="form-label">Confirmation du mot de passe</label>
-                    <input type="password" class="form-control" id="password-confirmation" name="confirmation" onkeyup="check();">
+                    <input required type="password" class="form-control" id="password-confirmation" name="confirmation" onkeyup="check();">
                     <span id="message"></span>
                 </div>
                 <button type="submit" class="btn btn-full w-45" id="submit">S'inscrire</button>
