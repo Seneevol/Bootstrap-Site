@@ -23,13 +23,13 @@ USER TABLE
                         <tr>
                             <td><img src="./upload/users/{{ this.avatar }}" width="50" height="50" alt="">
                             </td>
-                            <td>{{ name }}</td>
-                            <td>{{ email }}</td>
+                            <td>{{ this.name }}</td>
+                            <td>{{ this.email }}</td>
                             <td>
-                                <a href="#delete-user" data-bs-toggle="modal">
+                                <a href="#delete-user{{ this.id }}" data-bs-toggle="modal">
                                     <i class="fas fa-trash"></i>
                                 </a>
-                                <a href="#ban-user" data-bs-toggle="modal">
+                                <a href="#ban-user{{ this.id }}" data-bs-toggle="modal">
                                     <i class="fas fa-ban"></i>
                                 </a>
                             </td>

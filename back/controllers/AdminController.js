@@ -6,28 +6,13 @@ const {
     link
 } = require("fs");
 
-// Export liste des utilisateurs
-exports.listUser = (req, res) => {
-    // Variable de récupération de tous les users
-    let user = `SELECT * FROM users`;
-    db.query(user, (error, data, fields) => {
-        if (error) throw error;
-        console.log('Admin');
-        res.render('admin', {
-            dbUser: data,
-            message: "J'ai pris les informations avec succès"
-        })
-    })
-}
-
-exports.listArticle = (req, res) => {
-    let article = `SELECT * FROM articles`
-    db.query(article, (err, data) => {
-        if (err) throw err
-        res.render('admin', {
-            dbArticle: data
-        })
-    })
+exports.getPageAdmin = async (req, res) => {
+    console.log("Admin");
+    res.render('admin', {
+        dbUser:  await db.query('SELECT * FROM users'),
+        dbArticle: await db.query('SELECT * FROM articles'),
+        message: "J'ai pris les informations avec succès"
+    }) 
 }
 
 exports.addArticle = async (req, res) => {
@@ -59,23 +44,15 @@ exports.listMail = (req, res) => {
     res.render('admin')
 }
 
-
 // To delete things on Admin Page
-exports.deleteUser = (req, res) => {
+exports.deleteUser = async (req, res) => {
     console.log('Je delete le truc:', req.params.id);
-    let sql = `DELETE FROM users WHERE id = ?`;
-    let values = [
-        req.params.id
-    ];
-    db.query(sql, [values], function (err, data, fields) {
-        if (err) throw err;
-        let sql = `SELECT * FROM users`;
-        db.query(sql, (error, data, fields) => {
-            if (error) throw error;
-            res.redirect('admin', {
-                dbAdmin: data,
-                message: "Delete user successfully"
-            })
-        })
-    })
+    await db.query(`DELETE FROM users WHERE id = ${ req.params.id }`)
+    res.redirect('/admin')
+}
+
+exports.deleteArticle = async (req, res) => {
+    console.log('Je delete le truc:', req.params.id);
+    await db.query(`DELETE FROM articles WHERE id = ${ req.params.id }`)
+    res.redirect('/admin')
 }

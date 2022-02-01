@@ -1,5 +1,5 @@
 {{!--
-    ARTICLE TABLE
+ARTICLE TABLE
 --}}
 
 <section id="blog" class="collapse">
@@ -12,14 +12,20 @@
                 </a>
             </div>
             <ul>
+                {{#each dbArticle }}
                 <div class="element-blog d-flex flex-row justify-content-between">
-                    <li>Kiana</li>
+                    <li>{{ this.name }}</li>
                     <div class="suppredit">
-                        <a href="#editarticle" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
-                        <a href="#deletearticle" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
+                        <a href="#editarticle{{ this.id }}" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
+                        <a href="#deletearticle{{ this.id }}" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
-                <div class="element-blog d-flex flex-row justify-content-between">
+
+                {{> modals/admin/editArticle}}
+
+                {{> modals/admin/deleteArticle}}
+                {{/each }}
+                {{!-- <div class="element-blog d-flex flex-row justify-content-between">
                     <li>Mei</li>
                     <div class="suppredit">
                         <a href="#editarticle" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
@@ -53,7 +59,7 @@
                         <a href="#editarticle" data-bs-toggle="modal"><i class="fas fa-pen"></i></a>
                         <a href="#deletearticle" data-bs-toggle="modal"><i class="fas fa-trash"></i></a>
                     </div>
-                </div>
+                </div> --}}
             </ul>
         </div>
     </div>

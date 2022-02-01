@@ -1,7 +1,7 @@
 {{!--
 DELETE ARTICLE MODAL
 --}}
-<div class="modal fade" id="deletearticle" tabindex="-1" aria-labelledby="deletearticlelabel" aria-hidden="true">
+<div class="modal fade" id="deletearticle{{ this.id }}" tabindex="-1" aria-labelledby="deletearticlelabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,7 +13,7 @@ DELETE ARTICLE MODAL
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
-                <form action="/admin/1?_method=DELETE" method="post">
+                <form action="/admin/blog/{{ this.id }}?_method=DELETE" method="post">
                     <button type="submit" class="btn btn-on">Oui</button>
                 </form>
             </div>

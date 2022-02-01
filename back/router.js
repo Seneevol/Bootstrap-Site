@@ -43,31 +43,26 @@ router.route('/article')
     .post(uploadArticle.single('image', 1), AdminController.addArticle)
 
 // Route ID page
-router.route('/id')
+router.route('/blog/:name')
     .get(IdController.idPage)
     .post(IdController.createComment)
-
-// Route for IDs on ID page
-router.route('/id/:id')
     .delete(IdController.deleteComment)
-
 
 // Route Blog page
 router.route('/blog')
     .get(BlogController.blogPage)
 
+router.route('/admin/blog/:id')
+    .delete(mdl.isAdmin, AdminController.deleteArticle)
 
 // Route Admin page
 router.route('/admin')
-    .get(mdl.isAdmin, AdminController.listUser)
-    .get(AdminController.listMail)
-
+    .get(mdl.isAdmin, AdminController.getPageAdmin)
 
 // Routes for ID on Admin page
 router.route('/admin/:id')
     .put(AdminController.editAdminPage)
     .delete(AdminController.deleteUser)
-
 
 // Routes Authentification page
 router.route('/connect')

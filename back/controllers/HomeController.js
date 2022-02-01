@@ -8,13 +8,14 @@ const {
 
 
 // Export of the home page
-exports.homePage = (req, res) => {
+exports.homePage = async (req, res) => {
     console.log('Homepage');
     // Variable coucou for the different header
     const coucou = true
     console.log('Coucou est: ' + coucou);
     // Render of the page + Variable coucou
     res.render('home', {
+        dbArticle: await db.query(`SELECT * FROM articles ORDER BY date DESC LIMIT 3`),
         coucou
     })
 }
@@ -25,28 +26,37 @@ exports.createMessage = (req, res) => {
     res.render('home')
 }
 
-// Export Edit 
+// Export de l'édite du profil
 exports.editProfile = (req, res) => {
     console.log("IDIDIDIDIDIDIDID", req.session.user.id);
     const {
         name
     } = req.body
 
-    // console.log("test", req.session);
-
     var getSql = `SELECT * FROM users WHERE id = ?`
-    var sql = `UPDATE users SET name= ?, avatar= ? WHERE id = ?`
-    var values = [
-        req.body.name,
-        req.file.filename,
-        req.session.user.id
-    ]
+    
+    // Gestion des différentes possibilités au niveau de l'édition du profile
 
-
-
-    if (req.body.name === "") {
+    // Si pas de fichier mais un pseudo
+    if (!req.file && req.body.name) {
+        sql = `UPDATE users SET name = ? WHERE id = ?`
+        values = [req.body.name, req.session.user.id]
+    // Si pas de nom mais un fichier
+    } else if (req.body.name === "" && req.file) {
         sql = `UPDATE users SET avatar = ? WHERE id = ?`
         values = [req.file.filename, req.session.user.id]
+    // Si ni fichier, ni nom
+    } else if (req.body.name === "" && !req.file){
+        sql = `SELECT name, avatar FROM users WHERE id = ?`
+        values = [req.session.user.id]
+    // Sinon on fait la requête de base
+    } else {
+        var sql = `UPDATE users SET name= ?, avatar= ? WHERE id = ?`
+        var values = [
+            req.body.name,
+            req.file.filename,
+            req.session.user.id
+        ]
     }
 
     db.query(sql, values, function (err, edit) {
@@ -55,8 +65,6 @@ exports.editProfile = (req, res) => {
         db.query(getSql, function (err, results) {
             if (err) throw err
             req.session.user = results[0]
-            // req.session.user.name = req.body.name
-            // req.session.user.avatar = req.file.filename;
             console.log("ILE LA: AU CARRE OUAIS OUAIS OUAIS: ", req.session)
             res.redirect('back')
         })

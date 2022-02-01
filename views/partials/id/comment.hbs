@@ -10,7 +10,7 @@ ADD COMMENT SECTION
             <div class="card card-comment p-3">
                 <form action="/id" method="post">
                     <div class="d-flex flex-row align-items-center form-color">
-                        <img src="./upload/users/{{user.avatar}}" alt="" width="50" class="rounded-circle me-2">
+                        <img src="/upload/users/{{user.avatar}}" alt="" width="50" class="rounded-circle me-2">
                         <textarea name="comment" id="" cols="" rows="2" class="comment-zone"
                             placeholder="Entrez votre commentaire..."></textarea>
                     </div>
@@ -43,7 +43,7 @@ ADD COMMENT SECTION
                             <!--ANSWER COMMENT-->
                             <form action="/id" method="post" class="collapse mt-3 ms-2" id="respond-comment1">
                                 <div class="d-flex flex-row">
-                                    <img src="/images/comments/account.jpg" alt="" width="50"
+                                    <img src="/upload/users/{{ user.avatar }}" alt="" width="50"
                                         class="rounded-circle me-2">
                                     <textarea class="mail-area w-100" name="comment" id="" cols="" rows="2"
                                         placeholder="Entrez votre réponse..."></textarea>
@@ -76,7 +76,7 @@ ADD COMMENT SECTION
                             <!--ANSWER COMMENT-->
                             <form action="/id" method="post" class="collapse mt-3 ms-2" id="respond-comment2">
                                 <div class="d-flex flex-row">
-                                    <img src="/images/comments/account.jpg" alt="" width="50"
+                                    <img src="/upload/users/{{ user.avatar }}" alt="" width="50"
                                         class="rounded-circle me-2">
                                     <textarea class="mail-area w-100" name="comment" id="" cols="" rows="2"
                                         placeholder="Entrez votre réponse..."></textarea>
@@ -109,7 +109,7 @@ ADD COMMENT SECTION
                             <!--ANSWER COMMENT-->
                             <form action="/id" method="post" class="collapse mt-3 ms-2" id="respond-comment3">
                                 <div class="d-flex flex-row">
-                                    <img src="/images/comments/account.jpg" alt="" width="50"
+                                    <img src="/upload/users/{{ user.avatar }}" alt="" width="50"
                                         class="rounded-circle me-2">
                                     <textarea class="mail-area w-100" name="comment" id="" cols="" rows="2"
                                         placeholder="Entrez votre réponse..."></textarea>

@@ -29,6 +29,9 @@ const options = {
 // MySQL
 db = mysql.createConnection(options)
 
+const util = require("util");
+db.query = util.promisify(db.query).bind(db);
+
 db.connect((err) => {
     if (err) console.error('error connecting: ' + err.stack);
     console.log('connected as id ' + db.threadId);
@@ -36,9 +39,15 @@ db.connect((err) => {
 
 const sessionStore = new MySQLStore(options)
 
+
 // Handlebars
+const { formatDate, formatDateCom } = require('./back/helper')
 app.set('view engine', 'hbs')
 app.engine('hbs', engine({
+    helpers: {
+        formatDate,
+        formatDateCom,
+    },
     extname: 'hbs',
     defaultLayout: 'main'
 }))
