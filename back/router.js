@@ -61,13 +61,13 @@ router.route('/admin')
 
 // Routes for ID on Admin page
 router.route('/admin/:id')
-    .delete(AdminController.deleteUser)
+    .delete(mdl.isAdmin, AdminController.deleteUser)
 
 router.route('/ban/:id')
-    .put(AdminController.banUser)
+    .put(mdl.isAdmin, AdminController.banUser)
 
 router.route('/unban/:id')
-    .put(AdminController.unbanUser)
+    .put(mdl.isAdmin, AdminController.unbanUser)
 
 // Routes Authentification page
 router.route('/connect')

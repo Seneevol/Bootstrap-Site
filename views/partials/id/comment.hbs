@@ -8,6 +8,7 @@ ADD COMMENT SECTION
                 <h2>Commentaires</h2>
             </div>
             <div class="card card-comment p-3">
+                {{#if user }}
                 <form action="/id" method="post">
                     <div class="d-flex flex-row align-items-center form-color">
                         <img src="/upload/users/{{user.avatar}}" alt="" width="50" class="rounded-circle me-2">
@@ -18,6 +19,7 @@ ADD COMMENT SECTION
                         <button class="btn btn-comment btn-sm col-md-2 align-self-end mt-1">Envoyer</button>
                     </div>
                 </form>
+                {{/if }}
 
                 {{!--
                 USER COMMENT SECTION
