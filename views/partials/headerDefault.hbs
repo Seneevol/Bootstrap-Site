@@ -7,8 +7,14 @@ Default header
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-10 header-title">
-                <h1>Bienvenue commandant</h1>
-                <p>Nous vous attendions</p>
+                {{#unless user }}
+                <h1>Ici et maintenant</h1>
+                <p>Rejoignez nous !</p>
+                {{/unless }}
+                {{#if user }}
+                <h1>Bonne visite !</h1>
+                <p>Participez avec nous !</p>
+                {{/if }}
                 {{#if user }}
                 <a class="btn btn-full" href="/blog">Voir plus d'articles...</a>
                 {{else }}

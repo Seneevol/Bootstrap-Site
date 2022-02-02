@@ -38,6 +38,18 @@ exports.editAdminPage = (req, res) => {
     res.render('admin');
 };
 
+exports.banUser = async (req, res) => {
+    console.log("LA TU VOIS ON BAN:", req.params.id);
+    await db.query(`UPDATE users SET isBan = 1 WHERE id = ${req.params.id}`)
+    res.redirect('/admin')
+}
+
+exports.unbanUser = async (req, res) => {
+    console.log("TOI TES GENTIL JE TE DEBAN:", req.params.id);
+    await db.query(`UPDATE users SET isBan = 0 WHERE id = ${req.params.id}`)
+    res.redirect('/admin')
+}
+
 // Mail answer
 exports.listMail = (req, res) => {
     console.log('On regarde tes messages ici', req.body, req.files);
