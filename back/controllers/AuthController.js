@@ -33,13 +33,13 @@ exports.connection = (req, res) => {
                     res.redirect('/home')
                     console.log('Oui');
                     return;
+                } else {
+                    const notWorking = true
+                    res.render('connect', {
+                        notWorking
+                    })
+                    console.log('Non');
                 }
-            } else {
-                res.render('connect', {
-                   notWorking
-                })
-                console.log('Non');
-                return;
             }
         })
     }

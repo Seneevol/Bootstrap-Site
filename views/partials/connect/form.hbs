@@ -9,6 +9,9 @@
                 <h2>Connexion</h2>
             </div>
             <form action="/connect" method="post" class="connection d-flex flex-column align-items-center">
+            {{#if notWorking }}
+            <h5>Vous êtes banni ou vous vous êtes trompé d'identifiants!</h5>
+            {{/if }}
                 <div class="mb-3 element-form">
                     <label for="input-username" class="form-label">Nom d'utilisateur</label>
                     <input type="text" class="form-control" id="input-username" name="name">
@@ -22,7 +25,7 @@
                     <input type="checkbox" class="form-check-input" id="checkbox" name="check">
                     <label class="form-check-label" for="checkbox">Se souvenir de moi</label>
                 </div>
-                <button type="submit" class="btn btn-full w-45">Se connecter</button>
+                <button type="submit" class="btn btn-connect w-45">Se connecter</button>
                 <a href="/register" class="register-link">Pas encore inscrit ?</a>
             </form>
         </div>

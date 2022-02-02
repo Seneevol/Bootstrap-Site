@@ -15,6 +15,7 @@ USER TABLE
                             <th scope="col">Pseudo</th>
                             <th scope="col">@</th>
                             <th scope="col">Del/Ban</th>
+                            <th scope="col">Statut</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +37,7 @@ USER TABLE
                                     <i class="fas fa-unlock"></i>
                                 </a>
                             </td>
+                            <td>{{#if this.isBan }}Banni{{/if }}{{#unless this.isBan}}OK{{/unless }}</td>
                         </tr>
                         {{> modals/admin/deleteUser}}
 

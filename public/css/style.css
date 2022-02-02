@@ -210,13 +210,13 @@ form {
 }
 
 .btn-form {
-    background-color: white;
+    background-color: #6880EC;
     margin: 0 auto;
     float: none;
 }
 
 .btn-form:hover {
-    background-color: #6880EC;
+    background-color: black;
     color: white;
 }
 
@@ -337,6 +337,17 @@ footer a:hover {
 
 .register-link {
     text-align: center;
+}
+
+.btn-connect {
+    background-color: #6880EC;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.btn-connect:hover {
+    background-color: black;
+    color: white;
 }
 
 /*
