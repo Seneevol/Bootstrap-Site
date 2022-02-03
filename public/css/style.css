@@ -220,6 +220,10 @@ form {
     color: white;
 }
 
+.logoContactHome {
+    max-width: 50%;
+}
+
 /*
  * FOOTER
  * ****** */

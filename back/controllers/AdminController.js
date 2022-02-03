@@ -9,10 +9,10 @@ const {
 exports.getPageAdmin = async (req, res) => {
     console.log("Admin");
     res.render('admin', {
-        dbUser:  await db.query('SELECT * FROM users'),
+        dbUser: await db.query('SELECT * FROM users'),
         dbArticle: await db.query('SELECT * FROM articles'),
         message: "J'ai pris les informations avec succès"
-    }) 
+    })
 }
 
 exports.addArticle = async (req, res) => {
@@ -59,7 +59,7 @@ exports.listMail = (req, res) => {
 // To delete things on Admin Page
 exports.deleteUser = async (req, res) => {
     console.log('Je delete le truc:', req.params.id);
-    await db.query(`DELETE FROM users WHERE id = ${ req.params.id }`)
+    await db.query(`DELETE FROM users WHERE users.id = ${ req.params.id }`)
     res.redirect('/admin')
 }
 

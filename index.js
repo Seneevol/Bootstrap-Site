@@ -74,6 +74,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static('public'))
 
+// Définition de variables globals pour les sessions
 app.use('*', (req, res, next) => {
     res.locals.user = req.session.user
     res.locals.isAdmin = req.session.isAdmin

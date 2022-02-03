@@ -8,6 +8,15 @@
                 <h2>Inscription</h2>
             </div>
             <form action="/register" method="post" class="connection d-flex align-items-center flex-column">
+            {{#if usedName }}
+            <h5>Nom d'utilisateur déjà pris!</h5>
+            {{/if }}
+            {{#if usedEmail }}
+            <h5>Email déjà utilisée!</h5>
+            {{/if }}
+            {{#if failPassword }}
+            <h5>Les mots de passes ne correspondent pas!</h5>
+            {{/if }}
                 <div class="mb-3 element-form">
                     <label for="input-username" class="form-label">Nom d'utilisateur</label>
                     <input required type="text" class="form-control" id="input-username" name="name">
@@ -25,7 +34,7 @@
                     <input required type="password" class="form-control" id="password-confirmation" name="confirmation" onkeyup="check();">
                     <span id="message"></span>
                 </div>
-                <button type="submit" class="btn btn-full w-45" id="submit">S'inscrire</button>
+                <button type="submit" class="btn btn-connect w-45" id="submit">S'inscrire</button>
             </form>
         </div>
     </div>
