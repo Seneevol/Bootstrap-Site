@@ -1,5 +1,5 @@
 // Import de Multer
-const multer = require('multer')
+const multer = require('multer');
 
 // Ici nous définissons la config de stockage de multer
 const storage = multer.diskStorage({

@@ -168,9 +168,9 @@ header {
  * ****** */
 
 #section-banner {
-    background-image: url(../images/banner.jpg);
+    background-image: linear-gradient(to right, #a6b2e27e, #6880ec5d), url(../images/banner.jpg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     background-attachment: fixed;
     height: 20vh;
@@ -221,7 +221,7 @@ form {
 }
 
 .logoContactHome {
-    max-width: 50%;
+    max-width: 75%;
 }
 
 /*

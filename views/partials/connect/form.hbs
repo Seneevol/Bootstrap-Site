@@ -12,6 +12,9 @@
             {{#if notWorking }}
             <h5>Vous êtes banni ou vous vous êtes trompé d'identifiants!</h5>
             {{/if }}
+            {{#if successRegistration }}
+            <h5>Vous avez réussi à vous inscrire ! Bravo !</h5>
+            {{/if }}
                 <div class="mb-3 element-form">
                     <label for="input-username" class="form-label">Nom d'utilisateur</label>
                     <input type="text" class="form-control" id="input-username" name="name">

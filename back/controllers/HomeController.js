@@ -4,6 +4,7 @@
 const {
     DEC8_BIN
 } = require("mysql/lib/protocol/constants/charsets");
+const bcrypt = require("bcrypt")
 
 
 
@@ -29,32 +30,35 @@ exports.createMessage = (req, res) => {
 // Export de l'édite du profil
 exports.editProfile = (req, res) => {
     console.log("IDIDIDIDIDIDIDID", req.session.user.id);
-    const {
-        name
-    } = req.body
 
     var getSql = `SELECT * FROM users WHERE id = ?`
+    const hash = bcrypt.hashSync(req.body.password, 10);
     
     // Gestion des différentes possibilités au niveau de l'édition du profile
 
-    // Si pas de fichier mais un pseudo
-    if (!req.file && req.body.name) {
-        sql = `UPDATE users SET name = ? WHERE id = ?`
-        values = [req.body.name, req.session.user.id]
-    // Si pas de nom mais un fichier
-    } else if (req.body.name === "" && req.file) {
-        sql = `UPDATE users SET avatar = ? WHERE id = ?`
-        values = [req.file.filename, req.session.user.id]
-    // Si ni fichier, ni nom
-    } else if (req.body.name === "" && !req.file){
-        sql = `SELECT name, avatar FROM users WHERE id = ?`
+    // Si pas de fichier mais un pseudo et un mot de passe
+    if (!req.file && req.body.name && hash) {
+        sql = `UPDATE users SET name = ?, password= ? WHERE id = ?`
+        values = [req.body.name, hash, req.session.user.id]
+    // Si pas de nom mais un fichier et un mot de passe
+    } else if (req.body.name === "" && req.file && hash) {
+        sql = `UPDATE users SET avatar = ?, password= ? WHERE id = ?`
+        values = [req.file.filename, hash, req.session.user.id]
+    // Si ni fichier, ni nom mais un mot de passe
+    } else if (req.body.name === "" && !req.file && hash) {
+        sql = `UPDATE users SET password= ? WHERE id = ?`
+        values = [hash, req.session.user.id]
+    // Si ni fichier, ni nom, ni mot de passe
+    }else if (req.body.name === "" && !req.file && !hash){
+        sql = `SELECT name, avatar, password FROM users WHERE id = ?`
         values = [req.session.user.id]
     // Sinon on fait la requête de base
     } else {
-        var sql = `UPDATE users SET name= ?, avatar= ? WHERE id = ?`
+        var sql = `UPDATE users SET name= ?, avatar= ?, password= ? WHERE id = ?`
         var values = [
             req.body.name,
             req.file.filename,
+            hash,
             req.session.user.id
         ]
     }
