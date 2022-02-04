@@ -69,7 +69,6 @@ exports.editProfile = (req, res) => {
         db.query(getSql, function (err, results) {
             if (err) throw err
             req.session.user = results[0]
-            console.log("ILE LA: AU CARRE OUAIS OUAIS OUAIS: ", req.session)
             res.redirect('back')
         })
     })

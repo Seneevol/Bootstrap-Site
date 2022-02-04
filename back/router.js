@@ -10,7 +10,7 @@ const
     upload = require('./config/multerDefault'),
     uploadAvatar = require('./config/multerUser'),
     uploadArticle = require('./config/multerArticles'),
-    sharp = require('sharp')
+    sharp = require('./config/sharp')
 
 // Import Controllers
 const
@@ -36,12 +36,12 @@ router.route('/')
 router.route('/home')
     .get(HomeController.homePage)
     .post(HomeController.createMessage)
-    .put(uploadAvatar.single('avatar'), HomeController.editProfile)
+    .put(uploadAvatar.single('avatar'), sharp, HomeController.editProfile)
 
 // /Routes Home
 
 router.route('/article')
-    .post(uploadArticle.single('image'), AdminController.addArticle)
+    .post(uploadArticle.single('image'), sharp, AdminController.addArticle)
 
 // Route ID page
 router.route('/blog/:name')
