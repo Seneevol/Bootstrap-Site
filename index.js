@@ -16,9 +16,10 @@ const {
     engine
 } = require('express-handlebars')
 
-
+// Module permettant de storer le cookie de l'utilisateur
 const MySQLStore = require("express-mysql-session")(expressSession);
 
+// Options pour la connexion à la base de données
 const options = {
     host: process.env.DB_HOST,
     port: process.env.PORT_MYSQL,
@@ -26,7 +27,7 @@ const options = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE
 }
-// MySQL
+// Connexion à la base de données MySQL
 db = mysql.createConnection(options)
 
 const util = require("util");
@@ -37,6 +38,7 @@ db.connect((err) => {
     console.log('connected as id ' + db.threadId);
 });
 
+// Connexion du store à la base de données
 const sessionStore = new MySQLStore(options)
 
 
@@ -52,7 +54,7 @@ app.engine('hbs', engine({
     defaultLayout: 'main'
 }))
 
-// Express-session
+// Appelle du module Express-session
 app.use(
     expressSession({
         secret: "securite",
