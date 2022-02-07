@@ -6,8 +6,8 @@
 exports.idPage = async (req, res) => {
     console.log('ID PAGE');
     res.render('id', {
-        dbArticle: await db.query(`SELECT * FROM articles WHERE name = '${req.params.name}'`),
-        dbUser: await db.query(`SELECT users.name FROM users INNER JOIN articles ON users.id = articles.author_id WHERE articles.name = '${req.params.name}'`)
+        dbArticle: await db.query(`SELECT * FROM articles WHERE name = "${req.params.name}"`),
+        dbUser: await db.query(`SELECT users.name FROM users INNER JOIN articles ON users.id = articles.author_id WHERE articles.name = "${req.params.name}"`)
     })
 }
 

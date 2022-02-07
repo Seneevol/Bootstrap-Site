@@ -1,7 +1,8 @@
 {{!--
 ARTICLE EDITION MODAL
 --}}
-<div class="modal fade" id="editarticle{{ this.id }}" tabindex="-1" aria-labelledby="editarticlelabel" aria-hidden="true">
+<div class="modal fade" id="editarticle{{ this.id }}" tabindex="-1" aria-labelledby="editarticlelabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,24 +14,27 @@ ARTICLE EDITION MODAL
                     <form action="/admin/{{ this.id }}?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="article-body d-flex flex-column align-items-center">
                             <div class="mb-3 element-form">
-                                <label for="input-username" class="form-label">Nom de l'article</label>
-                                <input type="text" class="form-control" id="input-username" name="article">
+                                <label for="input-article" class="form-label">Nom de l'article</label>
+                                <input type="text" class="form-control" id="input-article" name="name" value="{{ this.name }}">
                             </div>
                             <div class="mb-3 element-form">
                                 <label for="desc-article" class="form-label">Description</label>
-                                <input type="file" id="myFile" name="filename" class="mb-1">
-                                <textarea name="desc-article" id="article" cols="25" rows="2"
-                                    class="article-zone form-control"
-                                    placeholder="Entrez votre description..."></textarea>
+                                <input type="file" id="myFile" name="image" class="mb-1">
+                                <textarea name="content" id="article" cols="25" rows="2"
+                                    class="article-zone form-control">{{ this.content }}</textarea>
+                            </div>
+                            <div class="mb-3 element-form">
+                                <label for="input-link" class="form-label">Lien</label>
+                                <input type="link" class="form-control" id="input-link" name="link" value="{{ this.link }}">
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-on">Modifier</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-off" data-bs-dismiss="modal">Annuler</button>
-                <button type="submit" class="btn btn-on">Modifier</button>
-            </div>
-            </form>
         </div>
     </div>
 </div>

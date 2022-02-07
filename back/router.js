@@ -62,6 +62,7 @@ router.route('/admin')
 
 // Routes for ID on Admin page
 router.route('/admin/:id')
+    .put(mdl.isAdmin, uploadArticle.single('image'), AdminController.editArticle)
     .delete(mdl.isAdmin, AdminController.deleteUser)
 
 router.route('/ban/:id')

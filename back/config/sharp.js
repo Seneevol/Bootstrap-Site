@@ -1,11 +1,11 @@
 const sharp = require('sharp'),
     path = require('path')
-fs = require('fs')
+    fs = require('fs')
 
 module.exports = async (req, res, next) => {
     if (req.file) {
         const fieldName = req.file.fieldname
-        console.log("TEST DU FIELDNAME", fieldName);
+        console.log("TEST DU FIELDNAME", fieldName)
         let pathSharp
 
         switch (fieldName) {

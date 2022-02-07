@@ -19,7 +19,6 @@ USER TABLE
                         </tr>
                     </thead>
                     <tbody>
-
                         {{#each dbUser}}
                         <tr>
                             <td><img src="./upload/users/{{ this.avatar }}" width="50" height="50" alt="">
@@ -45,42 +44,6 @@ USER TABLE
 
                         {{> modals/admin/unbanUser}}
                         {{/each}}
-                        {{!--
-                        <tr>
-                            <td><img src="/images/comments/comment2.jpg" width="50" height="50" alt="">
-                            </td>
-                            <td>Rita</td>
-                            <td>Rita@Rita.com</td>
-                            <td>
-                                <a href="#edituser" data-bs-toggle="modal">
-                                    <i class="fas fa-pen"></i>
-                                </a>
-                                <a href="#delete-user" data-bs-toggle="modal">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                <a href="#ban-user" data-bs-toggle="modal">
-                                    <i class="fas fa-ban"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="/images/comments/comment3.jpg" width="50" height="50" alt="">
-                            </td>
-                            <td>Fu Hua</td>
-                            <td>hua@sentience.com</td>
-                            <td>
-                                <a href="#edituser" data-bs-toggle="modal">
-                                    <i class="fas fa-pen"></i>
-                                </a>
-                                <a href="#delete-user" data-bs-toggle="modal">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                <a href="#ban-user" data-bs-toggle="modal">
-                                    <i class="fas fa-ban"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        --}}
                     </tbody>
                 </table>
             </div>

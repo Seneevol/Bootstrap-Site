@@ -49,7 +49,7 @@ exports.editProfile = (req, res) => {
         sql = `UPDATE users SET password= ? WHERE id = ?`
         values = [hash, req.session.user.id]
     // Si ni fichier, ni nom, ni mot de passe
-    }else if (req.body.name === "" && !req.file && !hash){
+    } else if (req.body.name === "" && !req.file && !hash){
         sql = `SELECT name, avatar, password FROM users WHERE id = ?`
         values = [req.session.user.id]
     // Sinon on fait la requête de base
@@ -73,3 +73,12 @@ exports.editProfile = (req, res) => {
         })
     })
 }
+
+// const hash = bcrypt.hashSync("1234", 10);
+
+// sql = `UPDATE users SET password="${hash}" WHERE id = "24"`
+
+// db.query(sql, function (err, edit) {
+//     if (err) throw err
+//     console.log('edit nakad')
+// })
