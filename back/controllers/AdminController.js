@@ -34,107 +34,27 @@ exports.addArticle = async (req, res) => {
 // Edition sur la page Admin
 exports.editArticle = async (req, res) => {
     console.log("On édite:", req.params.id, req.body)
-    if (req.body.name === "" && !req.file && req.body.content === "" && req.body.link === "") {
-        sql = `SELECT name, image, content, link FROM articles WHERE id = ?`
-        values = [req.params.id]
-    } else if (req.body.name === "" && req.file && req.body.content === "" && req.body.link === "") {
-        sql = `UPDATE articles SET image= ? WHERE id = ?`
-        values = [
-            req.file.filename,
-            req.params.id
-        ]
-    } else if (req.body.name === "" && !req.file && req.body.content && req.body.link === "") {
-        sql = `UPDATE articles SET content= ? WHERE id = ?`
-        values = [
-            req.body.content,
-            req.params.id
-        ]
-    } else if (req.body.name === "" && !req.file && req.body.content === "" && req.body.link) {
-        sql = `UPDATE articles SET link= ? WHERE id = ?`
-        values = [
-            req.body.link,
-            req.params.id
-        ]
-    } else if (req.body.name && !req.file && req.body.content && req.body.link === "") {
-        sql = `UPDATE articles SET name= ?, content= ? WHERE id = ?`
-        values = [
-            req.body.name,
-            req.body.content,
-            req.params.id
-        ]
-    } else if (req.body.name === "" && req.file && req.body.content && req.body.link === "") {
-        sql = `UPDATE articles SET image= ?, content= ? WHERE id = ?`
-        values = [
-            req.file.filename,
-            req.body.content,
-            req.params.id
-        ]
-    } else if (req.body.name && req.file && req.body.content && req.body.link === "") {
-        sql = `UPDATE articles SET name= ?, image= ?, content= ? WHERE id = ?`
-        values = [
-            req.body.name,
-            req.file.filename,
-            req.body.content,
-            req.params.id
-        ]
-    } else if (req.body.name && req.file && req.body.content === "" && req.body.link) {
-        sql = `UPDATE articles SET name= ?, image= ?, link= ? WHERE id = ?`
-        values = [
-            req.body.name,
-            req.file.filename,
-            req.body.link,
-            req.params.id
-        ]
-    } else if (req.body.name && !req.file && req.body.content && req.body.link) {
-        sql = `UPDATE articles SET name= ?, content= ?, link= ? WHERE id = ?`
-        values = [
-            req.body.name,
-            req.body.content,
-            req.body.link,
-            req.params.id
-        ]
-    } else if (req.body.name && !req.file && req.body.content === "" && req.body.link) {
-        sql = `UPDATE articles SET name= ?, link= ? WHERE id = ?`
-        values = [
-            req.body.name,
-            req.body.link,
-            req.params.id
-        ]
-    } else if (req.body.name === "" && req.file && req.body.content === "" && req.body.link) {
-        sql = `UPDATE articles SET image= ?, link= ? WHERE id = ?`
-        values = [
-            req.file.filename,
-            req.body.link,
-            req.params.id
-        ]
-    } else if (req.body.name && !req.file && req.body.content && req.body.link === "") {
-        sql = `UPDATE articles SET name= ?, content= ? WHERE id = ?`
-        values = [
-            req.body.name,
-            req.body.content,
-            req.params.id
-        ]
-    } else if (req.body.name && !req.file && req.body.content === "" && req.body.link === "") {
-        sql = `UPDATE articles SET name= ? WHERE id = ?`
-        values = [
-            req.body.name,
-            req.params.id
-        ]
-    } else {
-        var sql = `UPDATE articles SET name= ?, image= ?, content= ?, link= ? WHERE id = ?`
-        var values = [
-            req.body.name,
-            req.file.filename,
-            req.body.content,
-            req.body.link
-        ]
-    }
 
-    await db.query(sql, values, function (err, edit) {
-        if (err) throw err 
-        res.redirect('/admin')
-    })
-};
+    var name = req.body.name
+    var image = req.file
+    var content = req.body.content
+    var link = req.body.link
+    var id = req.params.id
+
+    if (name) {
+        await db.query(`UPDATE articles SET name = '${name}' WHERE id = ${id}`)
+    }
+    if (image) {
+        await db.query(`UPDATE articles SET image = '${req.file.filename}' WHERE id = ${id}`)
+    }
+    if (content) {
+        await db.query(`UPDATE articles SET content = '${content}' WHERE id = ${id}`)
+    }
+    if (link) {
+        await db.query(`UPDATE articles SET link = '${link}' WHERE id = ${id}`)
+    }
+    res.redirect('/admin')
+}
 
 exports.banUser = async (req, res) => {
     console.log("LA TU VOIS ON BAN:", req.params.id);

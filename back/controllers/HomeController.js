@@ -49,38 +49,6 @@ exports.editProfile = async (req, res) => {
         await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${id}`)
     }
 
-
-    // Gestion des différentes possibilités au niveau de l'édition du profile
-
-    // // Si pas de fichier mais un pseudo et un mot de passe
-    // if (!req.file && req.body.name && hash) {
-    //     sql = `UPDATE users SET name = ?, password= ? WHERE id = ?`
-    //     values = [req.body.name, hash, req.session.user.id]
-    // // Si pas de nom mais un fichier et un mot de passe
-    // } else if (req.body.name === "" && req.file && hash) {
-    //     sql = `UPDATE users SET avatar = ?, password= ? WHERE id = ?`
-    //     values = [req.file.filename, hash, req.session.user.id]
-    // // Si ni fichier, ni nom mais un mot de passe
-    // } else if (req.body.name === "" && !req.file && hash) {
-    //     sql = `UPDATE users SET password= ? WHERE id = ?`
-    //     values = [hash, req.session.user.id]
-    // // Si ni fichier, ni nom, ni mot de passe
-    // } else if (req.body.name === "" && !req.file && !hash){
-    //     sql = `SELECT name, avatar, password FROM users WHERE id = ?`
-    //     values = [req.session.user.id]
-    // // Sinon on fait la requête de base
-    // } else {
-    //     var sql = `UPDATE users SET name= ?, avatar= ?, password= ? WHERE id = ?`
-    //     var values = [
-    //         req.body.name,
-    //         req.file.filename,
-    //         hash,
-    //         req.session.user.id
-    //     ]
-    // }
-
-    // db.query(sql, function (err, edit) {
-    //     if (err) throw err
     getSql = `SELECT * FROM users WHERE id = ${req.session.user.id}`
     await db.query(getSql, function (err, results) {
         if (err) throw err

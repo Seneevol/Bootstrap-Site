@@ -19,13 +19,29 @@ exports.connectPage = (req, res) => {
 }
 
 // Système de connexion
-exports.connection = (req, res) => {
+exports.connection = async (req, res) => {
     var username = req.body.name
     var password = req.body.password
+
+    if (username === "" && password === "") {
+        const nothing = true
+        return res.render('connect', {
+            nothing
+        })
+    }
+
     if (username && password) {
-        db.query('SELECT * FROM users WHERE name = ?', [username], function (error, results, fields) {
-            if (results) {
+        await db.query('SELECT * FROM users WHERE name = ?', [username], function (error, results, fields) {
+
+            if (!results[0]) {
+                const noAccount = true
+                res.render('connect', {
+                    noAccount
+                })
+            }
+            if (results.length > 0) {
                 bcrypt.compare(password, results[0].password, (error, same) => {
+
                     if (!same) {
                         const notWorking = true
                         res.render('connect', {

@@ -9,6 +9,12 @@
                 <h2>Connexion</h2>
             </div>
             <form action="/connect" method="post" class="connection d-flex flex-column align-items-center">
+            {{#if nothing }}
+            <h5>Vous n'avez rien écrit!</h5>
+            {{/if }}
+            {{#if noAccount }}
+            <h5>Ce compte n'existe pas!</h5>
+            {{/if }}
             {{#if notWorking }}
             <h5>Vous êtes banni ou vous vous êtes trompé d'identifiants!</h5>
             {{/if }}
