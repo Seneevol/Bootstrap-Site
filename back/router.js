@@ -36,12 +36,12 @@ router.route('/')
 router.route('/home')
     .get(HomeController.homePage)
     .post(HomeController.createMessage)
-    .put(uploadAvatar.single('avatar'), sharp, HomeController.editProfile)
+    .put(uploadAvatar.single('avatar'), HomeController.editProfile)
 
 // /Routes Home
 
 router.route('/article')
-    .post(uploadArticle.single('image'), sharp, AdminController.addArticle)
+    .post(uploadArticle.single('image'), AdminController.addArticle)
 
 // Route ID page
 router.route('/blog/:name')
