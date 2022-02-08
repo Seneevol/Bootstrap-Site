@@ -41,7 +41,6 @@ exports.connection = async (req, res) => {
             }
             if (results.length > 0) {
                 bcrypt.compare(password, results[0].password, (error, same) => {
-
                     if (!same) {
                         const notWorking = true
                         res.render('connect', {

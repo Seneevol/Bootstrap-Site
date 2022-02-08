@@ -29,32 +29,44 @@ exports.createMessage = (req, res) => {
 
 // Export de l'édite du profil
 exports.editProfile = async (req, res) => {
-    console.log("IDIDIDIDIDIDIDID", req.session.user.id);
+    console.log("IDIDIDIDIDIDIDID", req.session.user.id)
 
     var getSql = `SELECT * FROM users WHERE id = ?`
-    const hash = bcrypt.hashSync(req.body.password, 10);
+    const hash = bcrypt.hashSync(req.body.password, 10)
 
     var name = req.body.name
     var avatar = req.file
     var password = req.body.password
+    var oldPassword = req.body.oldPassword
     var id = req.session.user.id
 
-    if (name) {
-        await db.query(`UPDATE users SET name = '${name}' WHERE id = ${id}`)
-    }
-    if (avatar) {
-        await db.query(`UPDATE users SET avatar = '${req.file.filename}' WHERE id = ${id}`)
-    }
-    if (password) {
-        await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${id}`)
-    }
+    bcrypt.compare(oldPassword, req.session.user.password, async (err, same) => {
+        if (!same) {
+            console.log(req.session.user);
+            res.redirect('back')
+        } else if (same) {
+            if (name) {
+                await db.query(`UPDATE users SET name = '${name}' WHERE id = ${id}`)
+            }
+            if (avatar) {
+                await db.query(`UPDATE users SET avatar = '${req.file.filename}' WHERE id = ${id}`)
+            }
+            if (password) {
+                await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${id}`)
+            }
 
-    getSql = `SELECT * FROM users WHERE id = ${req.session.user.id}`
-    await db.query(getSql, function (err, results) {
-        if (err) throw err
-        req.session.user = results[0]
-        res.redirect('back')
+            getSql = `SELECT * FROM users WHERE id = ${req.session.user.id}`
+            await db.query(getSql, function (err, results) {
+                if (err) throw err
+                req.session.user = results[0]
+                res.redirect('back')
+            })
+        }
     })
+}
+
+exports.MentionsPage = async (req, res) => {
+    res.render('mentions')
 }
 
 // const hash = bcrypt.hashSync("1234", 10);

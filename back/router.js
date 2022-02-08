@@ -46,7 +46,12 @@ router.route('/article')
 // Route ID page
 router.route('/blog/:name')
     .get(IdController.idPage)
+
+router.route('/comment/:name')
     .post(IdController.createComment)
+
+router.route('/comment/:id')
+    .post(IdController.replyComment)
     .delete(IdController.deleteComment)
 
 // Route Blog page
@@ -93,6 +98,10 @@ router.route('/register')
 router.route('/contact')
     .get(ContactController.contactPage)
     .post(ContactController.createMessage);
+
+// Routes de pages divers
+router.route('/mentions')
+    .get(HomeController.MentionsPage)
 
 //  /Routes
 

@@ -9,7 +9,7 @@ ADD COMMENT SECTION
             </div>
             <div class="card card-comment p-3">
                 {{#if user }}
-                <form action="/id" method="post">
+                <form action="/comment/{{#each dbArticle}}{{this.name}}{{/each }}" method="post">
                     <div class="d-flex flex-row align-items-center form-color">
                         <img src="/upload/users/{{user.avatar}}" alt="" width="50" class="rounded-circle me-2">
                         <textarea name="comment" id="" cols="" rows="2" class="comment-zone"
@@ -19,33 +19,33 @@ ADD COMMENT SECTION
                         <button class="btn btn-comment btn-sm col-md-2 align-self-end mt-1">Envoyer</button>
                     </div>
                 </form>
-                {{/if }}
+                
 
                 {{!--
                 USER COMMENT SECTION
                 --}}
+                {{#each dbComment }}
                 <div class="mt-2">
-                    <div class="d-flex flex-row p-3"><img src="/images/comments/comment1.jpg" alt="" width="40"
+                    <div class="d-flex flex-row p-3"><img src="/upload/users/{{ this.avatar }}" alt="" width="40"
                             height="40" class="rounded-circle me-3">
                         <div class="w-100">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-row align-items-center"> <span class="mr-2">Fu Hua</span>
-                                </div><small>Il y a 1h</small>
+                                <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{ this.name }}</span>
+                                </div><small>{{{formatDateCom this.date}}}</small>
                             </div>
-                            <p class="text-justify comment-text mb-0">Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Omnis incidunt, a unde pariatur necessitatibus quia, perferendis
-                                dolorum consequatur, porro facere quod itaque fugit. Modi saepe reiciendis rerum, id
-                                sapiente aliquid!</p>
+                            <p class="text-justify comment-text mb-0">{{ this.content }}</p>
                             <div class="d-flex flex-row user-feed">
-                                <span class="me-2"><a href="#respond-comment1" data-bs-toggle="collapse"><i
+                                <span class="me-2"><a href="#respond-comment{{ this.id }}" data-bs-toggle="collapse"><i
                                             class="fa fa-comments-o me-2"></i>Répondre</span></a>
-                                <span><a href="#deleteComment" data-bs-toggle="modal"><i
+                                            {{#if ../isAdmin}}
+                                <span><a href="#deleteComment{{ this.id }}" data-bs-toggle="modal"><i
                                             class="fas fa-trash me-2"></i>Supprimer</span></a>
+                                            {{/if }}
                             </div>
                             <!--ANSWER COMMENT-->
-                            <form action="/id" method="post" class="collapse mt-3 ms-2" id="respond-comment1">
+                            <form action="/comment/{{ this.id }}" method="post" class="collapse mt-3 ms-2" id="respond-comment{{ this.id }}">
                                 <div class="d-flex flex-row">
-                                    <img src="/upload/users/{{ user.avatar }}" alt="" width="50"
+                                    <img src="/upload/users/{{ ../user.avatar }}" alt="" width="50"
                                         class="rounded-circle me-2">
                                     <textarea class="mail-area w-100" name="comment" id="" cols="" rows="2"
                                         placeholder="Entrez votre réponse..."></textarea>
@@ -57,9 +57,10 @@ ADD COMMENT SECTION
                         </div>
                     </div>
                 </div>
+                {{> modals/admin/deleteComments}}
+                {{/each }}
+                {{/if }}
             </div>
         </div>
     </div>
 </section>
-
-{{> modals/admin/deleteComments}}
