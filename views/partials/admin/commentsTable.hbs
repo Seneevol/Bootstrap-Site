@@ -17,13 +17,17 @@ MAIL TABLE
                         </tr>
                     </thead>
                     <tbody>
-                        <td>Placeholder</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nobis exercitationem earum placeat aliquam amet quasi debitis molestiae. Temporibus velit itaque possimus voluptas quasi consequatur odio libero natus aliquam inventore!</td>
-                        <td>
-                            <a href="#deleteComment{{ this.id }}" data-bs-toggle="modal">
+                        {{#each dbComment }}
+                        <tr>
+                            <td>{{ this.name }}</td>
+                            <td>{{ this.content }}</td>
+                            <td>
+                                <a href="#deleteComment{{ this.id }}" data-bs-toggle="modal">
                                     <i class="fas fa-trash"></i>
                                 </a>
-                        </td>
+                            </td>
+                        </tr>
+                        {{/each }}
                     </tbody>
                 </table>
             </div>

@@ -17,6 +17,7 @@ exports.getPageAdmin = async (req, res) => {
     res.render('admin', {
         dbUser: await db.query('SELECT * FROM users'),
         dbArticle: await db.query('SELECT * FROM articles'),
+        dbComment: await db.query('SELECT comments.*, users.name FROM comments INNER JOIN users ON comments.author_id = users.id')
     })
 }
 

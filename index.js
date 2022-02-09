@@ -43,7 +43,11 @@ const sessionStore = new MySQLStore(options)
 
 
 // Handlebars
-const { formatDate, formatDateCom, ifCond } = require('./back/helper')
+const {
+    formatDate,
+    formatDateCom,
+    ifCond
+} = require('./back/helper')
 app.set('view engine', 'hbs')
 app.engine('hbs', engine({
     helpers: {
@@ -88,6 +92,13 @@ app.use('*', (req, res, next) => {
 // Router
 const ROUTER = require('./back/router')
 app.use('/', ROUTER)
+
+// Met toute les autres page non défini en 404
+app.use('*', function (req, res) {
+    res.status(404).render("error404", {
+        layout: 'err'
+    })
+})
 
 // Démarrage
 app.listen(port, () => {
