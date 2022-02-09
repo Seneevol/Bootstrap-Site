@@ -1,5 +1,8 @@
 // Import de Multer
-const multer = require('multer');
+const multer = require('multer')
+const fs = require('fs')
+const { promisify } = require('util')
+const unlinkAsync = promisify(fs.unlink)
 
 // Ici nous définissons la config de stockage de multer
 const storage = multer.diskStorage({

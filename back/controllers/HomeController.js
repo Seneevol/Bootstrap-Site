@@ -5,6 +5,10 @@ const {
     DEC8_BIN
 } = require("mysql/lib/protocol/constants/charsets");
 const bcrypt = require("bcrypt")
+const path = require('path')
+
+// Fichiers Utils
+const { deleteOneFile } = require('../utils/deleteOneFile')
 
 
 
@@ -39,6 +43,7 @@ exports.editProfile = async (req, res) => {
     var password = req.body.password
     var oldPassword = req.body.oldPassword
     var id = req.session.user.id
+    const user = await db.query(`SELECT * FROM users WHERE id = ${id}`)
 
     bcrypt.compare(oldPassword, req.session.user.password, async (err, same) => {
         if (!same) {
@@ -49,6 +54,10 @@ exports.editProfile = async (req, res) => {
                 await db.query(`UPDATE users SET name = '${name}' WHERE id = ${id}`)
             }
             if (avatar) {
+                if (user[0].avatar != "default.png") {
+                    const dir = path.join('./public/upload/users')
+                    deleteOneFile(dir, user[0].avatar)
+                }
                 await db.query(`UPDATE users SET avatar = '${req.file.filename}' WHERE id = ${id}`)
             }
             if (password) {
