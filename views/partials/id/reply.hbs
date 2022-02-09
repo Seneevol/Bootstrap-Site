@@ -1,0 +1,26 @@
+{{!--
+REPLY COMMENT PARTIAL
+--}}
+<div class="mt-1 ms-5">
+    <div class="d-flex flex-row p-3"><img src="/upload/users/{{ this.avatar }}" alt="" width="40" height="40"
+            class="rounded-circle me-3">
+        <div class="w-100">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{ this.name }}</span>
+                </div><small>{{{formatDateCom this.date}}}</small>
+            </div>
+            <p class="text-justify comment-text mb-0">{{ this.content }}</p>
+            <div class="d-flex flex-row user-feed">
+                {{!-- {{#if @root.user}}
+                <span class="me-2"><a href="#respond-comment{{ this.id }}" data-bs-toggle="collapse"><i
+                            class="fa fa-comments-o me-2"></i>Répondre</span></a>
+                {{/if }} --}}
+                {{#if @root.isAdmin}}
+                <span><a href="#deleteComment{{ this.id }}" data-bs-toggle="modal"><i
+                            class="fas fa-trash me-2"></i>Supprimer</span></a>
+                {{/if }}
+            </div>
+        </div>
+    </div>
+</div>
+{{> modals/admin/deleteComments}}

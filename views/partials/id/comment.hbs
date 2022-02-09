@@ -19,31 +19,36 @@ ADD COMMENT SECTION
                         <button class="btn btn-comment btn-sm col-md-2 align-self-end mt-1">Envoyer</button>
                     </div>
                 </form>
-                
+                {{/if }}
 
                 {{!--
                 USER COMMENT SECTION
                 --}}
-                {{#each dbComment }}
+                {{#each construct }}
+                {{#unless this.parent_id }}
                 <div class="mt-2">
                     <div class="d-flex flex-row p-3"><img src="/upload/users/{{ this.avatar }}" alt="" width="40"
                             height="40" class="rounded-circle me-3">
                         <div class="w-100">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{ this.name }}</span>
+                                <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{ this.name
+                                        }}</span>
                                 </div><small>{{{formatDateCom this.date}}}</small>
                             </div>
                             <p class="text-justify comment-text mb-0">{{ this.content }}</p>
                             <div class="d-flex flex-row user-feed">
+                                {{#if ../user}}
                                 <span class="me-2"><a href="#respond-comment{{ this.id }}" data-bs-toggle="collapse"><i
                                             class="fa fa-comments-o me-2"></i>Répondre</span></a>
-                                            {{#if ../isAdmin}}
+                                {{/if }}
+                                {{#if ../isAdmin}}
                                 <span><a href="#deleteComment{{ this.id }}" data-bs-toggle="modal"><i
                                             class="fas fa-trash me-2"></i>Supprimer</span></a>
-                                            {{/if }}
+                                {{/if }}
                             </div>
                             <!--ANSWER COMMENT-->
-                            <form action="/comment/{{ this.id }}" method="post" class="collapse mt-3 ms-2" id="respond-comment{{ this.id }}">
+                            <form action="/replyComment/{{ this.id }}" method="post" class="collapse mt-3 ms-2"
+                                id="respond-comment{{ this.id }}">
                                 <div class="d-flex flex-row">
                                     <img src="/upload/users/{{ ../user.avatar }}" alt="" width="50"
                                         class="rounded-circle me-2">
@@ -57,9 +62,14 @@ ADD COMMENT SECTION
                         </div>
                     </div>
                 </div>
+                {{/unless }}
+                {{#each this.childs as |child| }}
+                {{#ifCond ../this.id this.parent_id }}
+                {{> id/reply}}
+                {{/ifCond }}
+                {{/each }}
                 {{> modals/admin/deleteComments}}
                 {{/each }}
-                {{/if }}
             </div>
         </div>
     </div>

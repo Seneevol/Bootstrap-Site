@@ -43,12 +43,13 @@ const sessionStore = new MySQLStore(options)
 
 
 // Handlebars
-const { formatDate, formatDateCom } = require('./back/helper')
+const { formatDate, formatDateCom, ifCond } = require('./back/helper')
 app.set('view engine', 'hbs')
 app.engine('hbs', engine({
     helpers: {
         formatDate,
         formatDateCom,
+        ifCond
     },
     extname: 'hbs',
     defaultLayout: 'main'

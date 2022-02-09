@@ -25,5 +25,14 @@ module.exports = {
         else {
           return datetime;
         }
-      }
+      },
+
+      // Fonction permettant de faire une condition dans handlebars
+      ifCond: function(a, b, opts) {
+        if (a == b) {
+            return opts.fn(this);
+        } else {
+            return opts.inverse(this);
+        }
+    }
 }

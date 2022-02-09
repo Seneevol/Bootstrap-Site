@@ -51,8 +51,10 @@ router.route('/comment/:name')
     .post(IdController.createComment)
 
 router.route('/comment/:id')
-    .post(IdController.replyComment)
     .delete(IdController.deleteComment)
+
+router.route('/replyComment/:id')
+    .post(IdController.replyComment)
 
 // Route Blog page
 router.route('/blog')
