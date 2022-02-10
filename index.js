@@ -5,16 +5,16 @@
 require('dotenv').config()
 
 // Importation des modules npm
-const express = require('express')
-const app = express()
-const expressSession = require('express-session')
-const bodyParser = require('body-parser')
-const mysql = require('mysql')
-const methodOverride = require('method-override')
-const port = process.env.PORT || 2222
-const {
-    engine
-} = require('express-handlebars')
+const 
+express = require('express'),
+app = express(),
+expressSession = require('express-session'),
+nodemailer = require('nodemailer'),
+bodyParser = require('body-parser'),
+mysql = require('mysql'),
+methodOverride = require('method-override'),
+port = process.env.PORT || 2222,
+ { engine } = require('express-handlebars')
 
 // Module permettant de storer le cookie de l'utilisateur
 const MySQLStore = require("express-mysql-session")(expressSession);
@@ -68,7 +68,19 @@ app.use(
         resave: false,
         store: sessionStore
     })
-);
+)
+
+// Connexion à gmail avec Nodemailer
+transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    service: 'gmail',
+    port: '587',
+    auth: {
+        user: process.env.USERGMAIL,
+        pass: process.env.PASSGMAIL
+    }
+})
+
 
 // Method-Override
 app.use(methodOverride('_method'))

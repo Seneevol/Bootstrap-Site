@@ -28,7 +28,20 @@ exports.homePage = async (req, res) => {
 // To send a message on the Home Page
 exports.createMessage = (req, res) => {
     console.log('On regarde tes messages ici', req.body);
-    res.render('home')
+    const mailOptions = {
+        from: req.body.email,
+        to: 'nakadcontact@gmail.com',
+        subject: 'Envoyé par: ' + req.body.name,
+        html: `<h2>${req.body.message}</h2>`
+    }
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) res.status(404)
+        else {
+            console.log(info)
+            res.redirect('/home')
+        }
+    })
 }
 
 // Export de l'édite du profil

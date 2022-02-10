@@ -88,7 +88,13 @@ router.route('/logout')
 
 router.route('/password')
     .get(AuthController.passwordPage)
-    .post(AuthController.restoreMail);
+    .post(AuthController.resetPassword)
+
+router.route('/resetPass')
+    .put(AuthController.passwordReseter)
+
+router.route('/resetPass/:id')
+    .get(AuthController.resetPasswordPage)
 
 router.route('/register')
     .get(AuthController.registerPage)

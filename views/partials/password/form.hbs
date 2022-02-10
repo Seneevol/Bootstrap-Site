@@ -7,6 +7,12 @@
             <div class="connect-title">
                 <h2>Changer de mot de passe</h2>
             </div>
+            {{#if mailSend }}
+            <h6>Votre mail a bien été envoyé à l'adresse demandée</h6>
+            {{/if }}
+            {{#if dontExist }}
+            <h6>Ce mail n'est pas utilisé</h6>
+            {{/if }}
             <div class="col-md-12">
                 <div class="connection d-flex flex-column align-items-center">
                     <div class="mb-3 element-form">
