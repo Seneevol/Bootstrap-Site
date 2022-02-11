@@ -95,9 +95,10 @@ app.use(express.static('public'))
 
 // Définition de variables globals pour les sessions
 app.use('*', (req, res, next) => {
+    res.locals.visitor = req.session.visitor
     res.locals.user = req.session.user
     res.locals.isAdmin = req.session.isAdmin
-    // console.log(req.session)
+    console.log(req.session.cookie)
     next()
 })
 

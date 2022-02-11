@@ -1,0 +1,47 @@
+{{!--
+MESSAGES TABLE
+--}}
+<section id="messages" class="collapse">
+    <div class="container">
+        <div class="row">
+            <div class="section-user-title mb-3">
+                <h2>Messages</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Message</th>
+                            <th scope="col">Reply</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each dbMessage }}
+                        <tr>
+                            <td>{{ this.name }}</td>
+                            <td>{{ this.email }}</td>
+                            <td>{{ this.message }}</td>
+                            <td>
+                                <a href="#reply-mail{{ this.id }}" data-bs-toggle="modal">
+                                    <i class="fa-solid fa-reply"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#delete-mail{{ this.id }}" data-bs-toggle="modal">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{> modals/admin/replyMessage}}
+
+                        {{> modals/admin/deleteMessage}}
+                        {{/each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

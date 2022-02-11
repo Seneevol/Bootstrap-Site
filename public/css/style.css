@@ -28,7 +28,6 @@ h2::after {
     margin: 0 auto;
     margin-top: 1%;
 }
-
 /*
  * HEADER
  * ****** */
@@ -268,6 +267,10 @@ footer a:hover {
 
 .modal {
     max-width: 100%;
+}
+
+.modal-body {
+    word-break: break-all;
 }
 
 .btn-off {

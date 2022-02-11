@@ -17,7 +17,8 @@ exports.getPageAdmin = async (req, res) => {
     res.render('admin', {
         dbUser: await db.query('SELECT * FROM users'),
         dbArticle: await db.query('SELECT * FROM articles'),
-        dbComment: await db.query('SELECT comments.*, users.name FROM comments INNER JOIN users ON comments.author_id = users.id')
+        dbComment: await db.query('SELECT comments.*, users.name FROM comments INNER JOIN users ON comments.author_id = users.id'),
+        dbMessage: await db.query('SELECT * FROM messages')
     })
 }
 
@@ -97,4 +98,32 @@ exports.deleteArticle = async (req, res) => {
     const dir = path.join('./public/upload/articles')
     deleteOneFile(dir, article[0].image)
     res.redirect('/admin')
+}
+
+exports.deleteMessage = async (req, res) => {
+    console.log('Je delete le truc:', req.params.id)
+    await db.query(`DELETE FROM messages WHERE id = ${ req.params.id }`)
+    res.redirect('/admin')
+}
+
+exports.replyMessage = async (req, res) => {
+
+    messageData = await db.query(`SELECT * FROM messages WHERE id = ${req.params.id}`)
+    console.log(req.body);
+
+    const mailOptions = {
+        from: 'noreply@socialmusic.com',
+        to: messageData[0].email,
+        subject: 'Réponse à: ' + messageData[0].name,
+        html: `<h1>NE REPONDEZ PAS A CE MAIL!!!!</h1><br><h2>${req.body.message}</h2>`
+    }
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) res.status(404)
+        else {
+            console.log(info)
+            res.redirect('/admin')
+        }
+    })
+    await db.query(`DELETE FROM messages WHERE id = ${ req.params.id }`)
 }

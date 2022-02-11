@@ -67,6 +67,10 @@ router.route('/admin/blog/:id')
 router.route('/admin')
     .get(mdl.isAdmin, AdminController.getPageAdmin)
 
+router.route('/message/:id')
+    .post(mdl.isAdmin, AdminController.replyMessage)
+    .delete(mdl.isAdmin, AdminController.deleteMessage)
+
 // Routes for ID on Admin page
 router.route('/admin/:id')
     .put(mdl.isAdmin, uploadArticle.single('image'), AdminController.editArticle)

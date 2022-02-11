@@ -14,6 +14,9 @@ const bcrypt = require("bcrypt");
 const {
     link
 } = require("fs");
+const { userInfo } = require("os");
+
+let mailOptions, host, linkMail, rand
 
 // Export connection page
 exports.connectPage = (req, res) => {
@@ -133,16 +136,26 @@ exports.registerInfo = async (req, res) => {
 
 // Export password page
 
+
 exports.passwordReseter = async (req, res) => {
     const { password, confirmation } = req.body
     const hash = bcrypt.hashSync(password, 10)
+    console.log("controller reset password")
+    console.log('OUAOUOUAI: ', hash)
 
     if (password !== confirmation) {
         res.redirect('back')
     } else {
-        await db.query((`UPDATE users SET password = '${hash}' WHERE id = '${req.params.id}'`), function (err) {
+
+        var test = req.session.visitor.userID;
+        console.log("test: ", test);
+        await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${test}`, function (err) {
             const changePassword = true
             var userID = req.params.id
+            console.log('IDEUUUUH: ', req.session.visitor.userID)
+            req.session.destroy(() => {
+                res.clearCookie('nakad')
+            })
             res.render('connect', {
                 changePassword,
                 userID
@@ -157,18 +170,22 @@ exports.passwordPage = (req, res) => {
 }
 
 exports.resetPassword = async (req, res) => {
-    var userID, mailOptions, host, linkMail
+    var userInfo
 
-    userName = await db.query(`SELECT name FROM users WHERE email = '${req.body.email}'`)
-    userID = await db.query(`SELECT id FROM users WHERE email = '${req.body.email}'`)
+    userInfo = await db.query(`SELECT name, id FROM users WHERE email = '${req.body.email}'`)
     host = req.get('host')
-    linkMail = "http://" + req.get('host') + "/resetPass/" + userID[0].id
-    if (userName.length > 0) {
+    rand = Math.floor((Math.random() * 100) + 54)
+    req.session.visitor = { id: rand, userID: userInfo[0].id }
+    req.session.cookie.maxAge = 900000
+    console.log('ET MATUIDI CA CES LID: ', req.session.visitor.userID)
+
+    linkMail = "http://" + req.get('host') + "/resetPass/" + req.session.visitor.id
+    if (userInfo.length > 0) {
         var mailOptions = {
-            from: req.body.email,
-            to: 'nakadcontact@gmail.com',
-            subject: `'Vous avez demandé à réinitialiser votre mot de passe, ' + ${userName}`,
-            rand: userID,
+            from: 'nakadcontact@gmail.com',
+            to: req.body.email,
+            subject: `'Vous avez demandé à réinitialiser votre mot de passe, ' + ${userInfo[0].name}`,
+            rand: req.session.visitor.id,
             html: `
             <p>Une demande de réinitialisation de votre mot de passe à été faite, veuillez suivre ce lien si vous en êtes l'auteur: </p><br>
             <a href="${linkMail}">Cliquez ici pour aller changer votre mot de passe</a>`
@@ -193,14 +210,13 @@ exports.resetPassword = async (req, res) => {
     }
 }
 exports.resetPasswordPage = async (req, res) => {
-    var userID, host
     console.log(req.protocol + "://" + req.get('host'))
     console.log('Page resetPassword: ')
     // Ici on tcheck notre protocole hébergeur (nodejs localhost) et le liens générer dans le mail
     if ((req.protocol + "://" + req.get('host')) == ("http://" + req.get('host'))) {
         console.log("Domain is matched. Information is from Authentic email")
         var userID = await db.query(`SELECT id FROM users WHERE id = '${req.params.id}'`)
-        if (req.params.id == userID[0].id) {
+        if (req.params.id == req.session.visitor.id) {
             res.render('resetPassword')
         } else {
             console.log("Mauvaise requête")
