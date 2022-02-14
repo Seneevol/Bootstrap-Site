@@ -136,34 +136,6 @@ exports.registerInfo = async (req, res) => {
 
 // Export password page
 
-
-exports.passwordReseter = async (req, res) => {
-    const { password, confirmation } = req.body
-    const hash = bcrypt.hashSync(password, 10)
-    console.log("controller reset password")
-    console.log('OUAOUOUAI: ', hash)
-
-    if (password !== confirmation) {
-        res.redirect('back')
-    } else {
-
-        var test = req.session.visitor.userID;
-        console.log("test: ", test);
-        await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${test}`, function (err) {
-            const changePassword = true
-            var userID = req.params.id
-            console.log('IDEUUUUH: ', req.session.visitor.userID)
-            req.session.destroy(() => {
-                res.clearCookie('nakad')
-            })
-            res.render('connect', {
-                changePassword,
-                userID
-            })
-        })
-    }
-}
-
 exports.passwordPage = (req, res) => {
     console.log('Password')
     res.render('password')
@@ -209,14 +181,15 @@ exports.resetPassword = async (req, res) => {
         })
     }
 }
+
 exports.resetPasswordPage = async (req, res) => {
     console.log(req.protocol + "://" + req.get('host'))
     console.log('Page resetPassword: ')
     // Ici on tcheck notre protocole hébergeur (nodejs localhost) et le liens générer dans le mail
-    if ((req.protocol + "://" + req.get('host')) == ("http://" + req.get('host'))) {
+    if ((req.protocol + "://" + req.get('host')) === ("http://" + req.get('host'))) {
         console.log("Domain is matched. Information is from Authentic email")
         var userID = await db.query(`SELECT id FROM users WHERE id = '${req.params.id}'`)
-        if (req.params.id == req.session.visitor.id) {
+        if (Number(req.params.id) === Number(req.session.visitor.id)) {
             res.render('resetPassword')
         } else {
             console.log("Mauvaise requête")
@@ -225,6 +198,33 @@ exports.resetPasswordPage = async (req, res) => {
     } else {
         console.log("Requête inexistante")
         res.redirect('/home')
+    }
+}
+
+exports.passwordReseter = async (req, res) => {
+    const { password, confirmation } = req.body
+    const hash = bcrypt.hashSync(password, 10)
+    console.log("controller reset password")
+    console.log('OUAOUOUAI: ', hash)
+
+    if (password !== confirmation) {
+        res.redirect('back')
+    } else {
+
+        var test = req.session.visitor.userID;
+        console.log("test: ", test);
+        await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${test}`, function (err) {
+            const changePassword = true
+            var userID = req.params.id
+            console.log('IDEUUUUH: ', req.session.visitor.userID)
+            req.session.destroy(() => {
+                res.clearCookie('nakad')
+            })
+            res.render('connect', {
+                changePassword,
+                userID
+            })
+        })
     }
 }
 

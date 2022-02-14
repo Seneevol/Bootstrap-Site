@@ -111,17 +111,20 @@ exports.replyMessage = async (req, res) => {
     messageData = await db.query(`SELECT * FROM messages WHERE id = ${req.params.id}`)
     console.log(req.body);
 
+    let message = req.body.message
+
     const mailOptions = {
         from: 'noreply@socialmusic.com',
         to: messageData[0].email,
         subject: 'Réponse à: ' + messageData[0].name,
-        html: `<h1>NE REPONDEZ PAS A CE MAIL!!!!</h1><br><h2>${req.body.message}</h2>`
+        html: `<h1>NE REPONDEZ PAS A CE MAIL!!!!</h1><br><h2>${message}</h2>`
     }
 
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) res.status(404)
         else {
             console.log(info)
+            console.log('Le body quand on envoie laaaaaaa', message);
             res.redirect('/admin')
         }
     })

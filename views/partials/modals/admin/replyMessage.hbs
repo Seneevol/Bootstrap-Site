@@ -8,16 +8,16 @@ REPLY MESSAGE MODAL
                 <h5 class="modal-title">Répondre au message de {{ this.name }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p>{{ this.message }}</p>
-                <textarea name="message" id="reply" cols="30" rows="10"></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
-                <form action="/message/{{ this.id }}" method="post">
+            <form action="/message/{{ this.id }}" method="post">
+                <div class="modal-body">
+                    <p>{{ this.message }}</p>
+                    <textarea name="message" id="reply" cols="30" rows="10"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-off" data-bs-dismiss="modal">Non</button>
                     <button type="submit" class="btn btn-on">Oui</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
