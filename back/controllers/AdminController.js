@@ -31,7 +31,7 @@ exports.addArticle = async (req, res) => {
     var avatar = req.file.filename
     console.log(req.body, req.file.filename);
 
-    let sql = `INSERT INTO articles SET articlename= :name, image= :avatar, content= :content, link= :link, author_id= ${req.session.user.id});`
+    let sql = `INSERT INTO articles SET articlename= :name, image= :avatar, content= :content, link= :link, author_id= ${req.session.user.id};`
 
     await db.query(sql, {name, avatar, content, link}, function (err) {
         if (err) throw err
