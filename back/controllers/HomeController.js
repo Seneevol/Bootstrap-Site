@@ -29,7 +29,7 @@ exports.homePage = async (req, res) => {
 exports.createMessage = async (req, res) => {
     console.log('On regarde tes messages ici', req.body)
     var { name, email, message } = req.body
-    await db.query(`INSERT INTO messages (authormessage, email, message) VALUES ( '${name}', '${email}', '${message}' );`)
+    await db.query(`INSERT INTO messages SET authormessage= :name, email= :email, message= :message`, {name, email, message})
     res.redirect('/home')
 }
 
@@ -45,6 +45,7 @@ exports.editProfile = async (req, res) => {
     var password = req.body.password
     var oldPassword = req.body.oldPassword
     var id = req.session.user.id
+    var avatar = req.file.filename
     const user = await db.query(`SELECT * FROM users WHERE id = ${id}`)
 
     bcrypt.compare(oldPassword, req.session.user.password, async (err, same) => {
@@ -53,17 +54,17 @@ exports.editProfile = async (req, res) => {
             res.redirect('back')
         } else if (same) {
             if (name) {
-                await db.query(`UPDATE users SET username = '${name}' WHERE id = ${id}`)
+                await db.query(`UPDATE users SET username= :name WHERE id = ${id}`, {name})
             }
             if (avatar) {
                 if (user[0].avatar != "default.png") {
                     const dir = path.join('./public/upload/users')
                     deleteOneFile(dir, user[0].avatar)
                 }
-                await db.query(`UPDATE users SET avatar = '${req.file.filename}' WHERE id = ${id}`)
+                await db.query(`UPDATE users SET avatar= :avatar WHERE id = ${id}`, {avatar})
             }
             if (password) {
-                await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${id}`)
+                await db.query(`UPDATE users SET password= :hash WHERE id = ${id}`, {hash})
             }
 
             getSql = `SELECT * FROM users WHERE id = ${req.session.user.id}`

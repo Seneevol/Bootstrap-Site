@@ -37,7 +37,7 @@ exports.connection = async (req, res) => {
     }
 
     if (username && password) {
-        await db.query('SELECT * FROM users WHERE username = ?', [username], function (error, results, fields) {
+        await db.query(`SELECT * FROM users WHERE username = ${username}`, function (error, results, fields) {
 
             if (!results[0]) {
                 const noAccount = true
@@ -122,7 +122,7 @@ exports.registerInfo = async (req, res) => {
                 }
             }
             if (noDuplicate === true) {
-                await db.query(`INSERT INTO users (username, email, password) VALUES ( '${name}', '${email}', '${hash}' );`, function (err) {
+                await db.query(`INSERT INTO users SET username= :name, email= :email, password= :hash`, {name, email, hash}, function (err) {
                     console.log("COMPTE CREE BIEN JOUER !!!!!! REUSSIE !!!!!!");
                     const successRegistration = true
                     res.render("connect", {
@@ -213,7 +213,7 @@ exports.passwordReseter = async (req, res) => {
 
         var test = req.session.visitor.userID;
         console.log("test: ", test);
-        await db.query(`UPDATE users SET password = '${hash}' WHERE id = ${test}`, function (err) {
+        await db.query(`UPDATE users SET password= :hash WHERE id = ${test}`, {hash}, function (err) {
             const changePassword = true
             var userID = req.params.id
             console.log('IDEUUUUH: ', req.session.visitor.userID)

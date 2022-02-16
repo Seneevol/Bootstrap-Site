@@ -12,6 +12,6 @@ exports.contactPage = (req, res) => {
 exports.createMessage = async (req, res) => {
     console.log('On regarde tes messages mais sur la page contact!', req.body)
     var { name, email, message } = req.body
-    await db.query(`INSERT INTO messages (authormessage, email, message) VALUES ( '${name}', '${email}', '${message}' );`)
+    await db.query(`INSERT INTO messages SET authormessage= :name, email= :email, message= :message`, {name, email, message})
     res.redirect('/contact')
 }

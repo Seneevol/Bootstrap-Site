@@ -15,7 +15,6 @@ const
 // Import Controllers
 const
     HomeController = require("./controllers/HomeController"),
-    IdController = require("./controllers/IdController"),
     BlogController = require("./controllers/BlogController"),
     AdminController = require("./controllers/AdminController"),
     AuthController = require("./controllers/AuthController"),
@@ -45,16 +44,16 @@ router.route('/article')
 
 // Route ID page
 router.route('/blog/:name')
-    .get(IdController.idPage)
+    .get(BlogController.idPage)
 
 router.route('/comment/:name')
-    .post(IdController.createComment)
+    .post(BlogController.createComment)
 
 router.route('/comment/:id')
-    .delete(IdController.deleteComment)
+    .delete(BlogController.deleteComment)
 
 router.route('/replyComment/:id')
-    .post(IdController.replyComment)
+    .post(BlogController.replyComment)
 
 // Route Blog page
 router.route('/blog')
