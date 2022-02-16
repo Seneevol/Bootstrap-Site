@@ -63,6 +63,12 @@ router.route('/blog')
 router.route('/admin/blog/:id')
     .delete(mdl.isAdmin, AdminController.deleteArticle)
 
+router.route('/admin/blog/verify/:id')
+    .put(mdl.isAdmin, AdminController.verifyArticle)
+
+router.route('/admin/blog/ban/:id')
+    .put(mdl.isAdmin, AdminController.banArticle)
+
 // Route Admin page
 router.route('/admin')
     .get(mdl.isAdmin, AdminController.getPageAdmin)

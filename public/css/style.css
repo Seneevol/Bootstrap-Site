@@ -534,3 +534,14 @@ footer a:hover {
 #message li {
     list-style-type: none;
 }
+
+/*
+ * ARTICLES
+ * ******** */
+.fa-check {
+    color: green;
+}
+
+.fa-times {
+    color: red;
+}

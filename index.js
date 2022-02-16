@@ -46,14 +46,16 @@ const sessionStore = new MySQLStore(options)
 const {
     formatDate,
     formatDateCom,
-    ifCond
+    ifCond,
+    ifEquals
 } = require('./back/helper')
 app.set('view engine', 'hbs')
 app.engine('hbs', engine({
     helpers: {
         formatDate,
         formatDateCom,
-        ifCond
+        ifCond,
+        ifEquals
     },
     extname: 'hbs',
     defaultLayout: 'main'

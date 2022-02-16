@@ -6,6 +6,6 @@
 exports.blogPage = async (req, res) => {
     console.log('Blog');
     res.render('blog', {
-        dbArticle: await db.query(`SELECT * FROM articles`)
+        dbArticle: await db.query(`SELECT * FROM articles WHERE isVerify = 1`)
     })
 }

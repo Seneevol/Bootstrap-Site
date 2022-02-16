@@ -20,7 +20,7 @@ exports.homePage = async (req, res) => {
     console.log('Coucou est: ' + coucou);
     // Render of the page + Variable coucou
     res.render('home', {
-        dbArticle: await db.query(`SELECT * FROM articles ORDER BY date DESC LIMIT 3`),
+        dbArticle: await db.query(`SELECT * FROM articles WHERE isVerify = 1 ORDER BY date DESC LIMIT 3`),
         coucou
     })
 }

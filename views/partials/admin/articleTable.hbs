@@ -20,6 +20,7 @@ ARTICLE TABLE
                             <th scope="col">Auteur</th>
                             <th scope="col">Date</th>
                             <th scope="col">Edit/Del</th>
+                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,7 +36,20 @@ ARTICLE TABLE
                                 <a href="#deletearticle{{ this.id }}" data-bs-toggle="modal"><i
                                         class="fas fa-trash"></i></a>
                             </td>
+                            <td>
+                                {{#if isVerify}}
+                                <a href="#verifarticle{{ this.id }}" data-bs-toggle="modal">
+                                    <i class="fas fa-check"></i>
+                                </a>
+                                {{else}}
+                                <a href="#banarticle{{ this.id }}" data-bs-toggle="modal">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                                {{/if }}
+                            </td>
                         </tr>
+                        {{> modals/admin/verifArticle}}
+
                         {{> modals/admin/editArticle}}
 
                         {{> modals/admin/deleteArticle}}
