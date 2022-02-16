@@ -16,8 +16,8 @@ exports.getPageAdmin = async (req, res) => {
     console.log("Admin");
     res.render('admin', {
         dbUser: await db.query('SELECT * FROM users'),
-        dbArticle: await db.query('SELECT * FROM articles'),
-        dbComment: await db.query('SELECT comments.*, users.name FROM comments INNER JOIN users ON comments.author_id = users.id'),
+        dbArticle: await db.query('SELECT articles.*, users.username FROM articles INNER JOIN users ON articles.author_id = users.id'),
+        dbComment: await db.query('SELECT comments.*, users.username FROM comments INNER JOIN users ON comments.author_id = users.id'),
         dbMessage: await db.query('SELECT * FROM messages')
     })
 }
@@ -30,7 +30,7 @@ exports.addArticle = async (req, res) => {
     } = req.body
     console.log(req.body, req.file.filename);
 
-    let sql = `INSERT INTO articles (name, image, content, link, author_id) VALUES ("${name}", "${req.file.filename}", "${content}", "${link}", ${req.session.user.id});`
+    let sql = `INSERT INTO articles (articlename, image, content, link, author_id) VALUES ("${name}", "${req.file.filename}", "${content}", "${link}", ${req.session.user.id});`
 
     await db.query(sql, function (err) {
         if (err) throw err
@@ -51,7 +51,7 @@ exports.editArticle = async (req, res) => {
     const article = await db.query(`SELECT * FROM articles WHERE id = ${id}`)
 
     if (name) {
-        await db.query(`UPDATE articles SET name = '${name}' WHERE id = ${id}`)
+        await db.query(`UPDATE articles SET articlename = '${name}' WHERE id = ${id}`)
     }
     if (image) {
         const dir = path.join('./public/upload/articles')

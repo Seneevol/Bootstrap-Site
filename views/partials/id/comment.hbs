@@ -9,7 +9,7 @@ ADD COMMENT SECTION
             </div>
             <div class="card card-comment p-3">
                 {{#if user }}
-                <form action="/comment/{{#each dbArticle}}{{this.name}}{{/each }}" method="post">
+                <form action="/comment/{{#each dbArticle}}{{this.articlename}}{{/each }}" method="post">
                     <div class="d-flex flex-row align-items-center form-color">
                         <img src="/upload/users/{{user.avatar}}" alt="" width="50" class="rounded-circle me-2">
                         <textarea name="comment" id="" cols="" rows="2" class="comment-zone"
@@ -31,7 +31,7 @@ ADD COMMENT SECTION
                             height="40" class="rounded-circle me-3">
                         <div class="w-100">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{ this.name
+                                <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{ this.username
                                         }}</span>
                                 </div><small>{{{formatDateCom this.date}}}</small>
                             </div>

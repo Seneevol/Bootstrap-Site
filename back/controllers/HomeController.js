@@ -29,7 +29,7 @@ exports.homePage = async (req, res) => {
 exports.createMessage = async (req, res) => {
     console.log('On regarde tes messages ici', req.body)
     var { name, email, message } = req.body
-    await db.query(`INSERT INTO messages (name, email, message) VALUES ( '${name}', '${email}', '${message}' );`)
+    await db.query(`INSERT INTO messages (authormessage, email, message) VALUES ( '${name}', '${email}', '${message}' );`)
     res.redirect('/home')
 }
 
@@ -53,7 +53,7 @@ exports.editProfile = async (req, res) => {
             res.redirect('back')
         } else if (same) {
             if (name) {
-                await db.query(`UPDATE users SET name = '${name}' WHERE id = ${id}`)
+                await db.query(`UPDATE users SET username = '${name}' WHERE id = ${id}`)
             }
             if (avatar) {
                 if (user[0].avatar != "default.png") {

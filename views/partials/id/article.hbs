@@ -7,7 +7,7 @@
         <div class="row">
             {{#each dbArticle }}
             <div class="cards-page-title">
-                <h2>{{ name }}</h2>
+                <h2>{{ articlename }}</h2>
             </div>
             <div class="col-md-12">
                 <div class="card card-article" style="max-width: 100%; max-height: 100%;">
@@ -17,10 +17,10 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ name }}</h5>
+                                <h5 class="card-title">{{ articlename }}</h5>
                                 <p class="card-text">{{ content }}</p>
                                     <a href="{{ link }}">{{ link }}</a>
-                                <p class="card-text"><small class="text-muted">Posté le {{{formatDate date "DD MMMM YYYY à HH:mm"}}}{{/each }} par {{#each dbUser }}{{ name }}{{/each }}</small></p>
+                                <p class="card-text"><small class="text-muted">Posté le {{{formatDate date "DD MMMM YYYY à HH:mm"}}}{{/each }} par {{#each dbUser }}{{ username }}{{/each }}</small></p>
                             </div>
                         </div>
                     </div>

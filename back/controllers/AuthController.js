@@ -37,7 +37,7 @@ exports.connection = async (req, res) => {
     }
 
     if (username && password) {
-        await db.query('SELECT * FROM users WHERE name = ?', [username], function (error, results, fields) {
+        await db.query('SELECT * FROM users WHERE username = ?', [username], function (error, results, fields) {
 
             if (!results[0]) {
                 const noAccount = true
@@ -102,7 +102,7 @@ exports.registerInfo = async (req, res) => {
         })
     } else {
         // Requête SQL pour tester la duplication du nom et de l'email
-        await db.query(`SELECT name, email FROM users`, async function (err, results) {
+        await db.query(`SELECT username, email FROM users`, async function (err, results) {
             console.log("DONNE LA LENGTH LAAAAAA", results.length);
             // Variable pour gérer la réponse de la boucle
             var noDuplicate = true
@@ -122,7 +122,7 @@ exports.registerInfo = async (req, res) => {
                 }
             }
             if (noDuplicate === true) {
-                await db.query(`INSERT INTO users (name, email, password) VALUES ( '${name}', '${email}', '${hash}' );`, function (err) {
+                await db.query(`INSERT INTO users (username, email, password) VALUES ( '${name}', '${email}', '${hash}' );`, function (err) {
                     console.log("COMPTE CREE BIEN JOUER !!!!!! REUSSIE !!!!!!");
                     const successRegistration = true
                     res.render("connect", {
@@ -144,7 +144,7 @@ exports.passwordPage = (req, res) => {
 exports.resetPassword = async (req, res) => {
     var userInfo
 
-    userInfo = await db.query(`SELECT name, id FROM users WHERE email = '${req.body.email}'`)
+    userInfo = await db.query(`SELECT username, id FROM users WHERE email = '${req.body.email}'`)
     host = req.get('host')
     rand = Math.floor((Math.random() * 100) + 54)
     req.session.visitor = { id: rand, userID: userInfo[0].id }
@@ -156,7 +156,7 @@ exports.resetPassword = async (req, res) => {
         var mailOptions = {
             from: 'nakadcontact@gmail.com',
             to: req.body.email,
-            subject: `'Vous avez demandé à réinitialiser votre mot de passe, ' + ${userInfo[0].name}`,
+            subject: `'Vous avez demandé à réinitialiser votre mot de passe, ' + ${userInfo[0].username}`,
             rand: req.session.visitor.id,
             html: `
             <p>Une demande de réinitialisation de votre mot de passe à été faite, veuillez suivre ce lien si vous en êtes l'auteur: </p><br>

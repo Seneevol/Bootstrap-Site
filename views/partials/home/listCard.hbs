@@ -12,11 +12,11 @@
             <div class="row row-cols-lg-3 g-3 mx-auto">
                 {{#each dbArticle }}
                 <div class="col">
-                    <a href="/blog/{{ name }}" class="card-link">
+                    <a href="/blog/{{ articlename }}" class="card-link">
                         <div class="card" style="width: 18rem;">
                             <img src="/upload/articles/{{ image }}" alt="">
                             <div class="card-body">
-                                <h5 class="card-title">{{ name }}</h5>
+                                <h5 class="card-title">{{ articlename }}</h5>
                                 <p class="card-text">{{ content }}</p>
                             </div>
                         </div>

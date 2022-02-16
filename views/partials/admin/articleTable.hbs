@@ -17,6 +17,7 @@ ARTICLE TABLE
                         <tr>
                             <th scope="col">Titre</th>
                             <th scope="col">Contenu</th>
+                            <th scope="col">Auteur</th>
                             <th scope="col">Date</th>
                             <th scope="col">Edit/Del</th>
                         </tr>
@@ -24,8 +25,9 @@ ARTICLE TABLE
                     <tbody>
                         {{#each dbArticle }}
                         <tr>
-                            <td>{{ this.name }}</td>
+                            <td>{{ this.articlename }}</td>
                             <td>{{ this.content }}</td>
+                            <td>{{ this.username }}</td>
                             <td>{{{formatDate date "DD MMMM YYYY"}}}</td>
                             <td>
                                 <a href="#editarticle{{ this.id }}" data-bs-toggle="modal"><i

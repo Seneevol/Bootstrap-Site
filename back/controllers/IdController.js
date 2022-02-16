@@ -14,19 +14,19 @@ const {
 exports.idPage = async (req, res) => {
     console.log('ID PAGE', req.params.name);
     var dbComment = await db.query(`
-        SELECT comments.*, users.name, users.avatar 
+        SELECT comments.*, users.username, users.avatar 
         FROM comments
         INNER JOIN articles 
         ON comments.article_id = articles.id 
         INNER JOIN users
         ON comments.author_id = users.id
-        WHERE articles.name = "${req.params.name}"
+        WHERE articles.articlename = "${req.params.name}"
         ORDER BY comments.id DESC
         `)
     let construct = []
     dbComment.map(async (el, index) => {
         const child = await db.query(`
-        SELECT comments.*, users.name, users.avatar
+        SELECT comments.*, users.username, users.avatar
         FROM comments
         INNER JOIN users
         ON comments.author_id = users.id
@@ -40,15 +40,15 @@ exports.idPage = async (req, res) => {
         dbArticle: await db.query(`
         SELECT * 
         FROM articles
-         WHERE name = "${req.params.name}" 
+         WHERE articlename = "${req.params.name}" 
          LIMIT 1
          `),
         dbUser: await db.query(`
-        SELECT users.name 
+        SELECT users.username 
         FROM users 
         INNER JOIN articles 
         ON users.id = articles.author_id 
-        WHERE articles.name = "${req.params.name}"
+        WHERE articles.articlename = "${req.params.name}"
         `),
         construct
     })
@@ -64,7 +64,7 @@ exports.deleteComment = async (req, res) => {
 // Create comment on the ID Page
 exports.createComment = async (req, res) => {
     console.log('On regarde tes messages ici', req.params)
-    var id = await db.query(`SELECT id FROM articles WHERE name = "${req.params.name}"`)
+    var id = await db.query(`SELECT id FROM articles WHERE articlename = "${req.params.name}"`)
     console.log(id);
     await db.query(`INSERT INTO comments (content, author_id, article_id) VALUES ("${req.body.comment}", "${req.session.user.id}", '${id[0].id}')`)
     res.redirect('back')
