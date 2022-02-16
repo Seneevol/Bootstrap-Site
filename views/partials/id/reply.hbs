@@ -9,7 +9,7 @@ REPLY COMMENT PARTIAL
                 <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{ this.username }}</span>
                 </div><small>{{{formatDateCom this.date}}}</small>
             </div>
-            <p class="text-justify comment-text mb-0">{{ this.content }}</p>
+            <p class="text-justify comment-text mb-0 text-break">{{ this.content }}</p>
             <div class="d-flex flex-row user-feed">
                 {{!-- {{#if @root.user}}
                 <span class="me-2"><a href="#respond-comment{{ this.id }}" data-bs-toggle="collapse"><i

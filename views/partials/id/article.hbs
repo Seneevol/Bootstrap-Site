@@ -17,8 +17,8 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ articlename }}</h5>
-                                <p class="card-text">{{ content }}</p>
+                                <h5 class="card-title text-break">{{ articlename }}</h5>
+                                <p class="card-text text-break">{{ content }}</p>
                                     <a href="{{ link }}">{{ link }}</a>
                                 <p class="card-text"><small class="text-muted">Posté le {{{formatDate date "DD MMMM YYYY à HH:mm"}}}{{/each }} par {{#each dbUser }}{{ username }}{{/each }}</small></p>
                             </div>
