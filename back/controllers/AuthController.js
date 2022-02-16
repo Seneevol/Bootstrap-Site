@@ -37,8 +37,8 @@ exports.connection = async (req, res) => {
     }
 
     if (username && password) {
-        await db.query(`SELECT * FROM users WHERE username = ${username}`, function (error, results, fields) {
-
+        await db.query(`SELECT * FROM users WHERE username LIKE '%${username}%' `, function (error, results, fields) {
+console.log(results);
             if (!results[0]) {
                 const noAccount = true
                 res.render('connect', {
