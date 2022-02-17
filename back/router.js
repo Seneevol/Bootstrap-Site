@@ -43,10 +43,10 @@ router.route('/article')
     .post(uploadArticle.single('image'), AdminController.addArticle)
 
 // Route ID page
-router.route('/blog/:name')
+router.route('/blog/:name/:id')
     .get(BlogController.idPage)
 
-router.route('/comment/:name')
+router.route('/comment/:name/:id')
     .post(BlogController.createComment)
 
 router.route('/comment/:id')

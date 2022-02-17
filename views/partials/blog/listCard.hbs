@@ -11,7 +11,7 @@
             <div class="row row-cols-lg-3 g-3 mx-auto" id="listCard">
             {{#each dbArticle }}
                 <div class="col">
-                    <a href="/blog/{{ articlename }}" class="card-link">
+                    <a href="/blog/{{ this.articlename }}/{{ this.id }}" class="card-link">
                         <div class="card" style="width: 18rem;">
                             <img src="./upload/articles/{{ image }}" alt="">
                             <div class="card-body">

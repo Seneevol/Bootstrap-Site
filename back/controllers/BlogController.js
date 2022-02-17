@@ -18,7 +18,7 @@ exports.blogPage = async (req, res) => {
 
 // Export of ID Page
 exports.idPage = async (req, res) => {
-    console.log('ID PAGE', req.params.name);
+    console.log('ID PAGE', req.params.id);
     var dbComment = await db.query(`
         SELECT comments.*, users.username, users.avatar 
         FROM comments
@@ -26,7 +26,7 @@ exports.idPage = async (req, res) => {
         ON comments.article_id = articles.id 
         INNER JOIN users
         ON comments.author_id = users.id
-        WHERE articles.articlename = "${req.params.name}" && users.isBan = 0
+        WHERE articles.id = "${req.params.id}" && users.isBan = 0
         ORDER BY comments.id DESC
         `)
     let construct = []
@@ -46,7 +46,7 @@ exports.idPage = async (req, res) => {
         dbArticle: await db.query(`
         SELECT * 
         FROM articles
-         WHERE articlename = "${req.params.name}" 
+         WHERE id = "${req.params.id}" 
          LIMIT 1
          `),
         dbUser: await db.query(`
@@ -54,7 +54,7 @@ exports.idPage = async (req, res) => {
         FROM users 
         INNER JOIN articles 
         ON users.id = articles.author_id 
-        WHERE articles.articlename = "${req.params.name}"
+        WHERE articles.id = "${req.params.id}"
         `),
         construct
     })
@@ -70,11 +70,9 @@ exports.deleteComment = async (req, res) => {
 // Create comment on the ID Page
 exports.createComment = async (req, res) => {
     console.log('On regarde tes messages ici', req.params)
-    var id = await db.query(`SELECT id FROM articles WHERE articlename = "${req.params.name}"`)
-    console.log(id);
 
     const { comment } = req.body;
-    await db.query(`INSERT INTO comments SET content= :comment, author_id= '${req.session.user.id}', article_id= '${id[0].id}';`, {comment})
+    await db.query(`INSERT INTO comments SET content= :comment, author_id= '${req.session.user.id}', article_id= '${req.params.id}';`, {comment})
     res.redirect('back')
 }
 

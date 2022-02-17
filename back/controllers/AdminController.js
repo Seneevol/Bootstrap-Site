@@ -52,7 +52,7 @@ exports.editArticle = async (req, res) => {
     const article = await db.query(`SELECT * FROM articles WHERE id = ${id}`)
 
     if (name) {
-        await db.query(`UPDATE articles SET articlename = '${name}' WHERE id = ${id}`)
+        await db.query(`UPDATE articles SET articlename= :name WHERE id = ${id}`, {name})
     }
     if (image) {
         const dir = path.join(`./public/upload/articles`)
@@ -60,10 +60,10 @@ exports.editArticle = async (req, res) => {
         await db.query(`UPDATE articles SET image = '${req.file.filename}' WHERE id = ${id}`)
     }
     if (content) {
-        await db.query(`UPDATE articles SET content = '${content}' WHERE id = ${id}`)
+        await db.query(`UPDATE articles SET content= :content WHERE id = ${id}`, {content})
     }
     if (link) {
-        await db.query(`UPDATE articles SET link = '${link}' WHERE id = ${id}`)
+        await db.query(`UPDATE articles SET link= :link WHERE id = ${id}`, {link})
     }
     res.redirect('/admin')
 }
