@@ -26,6 +26,9 @@ USER TABLE
                             <td>{{ this.username }}</td>
                             <td>{{ this.email }}</td>
                             <td>
+                                {{#if this.isAdmin }}
+                                Admin
+                                {{else}}
                                 <a href="#delete-user{{ this.id }}" data-bs-toggle="modal">
                                     <i class="fas fa-trash"></i>
                                 </a>
@@ -35,6 +38,7 @@ USER TABLE
                                 <a href="#unban-user{{ this.id }}" data-bs-toggle="modal">
                                     <i class="fas fa-unlock"></i>
                                 </a>
+                                {{/if }}
                             </td>
                             <td>{{#if this.isBan }}Banni{{/if }}{{#unless this.isBan}}OK{{/unless }}</td>
                         </tr>
