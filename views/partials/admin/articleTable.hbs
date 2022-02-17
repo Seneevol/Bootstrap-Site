@@ -26,7 +26,7 @@ ARTICLE TABLE
                     <tbody>
                         {{#each dbArticle }}
                         <tr>
-                            <td>{{ this.articlename }}</td>
+                            <td><a href="/blog/{{ this.articlename }}/{{ this.id }}">{{ this.articlename }}</a></td>
                             <td>{{ this.content }}</td>
                             <td>{{ this.username }}</td>
                             <td>{{{formatDate date "DD MMMM YYYY"}}}</td>

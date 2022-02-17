@@ -538,10 +538,22 @@ footer a:hover {
 /*
  * ARTICLES
  * ******** */
+#blog a {
+    text-decoration: none;
+}
+
 .fa-check {
     color: green;
 }
 
+.fa-check:hover {
+    color: darkgreen;
+}
+
 .fa-times {
     color: red;
+}
+
+.fa-times:hover {
+    color: darkred;
 }
