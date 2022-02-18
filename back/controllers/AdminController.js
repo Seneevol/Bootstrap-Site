@@ -71,6 +71,7 @@ exports.editArticle = async (req, res) => {
 exports.banUser = async (req, res) => {
     console.log("LA TU VOIS ON BAN:", req.params.id)
     await db.query(`UPDATE users SET isBan = 1 WHERE id = ${req.params.id}`)
+    await db.query(`DELETE FROM sessions WHERE data LIKE '%"id":${req.params.id}%'`)
     res.redirect('/admin')
 }
 
