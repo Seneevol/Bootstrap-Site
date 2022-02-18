@@ -78,6 +78,7 @@ exports.createComment = async (req, res) => {
 
 exports.replyComment = async (req, res) => {
     console.log(req.params.id);
+    const { comment } = req.body;
     var id = await db.query(`SELECT id, article_id FROM comments WHERE id = "${req.params.id}"`)
     console.log(id)
     await db.query(`INSERT INTO comments SET content= :comment, author_id= "${req.session.user.id}", article_id= "${id[0].article_id}", parent_id= "${id[0].id}"`, {comment})
