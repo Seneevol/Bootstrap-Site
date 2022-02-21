@@ -118,6 +118,9 @@ app.use('*', (req, res, next) => {
 const ROUTER = require('./back/router')
 app.use('/', ROUTER)
 
+const ROUTER_API = require('./back/router-tu')
+app.use('/back/v1', ROUTER_API)
+
 // Met toute les autres page non défini en 404
 app.use('*', function (req, res) {
     res.status(404).render("error404", {
