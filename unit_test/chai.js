@@ -8,12 +8,12 @@ const path = require("path");
 
 chai.use(chaiHttp);
 
-describe("CHAI // CONTROLLER // ARTICLE", async () => {
+describe("CHAI // CONTROLLER // ARTICLE", () => {
   let articles = {};
 
   // Loop for create Customer before 'it'
   beforeEach(async () => {
-    let sql = `INSERT INTO articles SET articlename= "BRUNO", image= "default.png", content= "Bruno le plus beau"`;
+    let sql = `INSERT INTO articles SET articlename= "BRUNO", image= "default.png", content= "Bruno le plus beau", link= "09090909"`;
     const article = await db.query(sql);
 
     // console.log("Before EACH: ", user);
@@ -23,7 +23,8 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
       `SELECT * FROM articles where id = ${article.insertId}`
     );
     
-    articleArray = articleID[0];
+    // console.log(articles);
+    articles = articleID[0];
     articleID[0].articlename.should.be.a("string");
     articleID[0].image.should.be.a("string");
     articleID[0].content.should.be.a("string");
@@ -35,7 +36,7 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
   });
 
   // Test get /fev
-  it(" ChaiRouter // Get Article", async (done) => {
+  it(" ChaiRouter // Get Article", (done) => {
     // test route Get
     chai
       .request(app)
@@ -44,6 +45,7 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
       .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(200);
+        // console.log('res get article', res);
         res.body.dbArticle.should.be.a("array");
         res.body.dbArticle[0].should.be.a("object");
         done();
@@ -51,7 +53,7 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
   });
 
   // Test get /fev
-  it(" ChaiRouter // Get ID Article", async (done) => {
+  it(" ChaiRouter // Get ID Article", (done) => {
     // test route Get
     chai
       .request(app)
@@ -69,11 +71,12 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
 
   // Test Post
   // (name,email,mobile)
-  it(" ChaiRouter // Post Article", async (done) => {
+  it(" ChaiRouter // Post Article", (done) => {
     const body = {
       name: "Bruno Chai",
-      image: "brchai@no.fr",
-      content: "0909090909",
+      content: "brchai@no.fr",
+      link: "0909090909",
+      avatar: "default.png"
     };
 
     chai
@@ -92,11 +95,12 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
 
   // Test Put /path:id
   // (name,email,mobile)
-  it(" ChaiRouter // Put Article", async (done) => {
+  it(" ChaiRouter // Put Article", (done) => {
     const body = {
       name: "Bruno Edit Chai",
       image: "brchai@no.fr",
       content: "0909090909",
+      link: "Lien edit"
     };
 
     // Test route Put
@@ -107,7 +111,8 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
       .send(body)
       .end((err, res) => {
         if (err) return done(err);
-        res.should.have.status(200);
+        // res.should.have.status(200);
+        console.log(res.body.dbArticle);
         res.body.dbArticle.should.be.a("array");
         res.body.dbArticle[0].should.be.a("object");
         done();
@@ -115,7 +120,7 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
   });
 
   // Delete ID
-  it(" ChaiRouter // Delete ID Article", async (done) => {
+  it(" ChaiRouter // Delete ID Article", (done) => {
     // Test route Delete
     chai
       .request(app)
@@ -131,7 +136,7 @@ describe("CHAI // CONTROLLER // ARTICLE", async () => {
   });
 
   // Delete All
-  it(" ChaiRouter // Delete Article", async (done) => {
+  it(" ChaiRouter // Delete Article", (done) => {
     // Test route Delete
     chai
       .request(app)

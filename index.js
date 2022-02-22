@@ -132,3 +132,5 @@ app.use('*', function (req, res) {
 app.listen(port, () => {
     console.log('Ca tourne sur le port: ' + port);
 })
+
+module.exports = { app }
