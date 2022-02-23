@@ -13,12 +13,12 @@
         "get": {
           "summary": "/back/v1/article",
           "responses": {},
-          "tags": []
+          "tags": ["Articles"]
         },
         "post": {
             "summary": "/back/v1/article",
             "responses": {},
-            "tags": [],
+            "tags": ["Articles"],
             "requestBody": {
                 "required": true,
                 "content": {
@@ -39,7 +39,7 @@
         "delete": {
           "summary": "/back/v1/article",
           "responses": {},
-          "tags": []
+          "tags": ["Articles"]
         }
       },
       "/back/v1/article/{id}": {
@@ -56,12 +56,12 @@
             }
           ],
           "responses": {},
-          "tags": []
+          "tags": ["Articles_ID"]
         },
         "put": {
           "summary": "/back/v1/article/{id}",
           "responses": {},
-          "tags": [],
+          "tags": ["Articles_ID"],
           "parameters": [
             {
               "name": "id",
@@ -104,9 +104,28 @@
             }
           ],
           "responses": {},
-          "tags": []
+          "tags": ["Articles_ID"]
         }
       }
     },
+    "definitions": {
+        "Articles": {
+            "type": "object",
+            "properties": {
+            "name": {
+                "type": "string"
+            },
+            "image": {
+                "type": "string"
+            },
+            "content": {
+                "type": "string"
+            },
+            "link": {
+                "type": "string"
+            }
+        }
+    }
+},
     "tags": []
   }
