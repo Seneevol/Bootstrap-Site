@@ -14,10 +14,16 @@ bodyParser = require('body-parser'),
 mysql = require('mysql'),
 methodOverride = require('method-override'),
 port = process.env.PORT || 2222,
- { engine } = require('express-handlebars')
+ { engine } = require('express-handlebars'),
+    swaggerUi = require('swagger-ui-express'),
+    swaggerDocument = require('./public/js/swagger.json')
 
 // Module permettant de storer le cookie de l'utilisateur
 const MySQLStore = require("express-mysql-session")(expressSession);
+
+// Express generator
+// const expressOasGenerator = require('express-oas-generator');
+// expressOasGenerator.init(app, {});
 
 // Options pour la connexion à la base de données
 const options = {
@@ -114,6 +120,12 @@ app.use('*', (req, res, next) => {
     next()
 })
 
+
+
+// Swagger-ui
+// swaggerDocument = require("./config/swagger.json");
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // Router
 const ROUTER = require('./back/router')
 app.use('/', ROUTER)
@@ -122,11 +134,11 @@ const ROUTER_API = require('./back/router-tu')
 app.use('/back/v1', ROUTER_API)
 
 // Met toute les autres page non défini en 404
-app.use('*', function (req, res) {
-    res.status(404).render("error404", {
-        layout: 'err'
-    })
-})
+// app.use('*', function (req, res) {
+//     res.status(404).render("error404", {
+//         layout: 'err'
+//     })
+// })
 
 // Démarrage
 app.listen(port, () => {

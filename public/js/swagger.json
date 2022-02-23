@@ -1,0 +1,112 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "bootstrap-site",
+      "version": "1.0.0",
+      "license": {
+        "name": "ISC"
+      },
+      "description": "Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3).\n\nPage disponible ici : https://seneevol.github.io/Bootstrap-Site/"
+    },
+    "paths": {
+      "/back/v1/article": {
+        "get": {
+          "summary": "/back/v1/article",
+          "responses": {},
+          "tags": []
+        },
+        "post": {
+            "summary": "/back/v1/article",
+            "responses": {},
+            "tags": [],
+            "requestBody": {
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": { "type": "string" },
+                                "content": { "type": "string" },
+                                "link": { "type": "string" },
+                                "image": { "type": "string" }
+                            }
+                        }
+                    }
+                }
+            }
+          },
+        "delete": {
+          "summary": "/back/v1/article",
+          "responses": {},
+          "tags": []
+        }
+      },
+      "/back/v1/article/{id}": {
+        "get": {
+          "summary": "/back/v1/article/{id}",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {},
+          "tags": []
+        },
+        "put": {
+          "summary": "/back/v1/article/{id}",
+          "responses": {},
+          "tags": [],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+        ],
+        "requestBody": {
+                "name": "values",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": { "type": "string" },
+                                "image": { "type": "string" },
+                                "content": { "type": "string" },
+                                "link": { "type": "string" }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "delete": {
+          "summary": "/back/v1/article/{id}",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {},
+          "tags": []
+        }
+      }
+    },
+    "tags": []
+  }
