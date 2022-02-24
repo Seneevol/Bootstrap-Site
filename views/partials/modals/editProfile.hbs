@@ -14,7 +14,7 @@ PROFILE EDITION MODAL
                     <div class="row">
                         <div class="col-md-4 border-right">
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                <img class="rounded-circle mt-5" width="150px" src="/upload/users/{{user.avatar}}">
+                                <img class="rounded-circle mt-5" width="150px" height="150px" src="/upload/users/{{user.avatar}}">
                                 <span class="font-weight-bold">{{user.username}}</span>
                                 <span class="text-black-50">{{user.email}}</span>
                             </div>
@@ -24,27 +24,27 @@ PROFILE EDITION MODAL
                             <div class="p-3 py-5">
                                 <div class="row mt-2">
                                     <div class="col-md-12">
-                                        <label class="labels">Avatar</label>
+                                        <label class="labels" for="avatar">Avatar</label>
                                         <input type="file" id="myFile" name="avatar" class="mb-1">
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-12">
-                                        <label class="labels">Changer de Pseudo</label>
+                                        <label class="labels" for="name">Changer de Pseudo</label>
                                         <input type="text" class="form-control" placeholder="Entrez votre pseudo"
                                             name="name">
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-12">
-                                        <label class="labels">Mot de passe actuel</label>
+                                        <label class="labels" for="oldPassword">Mot de passe actuel</label>
                                         <input required type="password" class="form-control" placeholder="Ancien mot de passe"
                                             name="oldPassword">
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-12">
-                                        <label class="labels">Changer de Mot de passe</label>
+                                        <label class="labels" for="password">Changer de Mot de passe</label>
                                         <input type="password" class="form-control" placeholder="Nouveau mot de passe"
                                             name="password">
                                     </div>
