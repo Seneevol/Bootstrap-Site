@@ -46,7 +46,6 @@ exports.editProfile = async (req, res) => {
     var oldPassword = req.body.oldPassword
     var id = req.session.user.id
     var avatar = req.file
-    var avatarName = req.file.filename
     const user = await db.query(`SELECT * FROM users WHERE id = ${id}`)
 
     bcrypt.compare(oldPassword, req.session.user.password, async (err, same) => {
@@ -62,7 +61,7 @@ exports.editProfile = async (req, res) => {
                     const dir = path.join('./public/upload/users')
                     deleteOneFile(dir, user[0].avatar)
                 }
-                await db.query(`UPDATE users SET avatar= :avatar WHERE id = ${id}`, {avatarName})
+                await db.query(`UPDATE users SET avatar= '${req.file.filename}' WHERE id = ${id}`)
             }
             if (password) {
                 await db.query(`UPDATE users SET password= :hash WHERE id = ${id}`, {hash})
