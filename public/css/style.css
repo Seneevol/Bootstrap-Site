@@ -3,7 +3,7 @@
  * ****** */
 
  body {
-    background-image: url(../images/background.jpg);
+    background-image: url(../images/background.webp);
     background-repeat: no-repeat;
     background-color: white;
     background-size: cover;
@@ -33,7 +33,7 @@ h2::after {
  * ****** */
 
 header {
-    background-image: linear-gradient(to bottom, #a6b2e27e, #6880ec5d), url(../images/headerid.jpg);
+    background-image: linear-gradient(to bottom, #a6b2e27e, #6880ec5d), url(../images/headerid.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -167,7 +167,7 @@ header {
  * ****** */
 
 #section-banner {
-    background-image: linear-gradient(to right, #a6b2e27e, #6880ec5d), url(../images/banner.jpg);
+    background-image: linear-gradient(to right, #a6b2e27e, #6880ec5d), url(../images/banner.webp);
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
