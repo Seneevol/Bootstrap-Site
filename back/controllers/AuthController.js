@@ -14,7 +14,9 @@ const bcrypt = require("bcrypt");
 const {
     link
 } = require("fs");
-const { userInfo } = require("os");
+const {
+    userInfo
+} = require("os");
 
 let mailOptions, host, linkMail, rand
 
@@ -26,9 +28,11 @@ exports.connectPage = (req, res) => {
 
 // Système de connexion
 exports.connection = async (req, res) => {
+    // Création de variable pour le nom et le mot de passe
     var username = req.body.name
     var password = req.body.password
 
+    // Test si rien n'a été entré dans les champs
     if (username === "" && password === "") {
         const nothing = true
         return res.render('connect', {
@@ -36,31 +40,40 @@ exports.connection = async (req, res) => {
         })
     }
 
+    // Test si les champs sont remplis
     if (username && password) {
+        // Vérification de l'existence de l'utilisateur
         await db.query(`SELECT * FROM users WHERE username LIKE '%${username}%' `, function (error, results, fields) {
-console.log(results);
+            console.log(results);
+            // Si on ne trouve rien, on renvoie à la page connect avec une erreur
             if (!results[0]) {
                 const noAccount = true
                 res.render('connect', {
                     noAccount
                 })
             }
+            // Test si des informations sont trouvés
             if (results.length > 0) {
+                // Vérification du mot de passe
                 bcrypt.compare(password, results[0].password, (error, same) => {
                     if (!same) {
                         const notWorking = true
                         res.render('connect', {
                             notWorking
                         })
+                        // Vérification si l'utilisateur est banni ou pas
                     } else if (results[0].isBan === 0) {
+                        // Vérification du rôle Admin
                         if (results[0].isAdmin === 1) {
                             req.session.isAdmin = true
                         }
+                        // Instauration de la session dans le cookie
                         req.session.user = results[0]
                         res.redirect('/home')
                         console.log('Oui');
                         return;
                     } else {
+                        // Si erreur est on renvoie à la page connect
                         const notWorking = true
                         res.render('connect', {
                             notWorking
@@ -71,8 +84,6 @@ console.log(results);
             }
         })
     }
-    console.log('Olala les données de compte la', req.body);
-    // res.render('connect')
 }
 
 // Export register page
@@ -122,7 +133,11 @@ exports.registerInfo = async (req, res) => {
                 }
             }
             if (noDuplicate === true) {
-                await db.query(`INSERT INTO users SET username= :name, email= :email, password= :hash`, {name, email, hash}, function (err) {
+                await db.query(`INSERT INTO users SET username= :name, email= :email, password= :hash`, {
+                    name,
+                    email,
+                    hash
+                }, function (err) {
                     console.log("COMPTE CREE BIEN JOUER !!!!!! REUSSIE !!!!!!");
                     const successRegistration = true
                     res.render("connect", {
@@ -147,7 +162,10 @@ exports.resetPassword = async (req, res) => {
     userInfo = await db.query(`SELECT username, id FROM users WHERE email = '${req.body.email}'`)
     host = req.get('host')
     rand = Math.floor((Math.random() * 100) + 54)
-    req.session.visitor = { id: rand, userID: userInfo[0].id }
+    req.session.visitor = {
+        id: rand,
+        userID: userInfo[0].id
+    }
     req.session.cookie.maxAge = 900000
     console.log('ET MATUIDI CA CES LID: ', req.session.visitor.userID)
 
@@ -202,7 +220,10 @@ exports.resetPasswordPage = async (req, res) => {
 }
 
 exports.passwordReseter = async (req, res) => {
-    const { password, confirmation } = req.body
+    const {
+        password,
+        confirmation
+    } = req.body
     const hash = bcrypt.hashSync(password, 10)
     console.log("controller reset password")
     console.log('OUAOUOUAI: ', hash)
@@ -213,7 +234,9 @@ exports.passwordReseter = async (req, res) => {
 
         var test = req.session.visitor.userID;
         console.log("test: ", test);
-        await db.query(`UPDATE users SET password= :hash WHERE id = ${test}`, {hash}, function (err) {
+        await db.query(`UPDATE users SET password= :hash WHERE id = ${test}`, {
+            hash
+        }, function (err) {
             const changePassword = true
             var userID = req.params.id
             console.log('IDEUUUUH: ', req.session.visitor.userID)

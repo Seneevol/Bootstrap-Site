@@ -11,7 +11,7 @@ module.exports = {
 
     getID: async (req, res) => {
 
-        console.log(req.params);
+        // console.log(req.params);
 
         await db.query(`SELECT * FROM articles WHERE id = ${req.params.id}`, async (err, data, fields) => {
             if (err) throw error
@@ -36,7 +36,7 @@ module.exports = {
             if (err) throw err
             await db.query(`SELECT * FROM articles`, (err, data, fields) => {
                 if (err) throw err
-                console.log(`OUAIS OUAIS OUAIS ON A CREE LAREUTICLEUH`);
+                // console.log(`OUAIS OUAIS OUAIS ON A CREE LAREUTICLEUH`);
                 res.json({
                     dbArticle: data
                 })

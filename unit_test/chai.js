@@ -112,7 +112,6 @@ describe("CHAI // CONTROLLER // ARTICLE", () => {
       .end((err, res) => {
         if (err) return done(err);
         // res.should.have.status(200);
-        console.log(res.body.dbArticle);
         res.body.dbArticle.should.be.a("array");
         res.body.dbArticle[0].should.be.a("object");
         done();

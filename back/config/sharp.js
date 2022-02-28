@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
             case 'image':
                 pathSharp = "/upload/articles"
                 width = 500
-                height = 900
+                height = 500
                 break;
         }
         await sharp(req.file.path)
