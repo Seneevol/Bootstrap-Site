@@ -1,11 +1,11 @@
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
 
 myModal.addEventListener('shown.bs.modal', function () {
     myInput.focus()
 })
 
-var check = function () {
+const check = function () {
     if (document.getElementById('password').value ==
         document.getElementById('password-confirmation').value) {
         document.getElementById('message').style.color = 'green';

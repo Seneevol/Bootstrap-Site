@@ -26,8 +26,8 @@ exports.connectPage = (req, res) => {
 
 // Système de connexion
 exports.connection = async (req, res) => {
-    var username = req.body.name
-    var password = req.body.password
+    let username = req.body.name
+    let password = req.body.password
 
     if (username === "" && password === "") {
         const nothing = true
@@ -83,7 +83,7 @@ exports.registerPage = (req, res) => {
 
 // To register an account
 exports.registerInfo = async (req, res) => {
-    // On fait des variables pour les différents élements qui vont être entré
+    // On fait des letiables pour les différents élements qui vont être entré
     const {
         name,
         password,
@@ -105,7 +105,7 @@ exports.registerInfo = async (req, res) => {
         await db.query(`SELECT username, email FROM users`, async function (err, results) {
             console.log("DONNE LA LENGTH LAAAAAA", results.length);
             // Variable pour gérer la réponse de la boucle
-            var noDuplicate = true
+            let noDuplicate = true
             for (let i = 0; i < results.length; i++) {
                 if (req.body.name === results[i].name) {
                     const usedName = true
@@ -142,7 +142,7 @@ exports.passwordPage = (req, res) => {
 }
 
 exports.resetPassword = async (req, res) => {
-    var userInfo
+    let userInfo
 
     userInfo = await db.query(`SELECT username, id FROM users WHERE email = '${req.body.email}'`)
     host = req.get('host')
@@ -153,7 +153,7 @@ exports.resetPassword = async (req, res) => {
 
     linkMail = "http://" + req.get('host') + "/resetPass/" + req.session.visitor.id
     if (userInfo.length > 0) {
-        var mailOptions = {
+        let mailOptions = {
             from: 'nakadcontact@gmail.com',
             to: req.body.email,
             subject: `'Vous avez demandé à réinitialiser votre mot de passe, ' + ${userInfo[0].username}`,
@@ -188,7 +188,7 @@ exports.resetPasswordPage = async (req, res) => {
     // Ici on tcheck notre protocole hébergeur (nodejs localhost) et le liens générer dans le mail
     if ((req.protocol + "://" + req.get('host')) === ("http://" + req.get('host'))) {
         console.log("Domain is matched. Information is from Authentic email")
-        var userID = await db.query(`SELECT id FROM users WHERE id = '${req.params.id}'`)
+        let userID = await db.query(`SELECT id FROM users WHERE id = '${req.params.id}'`)
         if (Number(req.params.id) === Number(req.session.visitor.id)) {
             res.render('resetPassword')
         } else {
@@ -211,11 +211,11 @@ exports.passwordReseter = async (req, res) => {
         res.redirect('back')
     } else {
 
-        var test = req.session.visitor.userID;
+        let test = req.session.visitor.userID;
         console.log("test: ", test);
         await db.query(`UPDATE users SET password= :hash WHERE id = ${test}`, {hash}, function (err) {
             const changePassword = true
-            var userID = req.params.id
+            let userID = req.params.id
             console.log('IDEUUUUH: ', req.session.visitor.userID)
             req.session.destroy(() => {
                 res.clearCookie('nakad')

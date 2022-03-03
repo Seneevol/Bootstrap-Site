@@ -18,7 +18,7 @@ module.exports = {
   formatDateCom: function (datetime, format) {
     if (moment) {
       moment.updateLocale('fr', frLocal);
-      var time2 = moment(datetime).fromNow()
+      let time2 = moment(datetime).fromNow()
       return time2
     } else {
       return datetime;

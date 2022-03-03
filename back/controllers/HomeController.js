@@ -28,7 +28,7 @@ exports.homePage = async (req, res) => {
 // To send a message on the Home Page
 exports.createMessage = async (req, res) => {
     console.log('On regarde tes messages ici', req.body)
-    var { name, email, message } = req.body
+    let { name, email, message } = req.body
     await db.query(`INSERT INTO messages SET authormessage= :name, email= :email, message= :message`, {name, email, message})
     res.redirect('/home')
 }
@@ -37,15 +37,15 @@ exports.createMessage = async (req, res) => {
 exports.editProfile = async (req, res) => {
     console.log("IDIDIDIDIDIDIDID", req.session.user.id)
 
-    var getSql = `SELECT * FROM users WHERE id = ?`
+    let getSql = `SELECT * FROM users WHERE id = ?`
     const hash = bcrypt.hashSync(req.body.password, 10)
 
-    var name = req.body.name
-    var avatar = req.file
-    var password = req.body.password
-    var oldPassword = req.body.oldPassword
-    var id = req.session.user.id
-    var avatar = req.file
+    let name = req.body.name
+    let avatar = req.file
+    let password = req.body.password
+    let oldPassword = req.body.oldPassword
+    let id = req.session.user.id
+    
     const user = await db.query(`SELECT * FROM users WHERE id = ${id}`)
 
     bcrypt.compare(oldPassword, req.session.user.password, async (err, same) => {

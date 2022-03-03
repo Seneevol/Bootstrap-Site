@@ -28,7 +28,7 @@ exports.addArticle = async (req, res) => {
         content,
         link
     } = req.body
-    var avatar = req.file.filename
+    let avatar = req.file.filename
     console.log(req.body, req.file.filename);
 
     let sql = `INSERT INTO articles SET articlename= :name, image= :avatar, content= :content, link= :link, author_id= ${req.session.user.id};`
@@ -44,11 +44,11 @@ exports.addArticle = async (req, res) => {
 exports.editArticle = async (req, res) => {
     console.log("On édite:", req.params.id, req.body)
 
-    var name = req.body.name
-    var image = req.file
-    var content = req.body.content
-    var link = req.body.link
-    var id = req.params.id
+    let name = req.body.name
+    let image = req.file
+    let content = req.body.content
+    let link = req.body.link
+    let id = req.params.id
     const article = await db.query(`SELECT * FROM articles WHERE id = ${id}`)
 
     if (name) {
